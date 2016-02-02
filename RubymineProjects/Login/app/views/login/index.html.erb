@@ -1,1 +1,11 @@
-<h1>Alla Users:</h1>rails
+<h1>Alla Users</h1>
+
+
+<%=	@users.inspect %>
+
+<%	@users.each do |user| %>
+  <p><%=	link_to user.user_name %></p>
+    <% user.apps.each do |app| %>
+       <p> <%= link_to app.url, app_path(app) %></p>
+    <% end %>
+<%	end %>
