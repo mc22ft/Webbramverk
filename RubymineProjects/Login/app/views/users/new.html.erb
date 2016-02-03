@@ -1,37 +1,26 @@
-<%	 if @user.errors.any? %>
-  <div is="error_messages">
-    <h2><%= pluralize(@user.errors.count, 'Error')%>! Det gick inte registrera en använadre!</h2>
+<% provide(:title, 'Sign up') %>
 
-    <ul>
-      <%	 @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<h1>Registrerar ditt konto!</h1>
 
 
-<div id='login'>
-  <h2><span class="frontawesome-lock"></span>Register</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+        <%= render 'layouts/error_messages' %>
 
-  <fielset>
-    <%= form_for @user do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
 
-        <p><%= f.label :name %></p>
-        <p><%= f.text_field :name %></p>
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form-control' %>
 
-        <p><%= f.label :email %></p>
-        <p><%= f.email_field :email %></p>
+        <%= f.label :password %>
+        <%= f.password_field :password, class: 'form-control' %>
 
-        <p><%= f.label :password %></p>
-        <p><%= f.password_field :password %></p>
+        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
 
-        <p><%= f.label :password_confirmation %></p>
-        <p><%= f.password_field :password_confirmation %></p>
-
-
-        <p><%= f.submit 'Register' %></p>
-
+        <%= f.submit 'Skapa mitt konto', class: 'btn btn-primary' %>
     <% end %>
-  </fielset>
+  </div>
 </div>

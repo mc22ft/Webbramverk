@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   validates :name,
             :presence => {:message => 'Du måste ange ett namn!'},
-            :length => {:minimum => 3, :message => 'Du måste ange mins 3 tecken!'}
+            :length => {:minimum => 3, :message => 'Du måste ange minst 3 tecken!'}
 
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
