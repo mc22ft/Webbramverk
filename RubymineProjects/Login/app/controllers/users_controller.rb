@@ -17,10 +17,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      #render :action => 'index'
-        #Session för login
-        session[:userid] = @user.id
-
+        log_in @user
         flash[:success] = 'Welcome to the Sample App!'
         #Redirect till user
         redirect_to @user
