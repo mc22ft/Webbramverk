@@ -1,6 +1,6 @@
 <%	 if @user.errors.any? %>
   <div is="error_messages">
-    <h2><%= pluralize(@user.errors.count, 'Error')%>! Det gick inte spara formuläret!</h2>
+    <h2><%= pluralize(@user.errors.count, 'Error')%>! Det gick inte registrera en använadre!</h2>
 
     <ul>
       <%	 @user.errors.full_messages.each do |msg| %>
