@@ -13,8 +13,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      render :action => 'index'
+        #Session för login
         session[:userid] = @user.id
-        redirect_to apikey_path
+
+        flash[:success] = 'Welcome to the Sample App!'
+        #Redirect till user
+        redirect_to @user
       else
         render :action => 'new'
     end

@@ -1,6 +1,6 @@
 <%	 if @user.errors.any? %>
   <div is="error_messages">
-    <h2>Det fanns fel i formuläret</h2>
+    <h2><%= pluralize(@user.errors.count, 'Error')%>! Det gick inte spara formuläret!</h2>
 
     <ul>
       <%	 @user.errors.full_messages.each do |msg| %>
@@ -17,8 +17,8 @@
   <fielset>
     <%= form_for @user do |f| %>
 
-        <p><%= f.label :user_name %></p>
-        <p><%= f.text_field :user_name %></p>
+        <p><%= f.label :name %></p>
+        <p><%= f.text_field :name %></p>
 
         <p><%= f.label :email %></p>
         <p><%= f.email_field :email %></p>
