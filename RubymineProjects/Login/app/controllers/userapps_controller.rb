@@ -1,5 +1,7 @@
 class UserappsController < ApplicationController
+  before_action :require_login
   before_action :logged_in_user, only: [:create, :destroy]
+  before_action :correct_user,   only: :destroy
 
   def create
     @userapp = current_user.userapps.build(userapp_params)

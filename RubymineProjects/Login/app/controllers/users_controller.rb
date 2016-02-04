@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  ##before_action :current_user
-  before_action :logged_in_user
-  #before_action :logged_in_user, only: [:edit, :update] #not visit this pages
+  before_action :require_login, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
@@ -28,7 +27,8 @@ class UsersController < ApplicationController
         log_in @user
         flash[:success] = 'Welcome to the Sample App!'
         #Redirect till user
-        redirect_to @user
+        #redirect_to @user
+        redirect_to(root_url)
       else
         render 'new'
     end
@@ -64,12 +64,6 @@ class UsersController < ApplicationController
 
   # Before filters
 
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user)
-  end
-
   #Confirms an admin user.
   def admin_user
     redirect_to(root_url) unless current_user.admin?
@@ -77,11 +71,5 @@ class UsersController < ApplicationController
 
   private
 
-  def require_login
-    unless logged_in?
-      #flash[:error] = 'You must be logged in to access this section'
-      redirect_to(root_url)
-      #redirect_to new_login_url # halts request cycle
-    end
-  end
+
 end

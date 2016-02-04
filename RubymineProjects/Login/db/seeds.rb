@@ -9,10 +9,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '123456789')
-l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '987654321')
-l3 = Userapp.create(:url => 'www.testingpage.com', :apikey => '00000000000')
-l4 = Userapp.create(:url => 'www.all.com', :apikey => '10101010101010')
+l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
+l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
+l3 = Userapp.create(:url => 'www.testingpage.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
+l4 = Userapp.create(:url => 'www.all.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
 
 u1 = User.create(:name => 'Mathias', :email => 'Mathias@mail.com',
                  :password => '111111', :password_confirmation => '111111',
