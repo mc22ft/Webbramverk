@@ -16,9 +16,6 @@ Rails.application.routes.draw do
   resources :userapps,          only: [:create, :destroy]
 
 
-  get 'apikeys' => 'apikeys#show', as: :apikey
-
-
   #get 'sessions/new'
 
   #get 'static_pages/home'

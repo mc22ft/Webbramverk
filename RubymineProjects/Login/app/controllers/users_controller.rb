@@ -1,17 +1,20 @@
 class UsersController < ApplicationController
   ##before_action :current_user
-  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :logged_in_user
+  #before_action :logged_in_user, only: [:edit, :update] #not visit this pages
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.paginate(page: params[:page])
+    @users = User.paginate(page: params[:page], :per_page => 10)
     #@users = User.all
+    redirect_to(root_url) unless current_user.admin?
   end
 
   def show
     @user = User.find(params[:id])
-    @userapps = @user.userapps.paginate(page: params[:page])
+    @userapps = current_user.feed.paginate(page: params[:page], :per_page => 5)
+    redirect_to(root_url) unless current_user.admin?
   end
 
   def new
@@ -61,15 +64,6 @@ class UsersController < ApplicationController
 
   # Before filters
 
-  # Confirms a logged-in user.
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = 'Please log in.'
-      redirect_to login_url
-    end
-  end
-
   # Confirms the correct user.
   def correct_user
     @user = User.find(params[:id])
@@ -81,4 +75,13 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless current_user.admin?
   end
 
+  private
+
+  def require_login
+    unless logged_in?
+      #flash[:error] = 'You must be logged in to access this section'
+      redirect_to(root_url)
+      #redirect_to new_login_url # halts request cycle
+    end
+  end
 end
