@@ -4,7 +4,7 @@
   <span class="content"><%= userapp.apikey %></span>
   <span class="timestamp">
     Postades för <%= time_ago_in_words(userapp.created_at) %> sedan.
-    <%= link_to 'delete', userapp, method: :delete,
+    <%= link_to 'radera', userapp, method: :delete,
                 data: { confirm: 'Är du säker?' } %>
   </span>
 </li>

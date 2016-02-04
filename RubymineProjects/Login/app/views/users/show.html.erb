@@ -10,7 +10,7 @@
   </aside>
   <div class="col-md-8">
     <% if @user.userapps.any? %>
-        <h3>userapps (<%= @user.userapps.count %>)</h3>
+        <h3><%= @user.name %> har <%= @user.userapps.count %> applikationer/nycklar registrerat</h3>
         <ol class="microposts">
           <%= render @userapps %>
         </ol>

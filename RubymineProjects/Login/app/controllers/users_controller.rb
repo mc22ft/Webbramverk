@@ -12,8 +12,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @userapps = current_user.feed.paginate(page: params[:page], :per_page => 5)
-    redirect_to(root_url) #unless current_user.admin?
+    @userapps = @user.feed.paginate(page: params[:page], :per_page => 5)
+    redirect_to(root_url) unless current_user.admin?
   end
 
   def new
