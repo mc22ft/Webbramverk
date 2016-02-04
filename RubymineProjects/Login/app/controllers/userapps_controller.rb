@@ -10,7 +10,7 @@ class UserappsController < ApplicationController
     @userapp.apikey = SecureRandom.hex(24)
 
     if @userapp.save
-      flash[:success] = 'Micropost created!'
+      flash[:success] = 'Du har registrerat en applikation och fått en API nyckel!'
       redirect_to root_url
     else
       @feed_items = []
@@ -22,7 +22,7 @@ class UserappsController < ApplicationController
     @userapp = Userapp.find(params[:id])
     if @userapp.present?
       @userapp.destroy
-      flash[:success] = 'Micropost deleted'
+      flash[:success] = 'Du har raderat en applikation och en API nyckel!'
     end
     redirect_to(:back)
   end

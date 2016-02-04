@@ -22,10 +22,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
     if @user.save
         log_in @user
-        flash[:success] = 'Welcome to the Sample App!'
+        flash[:success] = 'Välkommen till min applikation!!'
         #Redirect till user
         #redirect_to @user
         redirect_to(root_url)
@@ -43,7 +42,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
       # Handle a successful update.
-      flash[:success] = 'Profile updated'
+      flash[:success] = 'Du har sparat dina ändringar'
       redirect_to @user
     else
       render 'edit'
@@ -52,7 +51,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
-    flash[:success] = 'User deleted'
+    flash[:success] = 'Du har raderat en användare'
     redirect_to users_url
   end
 
@@ -69,7 +68,7 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless current_user.admin?
   end
 
-  private
 
+  private
 
 end
