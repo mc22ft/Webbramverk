@@ -13,6 +13,9 @@ Rails.application.routes.draw do
 
   resources :users
 
+  resources :userapps,          only: [:create, :destroy]
+
+
   get 'apikeys' => 'apikeys#show', as: :apikey
 
 

@@ -1,11 +1,14 @@
-<%	 if @user.errors.any? %>
-    <div is="error_messages">
-      <h2><%= pluralize(@user.errors.count, 'Error')%>! Det gick inte registrera en använadre!</h2>
+<% if object.errors.any? %>
+    <div id="error_explanation">
+      <div class="alert alert-danger">
+        <h2><%= pluralize(@user.errors.count, 'Error')%>! Det gick inte registrera en använadre!</h2>
 
+      </div>
       <ul>
-        <%	 @user.errors.full_messages.each do |msg| %>
+        <% object.errors.full_messages.each do |msg| %>
             <li><%= msg %></li>
         <% end %>
       </ul>
     </div>
 <% end %>
+

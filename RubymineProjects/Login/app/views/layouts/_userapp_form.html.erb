@@ -1,0 +1,7 @@
+<%= form_for(@userapp) do |f| %>
+    <%= render 'layouts/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_area :url, placeholder: 'Compose new micropost...' %>
+    </div>
+    <%= f.submit 'Post', class: 'btn btn-primary' %>
+<% end %>

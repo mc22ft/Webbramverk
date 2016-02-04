@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
 
-  has_many :apps
+  has_many :userapps, dependent: :destroy
 
   before_save { email.downcase! }
 
