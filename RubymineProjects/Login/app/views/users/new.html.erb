@@ -1,4 +1,4 @@
-<% provide(:title, 'Sign up') %>
+<% provide(:title, 'Registrera!') %>
 
 <h1>Registrerar ditt konto!</h1>
 
@@ -8,16 +8,16 @@
     <%= form_for(@user) do |f| %>
         <%= render 'layouts/error_messages', object: f.object %>
 
-        <%= f.label :name %>
+        <%= f.label :name, 'Namn' %>
         <%= f.text_field :name, class: 'form-control' %>
 
-        <%= f.label :email %>
+        <%= f.label :email, 'Email' %>
         <%= f.email_field :email, class: 'form-control' %>
 
-        <%= f.label :password %>
+        <%= f.label :password, 'Lösenord' %>
         <%= f.password_field :password, class: 'form-control' %>
 
-        <%= f.label :password_confirmation, 'Confirmation' %>
+        <%= f.label :password_confirmation, 'Lösenord igen' %>
         <%= f.password_field :password_confirmation, class: 'form-control' %>
 
         <%= f.submit 'Skapa mitt konto', class: 'btn btn-primary' %>

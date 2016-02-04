@@ -1,10 +1,9 @@
 <li id="micropost-<%= userapp.id %>">
-  <span class="user"><%= link_to userapp.user.name, userapp.user %></span>
-  <span class="content"><%= userapp.url %></span>
+  <strong><span class="content"><%= userapp.url %></span></strong>
   <span class="content"><%= userapp.apikey %></span>
   <span class="timestamp">
-    Posted <%= time_ago_in_words(userapp.created_at) %> ago.
+    Postades för <%= time_ago_in_words(userapp.created_at) %> sedan.
     <%= link_to 'delete', userapp, method: :delete,
-                data: { confirm: 'You sure?' } %>
+                data: { confirm: 'Är du säker?' } %>
   </span>
 </li>
