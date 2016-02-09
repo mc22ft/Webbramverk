@@ -4,7 +4,10 @@ class Userapp < ActiveRecord::Base
 
   validates :user_id, presence: true
 
-  validates :url, presence: true, length: { maximum: 140 }
+  validates :url,
+            :presence => {:message => 'Du måste ange en url!'},
+            :length => {:minimum => 3, :maximum => 50, :message => 'Du måste ange minst 3 tecken!'}
+
 
   #not need? I will set
   validates :apikey, presence: true
