@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
             :format => { with: VALID_EMAIL_REGEX, :message => 'Fel format på mailen!' },
             :uniqueness => { case_sensitive: false, :message => 'Mailen finns redan registrerad' }
 
-  has_secure_password
+  has_secure_password validations: false
   validates :password,
             :presence => {:message => 'Du måste ange ett lösenord!'},
             :length => {:minimum => 6, :message => 'Du måste ange minst 6 tecken i lösenordet!'}
