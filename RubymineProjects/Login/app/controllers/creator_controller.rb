@@ -1,6 +1,7 @@
 class CreatorController < ApplicationController
 
-  #before_action :restrict_access
+
+  before_action :restrict_access
 
   def index
     @creators = Creator.all
@@ -18,7 +19,12 @@ class CreatorController < ApplicationController
   end
 
 
+  private
+  def restrict_access
+    authenticate_or_request_with_http_token do |token, options|
+    Userapp.exists?(apikey: token)
 
-
+    end
+  end
 
 end
