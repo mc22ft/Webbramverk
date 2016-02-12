@@ -5,5 +5,9 @@
       <auth-required>false</auth-required>
       <first-sync>true</first-sync>
     </data-source>
+    <data-source name="Rails Login: test" uuid="ce88598d-6116-4d5a-9c3d-371802b187ca">
+      <auth-required>false</auth-required>
+      <first-sync>true</first-sync>
+    </data-source>
   </component>
 </project>

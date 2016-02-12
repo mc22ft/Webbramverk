@@ -3,4 +3,7 @@
   <data-source name="Rails Login: development" uuid="6f8d75b7-c7f2-4db3-adb5-aad4ce4aea58">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source name="Rails Login: test" uuid="ce88598d-6116-4d5a-9c3d-371802b187ca">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

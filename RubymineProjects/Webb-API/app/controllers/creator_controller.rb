@@ -1,7 +1,7 @@
 class CreatorController < ApplicationController
 
 
-
+  before_action :restrict_access
 
 def index
   @creators = Creator.all
