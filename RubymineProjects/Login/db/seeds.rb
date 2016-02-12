@@ -8,6 +8,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+
+#creates end user
+Creator.create(:name => 'Mathias Claesson', :email => 'mathias@mail.com')
+Creator.create(:name => 'Tolou OSkooei', :email => 'tolou@mail.com')
+
+#creates dev user and admin user (api key and url)
 l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
 l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
 l3 = Userapp.create(:url => 'www.testingpage.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')

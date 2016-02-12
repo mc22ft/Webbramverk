@@ -3,10 +3,20 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   include SessionsHelper
+  #before_action :default_format_json
+
 
   private
 
 # Before filters
+
+#default format at end of url string
+  def default_format_json
+    if(request.headers['HTTP_ACCEPT'].nil? && params[:format].nil?) ||
+        (request.headers['HTTP_ACCEPT'] != 'application/xml' && params[:format] != 'xml')
+      request.format = 'json'
+    end
+  end
 
 # Confirms the correct user.
   def correct_user

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
 
   resources :userapps,          only: [:create, :destroy]
 
+  resources :creator
+
 
   #get 'sessions/new'
 
