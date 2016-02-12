@@ -1,0 +1,34 @@
+<% provide(:title, 'Hem') %>
+
+
+<% if logged_in? %>
+
+    <div class="row">
+      <aside class="col-md-4">
+        <section class="user_info">
+          <%= render 'layouts/user_info' %>
+        </section>
+        <section class="micropost_form">
+          <%= render 'layouts/userapp_form' %>
+        </section>
+      </aside>
+      <div class="col-md-8">
+        <h3>Du har <%= current_user.userapps.count %> registrerade applikationer</h3>
+        <%= render 'layouts/feed' %>
+      </div>
+    </div>
+
+<% else %>
+
+  <div class="center jumbotron">
+    <h1>Använd mitt API</h1>
+    <h2>
+      Registrera dig och använd mitt API för att få tillgång till min data...
+    </h2>
+
+    <%= link_to 'Registrera dig nu!', signup_path, class: 'btn btn-lg btn-primary' %>
+  </div>
+
+
+
+<% end %>

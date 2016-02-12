@@ -1,0 +1,7 @@
+<%= form_for(@userapp) do |f| %>
+    <%= render 'layouts/error_messages', object: f.object %>
+    <div class="field">
+      <%= f.text_field :url, placeholder: 'www...' %>
+    </div>
+    <%= f.submit 'Beställ API Nyckel', class: 'btn btn-primary' %>
+<% end %>

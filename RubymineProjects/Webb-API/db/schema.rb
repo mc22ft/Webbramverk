@@ -11,11 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160211141919) do
+ActiveRecord::Schema.define(version: 20160204083822) do
 
-  create_table "api_keys", force: :cascade do |t|
+  create_table "userapps", force: :cascade do |t|
+    t.string   "url"
+    t.string   "apikey"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  add_index "userapps", ["user_id", "created_at"], name: "index_userapps_on_user_id_and_created_at"
+  add_index "userapps", ["user_id"], name: "index_userapps_on_user_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string   "name",                            null: false
+    t.string   "email",                           null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "password_digest"
+    t.string   "remember_digest"
+    t.boolean  "admin",           default: false
   end
 
 end
