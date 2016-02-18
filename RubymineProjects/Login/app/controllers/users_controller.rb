@@ -63,6 +63,6 @@ class UsersController < ApplicationController
 
   # Before filters
 
-  private
+
 
 end

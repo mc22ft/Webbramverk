@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
 # Before filters
 
-#default format at end of url string
+#default format at end of url string (API)
   def default_format_json
     if(request.headers['HTTP_ACCEPT'].nil? && params[:format].nil?) ||
         (request.headers['HTTP_ACCEPT'] != 'application/xml' && params[:format] != 'xml')
