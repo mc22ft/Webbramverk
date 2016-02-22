@@ -9,6 +9,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+drop_table Creator
+drop_table Userapp
+drop_table Creator
+drop_table Event
+drop_table Position
+drop_table Tag
+drop_table Events_Tags
 
 #creates end user
 Creator.create(:name => 'Mathias Claesson', :email => 'mathias@mail.com')

@@ -1,5 +1,8 @@
 class Creator < ActiveRecord::Base
 
+  has_many :events
+
+
   before_save { email.downcase! }
 
   validates :name,
@@ -13,5 +16,17 @@ class Creator < ActiveRecord::Base
             :format => { with: VALID_EMAIL_REGEX, :message => 'Fel format på mailen!' },
             :uniqueness => { case_sensitive: false, :message => 'Mailen finns redan registrerad' }
 
+  has_secure_password validations: false
+  validates :password,
+            :presence => {:message => 'Du måste ange ett lösenord!'},
+            :length => {:minimum => 6, :message => 'Du måste ange minst 6 tecken i lösenordet!'}
+
+
+  # Returns the hash digest of the given string.
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+        BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 
 end
