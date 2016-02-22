@@ -9,18 +9,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-drop_table Creator
-drop_table Userapp
-drop_table Creator
-drop_table Event
-drop_table Position
-drop_table Tag
-drop_table Events_Tags
-
-#creates end user
-Creator.create(:name => 'Mathias Claesson', :email => 'mathias@mail.com')
-Creator.create(:name => 'Tolou OSkooei', :email => 'tolou@mail.com')
-
 #creates dev user and admin user (api key and url)
 l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
 l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
@@ -53,4 +41,26 @@ u2.userapps << l9
 u2.userapps << l10
 u2.userapps << l11
 u2.userapps << l12
+
+
+#creates end user
+creator1 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+               :password => '111111', :password_confirmation => '111111')
+#c2 = Creator.create(:name => 'Lou', :email => 'lou@mail.com',
+#               :password => '111111', :password_confirmation => '111111')
+
+event1 = Event.create(:name => 'Kebaben', :description => 'Super god kebab som slår det mesta i området')
+
+position1 = Position.create(:long => '12345678', :lat => '12345678')
+
+tag1 = Tag.create(:name => 'södermalm')
+
+#add creator
+
+#add creator to event
+creator1.events << event1
+#add position to event
+position1.events << event1
+#add tag to event (connections table, events_tags table)
+event1.tags << tag1
 

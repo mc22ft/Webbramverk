@@ -1,15 +1,13 @@
 class Position < ActiveRecord::Base
 
-  has_many :event
-
-  validates :event_id, presence: true
+  has_many :events
 
 
-  validates :long
+  validates :long, presence: true
             #:presence => {:message => 'Du måste ange ett namn!'},
             #:length => {:minimum => 3, :message => 'Du måste ange minst 3 tecken!'}
 
-  validates :lat
+  validates :lat, presence: true
             #:presence => {:message => 'Du måste ange ett namn!'},
             #:length => {:minimum => 3, :message => 'Du måste ange minst 3 tecken!'}
 

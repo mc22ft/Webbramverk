@@ -4,8 +4,11 @@ class Event < ActiveRecord::Base
   belongs_to :position
   has_and_belongs_to_many :tags
 
-  validate :name
+  #validates :creator_id, presence: true
+  #validates :position_id, presence: true
 
-  validate :description
+  validates :name, presence: true
+
+  validates :description, presence: true
 
 end
