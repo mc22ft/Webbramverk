@@ -45,31 +45,29 @@ u2.userapps << l12
 
 #creates end user
 creator1 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
-               :password => '111111', :password_confirmation => '111111')
+                          :password => '111111', :password_confirmation => '111111')
 creator2 = Creator.create(:name => 'Lou', :email => 'lou@mail.com',
-               :password => '111111', :password_confirmation => '111111')
-creator3 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
                           :password => '111111', :password_confirmation => '111111')
-creator4 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+creator3 = Creator.create(:name => 'Mathias', :email => 'mathias@mail.com',
                           :password => '111111', :password_confirmation => '111111')
-creator5 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+creator4 = Creator.create(:name => 'Tolou', :email => 'tolou@mail.com',
                           :password => '111111', :password_confirmation => '111111')
 
 
-event1 = Event.create(:name => 'Kebaben', :description => 'Super god kebab som slår det mesta i området')
-event2 = Event.create(:name => 'Pizzan', :description => 'Super god pizza som slår det mesta i området')
-event3 = Event.create(:name => 'Kebaben', :description => 'Super god kebab som slår det mesta i området')
-event4 = Event.create(:name => 'Pizzan', :description => 'Super god pizza som slår det mesta i området')
+event1 = Event.create(:name => 'Stockholm', :description => 'Super god pizza som slår det mesta i området')
+event2 = Event.create(:name => 'Stockholm', :description => 'Super god kebab som slår det mesta i området')
+event3 = Event.create(:name => 'Eksjö', :description => 'Super god kebab som slår det mesta i området')
+event4 = Event.create(:name => 'Eksjö', :description => 'Super god fika som slår det mesta i området')
 
-position1 = Position.create(:long => '12345678', :lat => '12345678')
-position2 = Position.create(:long => '12345678', :lat => '12345678')
-position3 = Position.create(:long => '12345678', :lat => '12345678')
-position4 = Position.create(:long => '12345678', :lat => '12345678')
+position1 = Position.create(:long => '18.06858', :lat => '59.32932')
+position2 = Position.create(:long => '18.06858', :lat => '59.32932')
+position3 = Position.create(:long => '14.97322', :lat => '57.66517')
+position4 = Position.create(:long => '14.97322', :lat => '57.66517')
 
-tag1 = Tag.create(:name => 'södermalm')
-tag2 = Tag.create(:name => 'kungsholmen')
-tag3 = Tag.create(:name => 'södermalm')
-tag4 = Tag.create(:name => 'kungsholmen')
+tag1 = Tag.create(:name => 'Pizza')
+tag2 = Tag.create(:name => 'Kebab')
+tag3 = Tag.create(:name => 'Kebab')
+tag4 = Tag.create(:name => 'Fika')
 
 
 

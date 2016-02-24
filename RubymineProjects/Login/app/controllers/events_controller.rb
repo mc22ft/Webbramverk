@@ -10,24 +10,32 @@ class EventsController < ApplicationController
 
   # Checking if user want own limit/offset - definied in application_controller
   # for wider reach
-  before_action :offset_params, only: [:index, :nearby]
+  before_action :offset_params, only: [:index]
 
 
   def index
-    if params[:search]
 
-      @events = Event.search(params[:search])
+    # Check the parameters
+    if params[:long].present? && params[:lat].present?
 
-        #for search tags
-      #tags = Tag.search(params[:search])
-      #events = []
-      #tags.each do |t|
-      #  events << t.events
-      #end
-      #@events = events
+      # searching by long lat (near by position)
+      positions = Position.near([params[:lat].to_f, params[:long].to_f], 20).limit(@limit).offset(@offset)
+      @events = positions.flat_map(&:events)
+
+    # Check the parameters
+    elsif params[:search].present?
+
+      # searching by event name
+      @events = Event.search(params[:search]).limit(@limit).offset(@offset).order('created_at DESC')
+    # Check the parameters
+    elsif params[:tag_search].present?
+
+      # searching by tags name
+      tags = Tag.search(params[:tag_search]).limit(@limit).offset(@offset).order('created_at DESC')
+      @events = tags.flat_map(&:events)
 
     else
-      @events = Event.limit(@limit).offset(@offset).order('created_at DESC')#.includes(:tags)
+      @events = Event.limit(@limit).offset(@offset).order('created_at DESC')
     end
 
   end
@@ -49,21 +57,6 @@ class EventsController < ApplicationController
     render json: { error: error }, status: :bad_request # just json in this example
   end
 
-  # This method is using the geocoder and helps with searching near a specific position
-  def nearby
-
-    # Check the parameters
-    if params[:long].present? && params[:lat].present?
-
-      # using the parameters and offset/limit
-      t = Position.near([params[:lat].to_f, params[:long].to_f], 20).limit(@limit).offset(@offset)
-      respond_with t, status: :ok
-    else
-
-      error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not find any event!' )
-      render json: { error: error }, status: :bad_request # just json in this example
-    end
-  end
 
   private
 
@@ -74,8 +67,9 @@ class EventsController < ApplicationController
   end
 
   def user_params
-    params.require(:event).permit(:name, :description)
-    #params.require(:creators).permit(:name, :email)#Ändrade namn på vyn, ville ändra på creator + s
+    params.require(:event).permit(:name, :description,
+                                  tag_attribute: [:name],
+                                  position_long_attribute: [:long], position_lat_attribute: [:lat])
   end
 
 

@@ -8,7 +8,7 @@ class Tag < ActiveRecord::Base
 
 
 
-  def self.search(search)
-    where("name LIKE ?", "%#{search}%")
+  def self.search(tag_search)
+    where("name LIKE ?", "%#{tag_search}%")
   end
 end
