@@ -46,6 +46,35 @@ class ApplicationController < ActionController::Base
     redirect_to(root_url) unless current_user.admin?
   end
 
+  ## ------------ API PART ------------- ##
+
+
+  # default parameters, maby put i config-file?
+  OFFSET = 0
+  LIMIT = 20
+
+  # check if user whants offset/limit
+  def offset_params
+    if params[:offset].present?
+      @offset = params[:offset].to_i
+    end
+    if params[:limit].present?
+      @limit = params[:limit].to_i
+    end
+    @offset ||= OFFSET
+    @limit  ||= LIMIT
+  end
+
+  def api_key
+    api_key = request.headers['X-ApiKey']
+    ## here we should check that the key exists
+    return true
+  end
+
 
 
 end
+
+
+#/dogs?limit=25&offset=50
+#/search?q=fluffy+fur

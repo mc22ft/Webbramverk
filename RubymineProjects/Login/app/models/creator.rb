@@ -1,5 +1,5 @@
 class Creator < ActiveRecord::Base
-  
+
   has_many :events
 
   before_save { email.downcase! }

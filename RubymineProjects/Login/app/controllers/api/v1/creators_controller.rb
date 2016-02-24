@@ -7,12 +7,14 @@ module Api
         respond_to :json
 
               def index
-                #respond_with status: 200
-                respond_with Creator.all
+                @creators = Creator.all
+                #respond_with Creator.all
               end
 
               def show
-                respond_with Creator.find(params[:id])
+                @creator = Creator.find(params[:id])
+                #render json: @creator
+                #respond_with Creator.find(params[:id])
               end
 
               def create

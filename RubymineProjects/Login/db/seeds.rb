@@ -46,21 +46,47 @@ u2.userapps << l12
 #creates end user
 creator1 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
                :password => '111111', :password_confirmation => '111111')
-#c2 = Creator.create(:name => 'Lou', :email => 'lou@mail.com',
-#               :password => '111111', :password_confirmation => '111111')
+creator2 = Creator.create(:name => 'Lou', :email => 'lou@mail.com',
+               :password => '111111', :password_confirmation => '111111')
+creator3 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+creator4 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+creator5 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+
 
 event1 = Event.create(:name => 'Kebaben', :description => 'Super god kebab som slår det mesta i området')
+event2 = Event.create(:name => 'Pizzan', :description => 'Super god pizza som slår det mesta i området')
+event3 = Event.create(:name => 'Kebaben', :description => 'Super god kebab som slår det mesta i området')
+event4 = Event.create(:name => 'Pizzan', :description => 'Super god pizza som slår det mesta i området')
 
 position1 = Position.create(:long => '12345678', :lat => '12345678')
+position2 = Position.create(:long => '12345678', :lat => '12345678')
+position3 = Position.create(:long => '12345678', :lat => '12345678')
+position4 = Position.create(:long => '12345678', :lat => '12345678')
 
 tag1 = Tag.create(:name => 'södermalm')
+tag2 = Tag.create(:name => 'kungsholmen')
+tag3 = Tag.create(:name => 'södermalm')
+tag4 = Tag.create(:name => 'kungsholmen')
 
-#add creator
+
 
 #add creator to event
 creator1.events << event1
+creator2.events << event2
+creator3.events << event3
+creator4.events << event4
 #add position to event
 position1.events << event1
+position2.events << event2
+position3.events << event3
+position4.events << event4
 #add tag to event (connections table, events_tags table)
 event1.tags << tag1
+event2.tags << tag2
+event3.tags << tag3
+event4.tags << tag4
+
 
