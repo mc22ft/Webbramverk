@@ -20,7 +20,7 @@ class ApiController < ApplicationController
     if params[:long].present? && params[:lat].present?
 
       # searching by long lat (near by position)
-      positions = Position.near([params[:lat].to_f, params[:long].to_f], 20).limit(@limit).offset(@offset)
+      positions = Position.near([params[:lat].to_f, params[:long].to_f], 30, units: :km).limit(@limit).offset(@offset)
       @events = positions.flat_map(&:events)
 
       # Check the parameters

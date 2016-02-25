@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  namespace :api do
+  #namespace :api do
     #namespace :api, defaults: {format: 'json'} do
-    namespace :v1 do
-      resources :creators
-    end
-  end
+   # namespace :v1 do
+   #   resources :creators
+   # end
+  #end
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
@@ -29,8 +29,6 @@ Rails.application.routes.draw do
   resources :events
 
   resources :api, :path => 'api/events'
-
-
 
 
   #get 'sessions/new'
