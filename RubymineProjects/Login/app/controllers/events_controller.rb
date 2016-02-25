@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   #before_action :api_key
   before_action :api_authenticate, only: [:new, :create, :update]
   #check if api key is valid
-  #before_action :restrict_access, only: [:index, :show]
+  before_action :restrict_access, only: [:index, :show]
 
   # Checking if user want own limit/offset - definied in application_controller
   # for wider reach
@@ -46,20 +46,9 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def create
-    #event = Event.new(event_params)
-    tag = event_params[:tag]
-
-    #event.tags << Tag.new(tags[:name])
-
-    #if event.save
-   #   @event = event
-   # end
-
-  end
 
   def show
-    @event = Event.find(params[:id])#, location: teams_path(@team)
+    @event = Event.find(params[:id])
 
       # render or error message
     rescue ActiveRecord::RecordNotFound
@@ -67,6 +56,26 @@ class EventsController < ApplicationController
     render json: { error: error }, status: :bad_request # just json in this example
   end
 
+
+  def create
+    event = Event.new(event_params.except(:tag, :position))
+
+    position = Position.new(event_params[:position])
+
+    tag = Tag.new(event_params[:tag])
+
+    position.events << event
+    event.tags << tag
+
+    if event.save
+      @event = event
+    end
+
+      # render or error message
+  rescue ActiveRecord::RecordNotFound
+    error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not save any event!' )
+    render json: { error: error }, status: :bad_request # just json in this example
+  end
 
   private
 
@@ -78,9 +87,11 @@ class EventsController < ApplicationController
 
   def event_params
     # This is json
-    #json_params = ActionController::Parameters.new( JSON.parse(request.body.read) )
-    #json_params.require(:event).permit(:name, :description, :tag)
-    params.require(:event).permit(:name, :description, :tag)
+    json_params = ActionController::Parameters.new( JSON.parse(request.body.read) )
+    json_params.require(:event).permit(:creator_id, :name, :description,
+                                       position:[:long, :lat],
+                                       tag:[:name])
+    #params.require(:event).permit(:name, :description)
 
   end
 
