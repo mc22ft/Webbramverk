@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :api do
+    #namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :creators
+    end
+  end
 
   root             'static_pages#home'
   get 'help'    => 'static_pages#help'
@@ -11,9 +17,20 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  # login creator
+  get 'creator/login' => 'sessions#api_auth' #, as: 'login'
+
   resources :users
 
   resources :userapps,          only: [:create, :destroy]
+
+  resources :creators
+
+  resources :events
+
+  resources :api, :path => 'api/events'
+
+
 
 
   #get 'sessions/new'

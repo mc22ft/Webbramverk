@@ -8,6 +8,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+#creates dev user and admin user (api key and url)
 l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
 l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
 l3 = Userapp.create(:url => 'www.testingpage.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
@@ -39,4 +41,50 @@ u2.userapps << l9
 u2.userapps << l10
 u2.userapps << l11
 u2.userapps << l12
+
+
+#creates end user
+creator1 = Creator.create(:name => 'Neo', :email => 'neo@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+creator2 = Creator.create(:name => 'Lou', :email => 'lou@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+creator3 = Creator.create(:name => 'Mathias', :email => 'mathias@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+creator4 = Creator.create(:name => 'Tolou', :email => 'tolou@mail.com',
+                          :password => '111111', :password_confirmation => '111111')
+
+
+event1 = Event.create(:name => 'Stockholm', :description => 'Super god pizza som slår det mesta i området')
+event2 = Event.create(:name => 'Stockholm', :description => 'Super god kebab som slår det mesta i området')
+event3 = Event.create(:name => 'Eksjö', :description => 'Super god kebab som slår det mesta i området')
+event4 = Event.create(:name => 'Eksjö', :description => 'Super god fika som slår det mesta i området')
+
+position1 = Position.create(:long => '18.06858', :lat => '59.32932')
+position2 = Position.create(:long => '18.06858', :lat => '59.32932')
+position3 = Position.create(:long => '14.97322', :lat => '57.66517')
+position4 = Position.create(:long => '14.97322', :lat => '57.66517')
+
+tag1 = Tag.create(:name => 'Pizza')
+tag2 = Tag.create(:name => 'Kebab')
+tag3 = Tag.create(:name => 'Kebab')
+tag4 = Tag.create(:name => 'Fika')
+
+
+
+#add creator to event
+creator1.events << event1
+creator2.events << event2
+creator3.events << event3
+creator4.events << event4
+#add position to event
+position1.events << event1
+position2.events << event2
+position3.events << event3
+position4.events << event4
+#add tag to event (connections table, events_tags table)
+event1.tags << tag1
+event2.tags << tag2
+event3.tags << tag3
+event4.tags << tag4
+
 
