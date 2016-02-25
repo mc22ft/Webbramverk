@@ -20,6 +20,7 @@
   http://localhost:3000/creator/login?email=neo@mail.com&password=111111 som finns i postman filen. 
   Då du kommer få ut en nyckle du får sätta manuelt i headern på alla localhost:3000/events routsen.
 * Väll inne i postman filen så kan du laborera lite själv. 
+* Den mesta av koden ligger i api_controller och events_controllern
  
 ####Hör av dig om det skulle vara några problem.
 
