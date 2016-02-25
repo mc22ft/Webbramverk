@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
+  # login creator
+  get 'creator/login' => 'sessions#api_auth' #, as: 'login'
+
+
+
   resources :users
 
   resources :userapps,          only: [:create, :destroy]
@@ -24,6 +29,7 @@ Rails.application.routes.draw do
   resources :creators
 
   resources :events
+
 
   resources :tags
 

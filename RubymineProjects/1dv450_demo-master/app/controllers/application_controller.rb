@@ -32,6 +32,8 @@ class ApplicationController < ActionController::Base
   def api_key
      api_key = request.headers['X-ApiKey']
      ## here we should check that the key exists
+
+
      return true
   end
 

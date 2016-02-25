@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
+  #protect_from_forgery with: :null_session, :if => Proc.new { |c| c.request.format == 'application/json' }
   include SessionsHelper
   #before_action :default_format_json
 
@@ -68,8 +69,30 @@ class ApplicationController < ActionController::Base
   def api_key
     api_key = request.headers['X-ApiKey']
     ## here we should check that the key exists
-    return true
+    if api_key.present?
+
+    else
+      return true
+    end
+
   end
+
+
+  # This is a callback which actions will call if protected
+  def api_authenticate
+    if request.headers["Authorization"].present?
+      # Take the last part in The header (ignore Bearer)
+      auth_header = request.headers['Authorization'].split(' ').last
+      # Are we feeling alright!?
+      @token_payload = decodeJWT auth_header.strip
+      if !@token_payload
+        render json: { error: 'The provided token wasn´t correct' }, status: :bad_request
+      end
+    else
+      render json: { error: 'Need to include the Authorization header' }, status: :forbidden # The header isn´t present
+    end
+  end
+
 
 
 

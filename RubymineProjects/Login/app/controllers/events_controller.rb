@@ -2,11 +2,13 @@ class EventsController < ApplicationController
 
   respond_to :json
 
-  #check for api key
-  before_action :api_key
+  skip_before_action :verify_authenticity_token #ta bort
 
+  #check for api key
+  #before_action :api_key
+  before_action :api_authenticate, only: [:new, :create, :update]
   #check if api key is valid
-  #before_action :restrict_access
+  #before_action :restrict_access, only: [:index, :show]
 
   # Checking if user want own limit/offset - definied in application_controller
   # for wider reach
@@ -45,7 +47,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.new(user_params)
+    #event = Event.new(event_params)
+    tag = event_params[:tag]
+
+    #event.tags << Tag.new(tags[:name])
+
+    #if event.save
+   #   @event = event
+   # end
+
   end
 
   def show
@@ -66,10 +76,12 @@ class EventsController < ApplicationController
     end
   end
 
-  def user_params
-    params.require(:event).permit(:name, :description,
-                                  tag_attribute: [:name],
-                                  position_long_attribute: [:long], position_lat_attribute: [:lat])
+  def event_params
+    # This is json
+    #json_params = ActionController::Parameters.new( JSON.parse(request.body.read) )
+    #json_params.require(:event).permit(:name, :description, :tag)
+    params.require(:event).permit(:name, :description, :tag)
+
   end
 
 
