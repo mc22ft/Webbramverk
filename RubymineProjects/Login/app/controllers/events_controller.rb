@@ -77,6 +77,23 @@ class EventsController < ApplicationController
     render json: { error: error }, status: :bad_request # just json in this example
   end
 
+  def destroy
+    event = Event.find(params[:id])
+
+    #destroy = all child included
+    if event.destroy
+      @event = event
+    end
+
+      # render or error message
+  rescue ActiveRecord::RecordNotFound
+    error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not delete any event!' )
+    render json: { error: error }, status: :bad_request # just json in this example
+
+  end
+
+
+
   private
 
   def restrict_access
