@@ -10,7 +10,6 @@ child :position do
   attributes :long, :lat
 end
 
-
 child :tags do
   attributes :name
 end

@@ -20,8 +20,6 @@ Rails.application.routes.draw do
   # login creator
   get 'creator/login' => 'sessions#api_auth' #, as: 'login'
 
-
-
   resources :users
 
   resources :userapps,          only: [:create, :destroy]
@@ -30,8 +28,8 @@ Rails.application.routes.draw do
 
   resources :events
 
+  resources :api, :path => 'api/events'
 
-  resources :tags
 
 
 
