@@ -1,6 +1,6 @@
 class Creator < ActiveRecord::Base
 
-  has_many :events
+  has_many :events, dependent: :destroy
 
   before_save { email.downcase! }
 

@@ -34,8 +34,16 @@ class SessionsController < ApplicationController
     # puts request.headers["X-APIkey"];
     user = Creator.find_by(email: params[:email].downcase)
     if user && user.authenticate(params[:password])
+
+
+
+      #TEST login current_user
+      #@current_user = User.find_by(id: payload['user_id'])
+
+
       #token = encodeJWT(user)
-      #response.headers['Authorization'] = token
+
+      #response.headers['Authorization'] = token ?? angularJS?
       render json: { auth_token: encodeJWT(user) }
     else
       render json: { error: 'Invalid username or password' }, status: :unauthorized
@@ -47,7 +55,6 @@ class SessionsController < ApplicationController
     # add the expire to the payload, as an integer
     payload = { user_id: user.id }
     payload[:exp] = exp.to_i
-
     # Encode the payload whit the application secret, and a more advanced hash method (creates header with JWT gem)
     JWT.encode( payload, Rails.application.secrets.secret_key_base, "HS512")
 
