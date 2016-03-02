@@ -22,13 +22,6 @@ class CreatorsController < ApplicationController
 
   private
 
-  def restrict_access
-    authenticate_or_request_with_http_token do |token, options|
-    Userapp.exists?(apikey: token)
-
-    end
-  end
-
   def user_params
     params.require(:creator).permit(:name, :email)
     #params.require(:creators).permit(:name, :email)#Ändrade namn på vyn, ville ändra på creator + s

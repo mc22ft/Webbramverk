@@ -7,7 +7,7 @@ class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   #check if api key is valid API KEY
-  before_action :restrict_access, only: [:index, :show]
+  before_action :api_key, only: [:index, :show]
 
   # Checking if user want own limit/offset - definied in application_controller
   # for wider reach
@@ -59,11 +59,6 @@ class ApiController < ApplicationController
 
   private
 
-  def restrict_access
-    authenticate_or_request_with_http_token do |token, options|
-      Userapp.exists?(apikey: token)
-    end
-  end
 
 end
 

@@ -6,8 +6,6 @@ class Tag < ActiveRecord::Base
 
 
 
-
-
   def self.search(tag_search)
     where("name LIKE ?", "%#{tag_search}%")
   end

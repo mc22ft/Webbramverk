@@ -1,6 +1,7 @@
 class Position < ActiveRecord::Base
 
-  has_many :events
+  #has_many :events
+  belongs_to :event
 
   validates :lat, presence: true
   #:presence => {:message => 'Du måste ange ett namn!'},

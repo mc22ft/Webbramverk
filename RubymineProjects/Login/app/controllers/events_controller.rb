@@ -4,6 +4,10 @@ class EventsController < ApplicationController
 
   respond_to :json
 
+  # A better way to catch all the errors - Directing it to a private method
+  rescue_from ActionController::UnknownFormat, with: :raise_bad_format
+
+
   #not in use for API part
   skip_before_action :verify_authenticity_token
 
@@ -35,85 +39,153 @@ class EventsController < ApplicationController
     render json: { error: error }, status: :bad_request # just json in this example
   end
 
-
   def create
-    event = Event.new(event_params.except(:tag, :position))
 
-    position = Position.new(event_params[:position])
+    #get curren_creator from token
+    #get creator in db
+    #logged in creator?
+    creator = Creator.find_by_id(current_creator[0]['creator_id'])
+    if creator
+      event = Event.new(event_params.except(:tag, :position))
+      if event
+        event.creator = creator
 
-    tag = Tag.new(event_params[:tag])
+        event.position = Position.new(event_params[:position])
 
-    position.events << event
-    event.tags << tag
+        #TAG FIX
+        #tag = Tag.new(event_params[:tag])
 
-    if event.save
-      @event = event
+        #kolla om tag finns i db
+        tag = event_params[:tag]
+
+        #loop if many
+
+
+
+
+        tag_exist = Tag.find_by_name(tag[:name])
+        if tag_exist
+          event.tags << tag_exist
+        else
+          tag = Tag.new(event_params[:tag])
+          event.tags << tag
+        end
+
+        #|| Tag.new(event_params[:tag])
+        #OM
+
+
+        #OM INTE
+
+
+
+
+
+
+        #event.tags << tag
+
+        if event.save
+          @event = event
+        else
+          error = ErrorMessage.new('Could not save any resources. Event is empty', 'Could not save any event!' )
+          render json: { message: error }, status: :bad_request # just json in this example
+        end
+      else
+        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        render json: { message: error }, status: :bad_request # just json in this example
+      end
+    else
+      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      render json: { error: error }, status: :bad_request # just json in this example
     end
-
-      # render or error message
-  rescue ActiveRecord::RecordNotFound
-    error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not save any event!' )
-    render json: { error: error }, status: :bad_request # just json in this example
   end
 
   def edit
-    event = Event.find(params[:id])
-    if event.present?
-      @event = event
+    creator = Creator.find_by_id(current_creator[0]['creator_id'])
+    if creator
+      event = Event.find_by_id(params[:id])
+      if event
+        if creator.id === event.creator.id
+          @event = event
+        else
+        error = ErrorMessage.new('Could not find any resources. Id do not match?', 'Could not delete any event!' )
+        render json: { error: error }, status: :unauthorized # just json in this example
+        end
+      else
+        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        render json: { message: error }, status: :bad_request # just json in this example
+      end
+    else
+      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      render json: { error: error }, status: :bad_request # just json in this example
     end
-
-      # render or error message
-  rescue ActiveRecord::RecordNotFound
-    error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not edit any event!' )
-    render json: { error: error }, status: :bad_request # just json in this example
-
   end
 
   def update
-    event = Event.find(params[:id])
-    if event.present?
-      # Handle a successful update.
+    creator = Creator.find_by_id(current_creator[0]['creator_id'])
+    if creator
+      event = Event.find_by_id(params[:id])
+      if event
+        if creator.id === event.creator.id
+          # Handle a successful update.
+          #update event: name and description
+          event.update_attributes(event_params.except(:tag, :position))
 
-      #update event: name and description
-      event.update_attributes(event_params.except(:tag, :position))
-
-      @event = event
-    end
-
-    # render or error message
-      rescue ActiveRecord::RecordNotFound
-      error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not update any event!' )
+          @event = event
+        else
+          error = ErrorMessage.new('Could not find any resources. Id do not match?', 'Could not delete any event!' )
+          render json: { error: error }, status: :unauthorized # just json in this example
+        end
+      else
+        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        render json: { message: error }, status: :bad_request # just json in this example
+      end
+    else
+      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
       render json: { error: error }, status: :bad_request # just json in this example
     end
+  end
 
   def destroy
-    event = Event.find(params[:id])
 
-    #destroy = all child included
-    if event.present?
-      if event.destroy
-        @event = event
+    creator = Creator.find_by_id(current_creator[0]['creator_id'])
+    if creator
+      event = Event.find_by_id(params[:id])
+
+      #destroy = all child included
+      if event
+        #check for id
+        if creator.id === event.creator.id
+          if event.destroy
+            render json: { message: 'Event has been removed' }, status: :ok
+          end
+          # end
+        else
+          error = ErrorMessage.new('Could not find any resources. Id do not match?', 'Could not delete any event!' )
+          render json: { error: error }, status: :unauthorized # just json in this example
+        end
+      else
+        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        render json: { message: error }, status: :bad_request # just json in this example
       end
+    else
+      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      render json: { error: error }, status: :bad_request # just json in this example
     end
-
-                # render or error message
-  rescue ActiveRecord::RecordNotFound
-    error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not delete any event!' )
-    render json: { error: error }, status: :bad_request # just json in this example
   end
 
   private
 
-  def restrict_access
-    authenticate_or_request_with_http_token do |token, options|
-      Userapp.exists?(apikey: token)
-    end
+  def raise_bad_format
+    @error = ErrorMessage.new('The API does not support the requested format?', 'There was a bad call. Contact the developer!' )
+    # See documentation for diffrent status codes
+    render json: @error, status: :bad_request
   end
 
   def event_params
     # This is json
     json_params = ActionController::Parameters.new( JSON.parse(request.body.read) )
-    json_params.require(:event).permit(:creator_id, :name, :description,
+    json_params.require(:event).permit(:name, :description,
                                        position:[:long, :lat],
                                        tag:[:name])
   end

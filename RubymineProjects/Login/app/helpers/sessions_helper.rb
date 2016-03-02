@@ -80,7 +80,7 @@ module SessionsHelper
   # This method is for encoding the JWT before sending it out
   def encodeJWT(user, exp=2.hours.from_now)
     # add the expire to the payload, as an integer
-    payload = { user_id: user.id }
+    payload = { creator_id: user.id }
     payload[:exp] = exp.to_i
 
     # Encode the payload whit the application secret, and a more advanced hash method (creates header with JWT gem)
@@ -103,6 +103,19 @@ module SessionsHelper
   rescue => error
     puts error
     nil
+  end
+
+  def current_creator
+    request.headers["Authorization"].present?
+    # Take the last part in The header (ignore Bearer)
+    auth_header = request.headers['Authorization'].split(' ').last
+    # Are we feeling alright!?
+    @token_payload = decodeJWT auth_header.strip
+    if @token_payload
+      return @token_payload
+    else
+      nil
+    end
   end
 
 end

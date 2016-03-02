@@ -32,49 +32,13 @@ class SessionsController < ApplicationController
   def api_auth
     # output the APIkey from the header
     # puts request.headers["X-APIkey"];
-    user = Creator.find_by(email: params[:email].downcase)
-    if user && user.authenticate(params[:password])
-
-
-
-      #TEST login current_user
-      #@current_user = User.find_by(id: payload['user_id'])
-
-
-      #token = encodeJWT(user)
-
+    creator = Creator.find_by(email: params[:email].downcase)
+    if creator && creator.authenticate(params[:password])
       #response.headers['Authorization'] = token ?? angularJS?
-      render json: { auth_token: encodeJWT(user) }
+      render json: { auth_token: encodeJWT(creator), creator_id: creator.id }
     else
       render json: { error: 'Invalid username or password' }, status: :unauthorized
     end
-  end
-
-  # This method is for encoding the JWT before sending it out
-  def encodeJWT(user, exp=2.hours.from_now)
-    # add the expire to the payload, as an integer
-    payload = { user_id: user.id }
-    payload[:exp] = exp.to_i
-    # Encode the payload whit the application secret, and a more advanced hash method (creates header with JWT gem)
-    JWT.encode( payload, Rails.application.secrets.secret_key_base, "HS512")
-
-  end
-
-  # When we get a call we have to decode it - Returns the payload if good otherwise false
-  def decodeJWT(token)
-    # puts token
-    payload = JWT.decode(token, Rails.application.secrets.secret_key_base, "HS512")
-    # puts payload
-    if payload[0]["exp"] >= Time.now.to_i
-      payload
-    else
-      puts "time fucked up"
-      false
-    end
-      # catch the error if token is wrong
-  rescue => error
-    puts error
-    nil
   end
 
 end

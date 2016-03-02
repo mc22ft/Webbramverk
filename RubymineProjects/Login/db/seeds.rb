@@ -10,18 +10,18 @@
 
 
 #creates dev user and admin user (api key and url)
-l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l3 = Userapp.create(:url => 'www.testingpage.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l4 = Userapp.create(:url => 'www.all.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l5 = Userapp.create(:url => 'www.myapis.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l6 = Userapp.create(:url => 'www.nomores.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l7 = Userapp.create(:url => 'www.testingpages.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l8 = Userapp.create(:url => 'www.alls.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l9 = Userapp.create(:url => 'www.myapin.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l10 = Userapp.create(:url => 'www.nomoren.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l11 = Userapp.create(:url => 'www.testingpagen.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
-l12 = Userapp.create(:url => 'www.alln.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
+l1 = Userapp.create(:url => 'www.myapi.com', :apikey => '1fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1')
+l2 = Userapp.create(:url => 'www.nomore.com', :apikey => '2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf2')
+l3 = Userapp.create(:url => 'www.testingpage.com', :apikey => '3fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf3')
+l4 = Userapp.create(:url => 'www.all.com', :apikey => '4fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf4')
+l5 = Userapp.create(:url => 'www.myapis.com', :apikey => '5fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf5')
+l6 = Userapp.create(:url => 'www.nomores.com', :apikey => '6fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf6')
+l7 = Userapp.create(:url => 'www.testingpages.com', :apikey => '7fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf7')
+l8 = Userapp.create(:url => 'www.alls.com', :apikey => '8fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf8')
+l9 = Userapp.create(:url => 'www.myapin.com', :apikey => '9fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf9')
+l10 = Userapp.create(:url => 'www.nomoren.com', :apikey => '10fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf10')
+l11 = Userapp.create(:url => 'www.testingpagen.com', :apikey => '11fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf11')
+l12 = Userapp.create(:url => 'www.alln.com', :apikey => '12fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf12')
 
 u1 = User.create(:name => 'Administratören', :email => 'admin@mail.com',
                  :password => 'qwerty', :password_confirmation => 'qwerty',
