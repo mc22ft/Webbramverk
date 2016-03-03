@@ -67,9 +67,15 @@ class ApplicationController < ActionController::Base
   end
 
   def api_key
-    authenticate_or_request_with_http_token do |token, options|
-      Userapp.exists?(apikey: token)
+    #api_key = request.headers['X-ApiKey']
+
+    #if api_key
+      authenticate_or_request_with_http_token do |token, options|
+         Userapp.exists?(apikey: token)
       end
+
+    #end
+
   end
 
 
