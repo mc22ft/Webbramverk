@@ -14,7 +14,7 @@ angular
 // We inject the http (for AJAX-handling) and the API
 ResourceService.$inject = ['$http', 'APIConstant'];
 
-function ResourceService($http, API) {
+function ResourceService($http, APIConstant) {
 
     // Returns the Service - Get the collectionName as parameter
     return function (collectionName) {
@@ -30,14 +30,16 @@ function ResourceService($http, API) {
             // Ordinaiery http-call
             var req = {
                 method: 'GET',
-                url: API.url +collectionName, // this is the entry point in my example
+                url: APIConstant.url +collectionName, // this is the entry point in my example
                 headers: {
-                    'Accept': API.format,
-                    'X-APIKEY': API.key
-                },
-                params: {
-                    'limit': '20'
-                }
+                    'Accept': APIConstant.format,
+                    "Authorization" : 'Token token="2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"'
+            //"authorization": "Token token=\"2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1\"",
+                    //'Authorization': APIConstant.key
+                }//,
+                //params: {
+                //    'limit': '20'
+                //}
             };
             // This returns a promise which will be fullfilled when the response is back
             return $http(req).then(function(response) {
@@ -72,7 +74,7 @@ function ResourceService($http, API) {
                 url = resourceInfo.url;
             }
             else if(resourceInfo.hasOwnProperty('instanceName') && resourceInfo.hasOwnProperty('id')) { // or we using a fall back (item => is an id)
-                url = API.url +resourceInfo.instanceName +"/" +resourceInfo.id
+                url = APIConstant.url +resourceInfo.instanceName +"/" +resourceInfo.id
             }
             else {
                 return false;
@@ -82,8 +84,8 @@ function ResourceService($http, API) {
                 method: 'GET',
                 url: url,
                 headers: {
-                    'Accept': API.format,
-                    'X-APIKEY': API.key
+                    'Accept': APIConstant.format,
+                    'X-APIKEY': APIConstant.key
                 },
                 params: {
                     'limit': '500'
@@ -101,9 +103,9 @@ function ResourceService($http, API) {
                 method: 'POST',
                 url: API.url +collectionName, // this is the entry point in my example
                 headers: {
-                    'Accept': API.format,
-                    'X-APIKEY': API.key,
-                    'Authorization' : "hbhj6765g76g77rt7g9g6r56dvv"
+                    'Accept': APIConstant.format,
+                    'X-APIKEY': APIConstant.key,
+                    'Authorization' : APIConstant.key
                 },
                 params: {
                     'limit': '500'

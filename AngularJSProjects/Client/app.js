@@ -6,17 +6,17 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule']) // you must injec
             function($routeProvider) {
                 $routeProvider.
                     when('/', {
-                        templateUrl: 'components/home/map.html',
+                        templateUrl: 'app/components/home/map.html',
                         //this controller is merried to templateUrl
                         //controller: '',
                     }).
                     when('/events', {
-                        templateUrl: 'components/events/event_list.html',
+                        templateUrl: 'app/components/events/event_list.html',
                         controller: 'EventListController',
                         controllerAs: 'events' // events could be seen as an instance of the controller, use it in the view!
                     }).
                     when('/event/:id', {
-                        templateUrl: 'components/events/event_detail.html',
+                        templateUrl: 'app/components/events/event_detail.html',
                         controller: 'EventDetailController',
                         controllerAs: 'event'
                     }).
@@ -34,11 +34,11 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule']) // you must injec
                 .setNotify(true, true)
         })
         .constant('APIConstant', { // here I also can declare constants
-            'key': "sdkjalsdjlasjdlkajsdljs", // bad practice!? Key on client....
-            'url': "http://blue-white-harbor-95-185765.euw1-2.nitrousbox.com/", // base url
+            'key': 'Token token="2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"', // bad practice!? Key on client....
+            'url': "http://localhost:3000/", // base url
             'format': 'application/json' // Default representation we want
         })
         .constant('LocalStorageConstants', {
-            'playersKey' : 'p', // just some keys for sessionStorage-keys
-            'teamsKey'   : 't'
+            'eventKey' : 'e', // just some keys for sessionStorage-keys
+            'eventsKey'   : 'es'
         });

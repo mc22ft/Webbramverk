@@ -6,7 +6,7 @@
         <meta charset="utf-8">
         <title>Kartan AngularJS</title>
 
-        <link rel="stylesheet" href="../assets/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/css/bootstrap.css" />
     </head>
     <body>
 
@@ -56,15 +56,17 @@
 
 
         <!-- js -->
-        <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
-        <script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
-        <script type="text/javascript" src="../bower_components/js/angular-local-storage.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="bower_components/angular-localstorage/angular-localstorage.js"></script>
+
         <script type="text/javascript" src="app.js"></script>
         <!-- services -->
-        <script type="text/javascript" src="services/EventService.js"></script>
+        <script type="text/javascript" src="app/services/EventService.js"></script>
+        <script type="text/javascript" src="app/services/ResourceService.js"></script>
         <!-- controllers -->
-        <script type="text/javascript" src="components/events/EventListController.js"></script>
-        <script type="text/javascript" src="components/events/EventDetailController.js"></script>
+        <script type="text/javascript" src="app/components/events/EventListController.js"></script>
+        <script type="text/javascript" src="app/components/events/EventDetailController.js"></script>
 
     </body>
 </html>

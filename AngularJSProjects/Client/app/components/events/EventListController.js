@@ -16,14 +16,10 @@ function EventListController(EventService) {
     //call eventservise to det promise back
     //var EventPromise = EventService.get();
 
-
-    EventPromise
-        .then(function(data){
+    //EventPromise
+    EventService.get(function(data){
             //put data in the viewmodel
-            vm.EventList = data;
-        })
-        .cache(function(error){
-            console.log("ERROR");
+            vm.eventList = data;
         });
 
 

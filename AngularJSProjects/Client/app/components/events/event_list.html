@@ -1,9 +1,18 @@
-<h3>List all event</h3>
+<div class="container">
+    <h3>All Events</h3>
+    <div class="col-md-6">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Name</th>
 
-<ul>
-    <!-- Using player when I have set the controllerAs in the app.js and routeProvider -->
-    <li data-ng-repeat="event in events.eventList">
-        {{event.name }} <a data-ng-href='index.html#/event/{{event.id}}'>More info</a>
-    </li>
+            </tr>
+            <tr data-ng-repeat="e in events.eventsList">
+                <td>{{ e.name }}</td>
 
-</ul>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+</div>
