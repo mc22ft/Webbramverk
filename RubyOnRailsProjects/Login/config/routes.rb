@@ -28,7 +28,6 @@ Rails.application.routes.draw do
 
   resources :events
 
-  resources :api, :path => 'api/events'
 
 
   #get 'sessions/new'
