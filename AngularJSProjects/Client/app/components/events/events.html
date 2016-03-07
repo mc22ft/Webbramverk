@@ -1,0 +1,16 @@
+<h1>Events</h1>
+
+<!-- ng-cloak is a way of stop the flickering when loading the app -->
+<div ng-cloak ng-controller="EventListController as events">
+    <input data-ng-model="events.idvalue" />
+    <button data-ng-click="events.getEvents()">Get Events</button>
+
+    <hr />
+
+
+    <ul>
+        <!-- ng-bind is another way to stop flickering, avoiding {{ . }}-->
+        <li>Name: <span ng-bind="events.currentPlayer.name"></span></li>
+        <li>Age: {{ events.currentPlayer.age }}</li>
+    </ul>
+</div>

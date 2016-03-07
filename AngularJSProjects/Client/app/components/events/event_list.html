@@ -1,0 +1,9 @@
+<h3>List all event</h3>
+
+<ul>
+    <!-- Using player when I have set the controllerAs in the app.js and routeProvider -->
+    <li data-ng-repeat="event in events.eventList">
+        {{event.name }} <a data-ng-href='index.html#/event/{{event.id}}'>More info</a>
+    </li>
+
+</ul>
