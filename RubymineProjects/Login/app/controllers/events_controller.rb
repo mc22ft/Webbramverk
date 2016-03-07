@@ -16,7 +16,7 @@ class EventsController < ApplicationController
 
   #check if api key is valid API KEY
   before_action :api_key, only: [:index, :show]
-  
+
   # Checking if user want own limit/offset - definied in application_controller
   # for wider reach
   before_action :offset_params, only: [:index]
