@@ -14,15 +14,19 @@ function EventListController(EventService) {
     var vm = this;
 
     //call eventservise to det promise back
-    //var EventPromise = EventService.get();
+    var EventPromise = EventService.get();
 
-    //EventPromise
-    EventService.get(function(data){
-            //put data in the viewmodel
-            vm.eventList = data;
+
+    console.log("eventlistcontroller");
+    // then is called when the function delivers
+    EventPromise
+        .then(function(data){
+            console.log(data);
+            // put the data om the viewModel - binding it to the view
+            vm.eventsList = data;
+        })
+        .catch(function(error) {
+            console.log("ERROR");
         });
-
-
-    //vm.eventList = theEvents;
 }
 

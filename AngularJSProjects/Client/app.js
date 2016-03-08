@@ -39,6 +39,6 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule']) // you must injec
             'format': 'application/json' // Default representation we want
         })
         .constant('LocalStorageConstants', {
-            'eventKey' : 'e', // just some keys for sessionStorage-keys
-            'eventsKey'   : 'es'
+            'eventKey' : 'event', // just some keys for sessionStorage-keys
+            'eventsKey'   : 'events'
         });

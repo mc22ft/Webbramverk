@@ -26,7 +26,7 @@ function EventService(resourceService, localStorage, LS, $q) {
     return {
         get:function() {
             // check if we have it in localstorage - Pretty clumpsy handling but just for example
-            var items = localStorage.get(LS.teamsKey);
+            var items = localStorage.get(LS.eventsKey);
 
             // Define a promise...this will be used later
             var deferred = $q.defer();
@@ -38,7 +38,7 @@ function EventService(resourceService, localStorage, LS, $q) {
                 Event.getCollection().then(function(data){
 
                     // set the data in LS
-                    localStorage.set(LS.teamsKey, data);
+                    localStorage.set(LS.eventsKey, data);
 
                     // resolve the data to the caller - They have a promise and now we deliver the response
                     deferred.resolve(data);
