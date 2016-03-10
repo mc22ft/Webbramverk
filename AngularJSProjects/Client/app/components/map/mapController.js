@@ -8,25 +8,34 @@ angular
         var vm = this;
         var EventPromise = EventService.get();
 
-        console.log("eventlistcontroller");
+        console.log("mapcontroller");
         // then is called when the function delivers
         EventPromise
             .then(function(data){
                 // put the data om the viewModel - binding it to the view
                 vm.eventList = data;
 
-
-                var shops = [];
+                var events = [];
                 //loop all events to fit view better
                 for (var j=0; j < vm.eventList.length; j++) {
-                    shops.push(vm.eventList[j].event);
+                    events.push(vm.eventList[j].event);
                 }
 
-                vm.shops = shops;
+                vm.shops = events;
 
                 //GOOGLE MAP
+
+                //Fit bounds marker
+                var bounds = new google.maps.LatLngBounds();
+                for (var i=0; i < vm.shops.length; i++) {
+                    var latlng = new google.maps.LatLng(vm.shops[i].position.lat, vm.shops[i].position.long);
+                    bounds.extend(latlng);
+                }
+
                 NgMap.getMap().then(function(map) {
-                    console.log('map', map);
+                    //console.log('map', map);
+                    map.setCenter(bounds.getCenter());
+                    map.fitBounds(bounds);
                     vm.map = map;
                 });
 
@@ -68,16 +77,6 @@ angular
         //};
 
 
-        //var bounds = new google.maps.LatLngBounds();
-        //for (var i=0; i<vm.positions.length; i++) {
-        //    var latlng = new google.maps.LatLng(vm.positions[i][0], vm.positions[i][1]);
-        //    bounds.extend(latlng);
-        //}
-
-        //NgMap.getMap().then(function(map) {
-        //    map.setCenter(bounds.getCenter());
-        //    map.fitBounds(bounds);
-        //});
 
     //});
 

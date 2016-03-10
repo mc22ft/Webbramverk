@@ -33,7 +33,7 @@ function ResourceService($http, APIConstant) {
                 url: APIConstant.url +collectionName, // this is the entry point in my example
                 headers: {
                     'Accept': APIConstant.format,
-                    "Authorization" : 'Token token="2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"'
+                    "Authorization" : 'Token token="1fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"'
             //"authorization": "Token token=\"2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1\"",
                     //'Authorization': APIConstant.key
                 }//,
