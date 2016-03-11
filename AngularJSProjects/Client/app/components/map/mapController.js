@@ -1,6 +1,4 @@
-/**
- * Created by MathiasClaesson on 2016-03-08.
- */
+/** Created by MathiasClaesson on 2016-03-08...*/
 angular
     .module('clientApp')
     .controller("MapController", function(NgMap, EventService) {
@@ -23,7 +21,7 @@ angular
 
                 vm.shops = events;
 
-                //GOOGLE MAP
+                // MAP MAP MAP
 
                 //Fit bounds marker
                 var bounds = new google.maps.LatLngBounds();

@@ -5,9 +5,10 @@
     <head>
         <meta charset="utf-8">
         <title>Kartan AngularJS</title>
-        <script src="https://maps.google.com/maps/api/js?v=3"></script>
+        <script src="https://maps.google.com/maps/api/js?v=3&libraries=places"></script>
         <link rel="stylesheet" href="assets/css/bootstrap.css" />
-        <!-- Temp style -->
+
+      <!-- Temp style -->
 <style>
     .angular-google-map-container { height: 400px; }
 </style>
@@ -15,14 +16,20 @@
     <body>
         <header>
             <h1>Min Event tjänst!</h1>
-            <p>Ska hämta alla event och presenetra på en karta</p>
         </header>
         <section>
 
+            <div class="map">
+                <div data-ng-controller="MapController as vm">
+                    <div my-map></div>
+                </div>
+            </div>
+            <div class="search">
+                <div data-ng-controller="SearchController as vm">
+                    <div my-search></div>
+                </div>
+            </div>
 
-            <div data-ng-controller="MapController as vm">
-                <div my-map></div>
-                  </div>
             <!--
         <hr />
         Includes a shared view (menu)
@@ -87,6 +94,6 @@
         <script type="text/javascript" src="app/components/events/EventListController.js"></script>
         <script type="text/javascript" src="app/components/events/EventDetailController.js"></script>
         <script type="text/javascript" src="app/components/map/MapController.js"></script>
-
+        <script type="text/javascript" src="app/components/filterMap/searchController.js"></script>
     </body>
 </html>

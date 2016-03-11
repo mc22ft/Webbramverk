@@ -1,0 +1,24 @@
+<h1>Seach my objekt from api</h1>
+
+<div class="well">
+    <label>
+        Search for:<input type="text" ng-model="criteria">
+    </label>
+</div>
+
+
+
+<table class="table table-bordered">
+    <thead>
+    <th>Name</th>
+    <th>Description</th>
+    </thead>
+    <tbody>
+    <tr ng-repeat="event in filteredBacklog = (vm.searchEvents | filter:{$: criteria})">
+        <td>{{event.name}}</td>
+        <td>{{event.description}}</td>
+        <td> <button ng-click="go(event)">Click Me!</button></td>
+    </tr>
+    Total: {{filteredBacklog.length}}
+    </tbody>
+</table>
