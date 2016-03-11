@@ -7,7 +7,7 @@ child :creator do
 end
 
 child :position do
-  attributes :long, :lat
+  attributes :long, :lat :address
 end
 
 

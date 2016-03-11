@@ -54,10 +54,10 @@ creator4 = Creator.create(:name => 'Tolou', :email => 'tolou@mail.com',
                           :password => '111111', :password_confirmation => '111111')
 
 
-event1 = Event.create(:name => 'Stockholm', :description => 'Super god pizza som slår det mesta i området', :position_id => '1')
-event2 = Event.create(:name => 'Stockholm', :description => 'Super god kebab som slår det mesta i området', :position_id => '2')
-event3 = Event.create(:name => 'Stockholm', :description => 'Super god kebab som slår det mesta', :position_id => '3')
-event4 = Event.create(:name => 'Stockholm', :description => 'Super god fika som slår det mesta i området', :position_id => '4')
+event1 = Event.create(:name => 'Restaurang Food', :description => 'Otroligt god pizza som slår det mesta i Stockholm', :position_id => '1')
+event2 = Event.create(:name => 'Burger Joint', :description => 'Bästa burgaren som finns!!! Ta den med extra allt den är grym!', :position_id => '2')
+event3 = Event.create(:name => 'Pizza och Deli', :description => 'God kebab som slår det mesta', :position_id => '3')
+event4 = Event.create(:name => 'Kaffe Med Mera', :description => 'Super god fika som slår det mesta i området', :position_id => '4')
 
 position1 = Position.create(:long => '18.087702', :lat => '59.313177')
 position2 = Position.create(:long => '18.06858', :lat => '59.32932')
@@ -65,7 +65,7 @@ position3 = Position.create(:long => '18.104439', :lat => '59.303452')
 position4 = Position.create(:long => '18.035345', :lat => '59.333934')
 
 tag1 = Tag.create(:name => 'Pizza')
-tag2 = Tag.create(:name => 'Kebab')
+tag2 = Tag.create(:name => 'Hamburgare')
 tag3 = Tag.create(:name => 'Kebab')
 tag4 = Tag.create(:name => 'Fika')
 
