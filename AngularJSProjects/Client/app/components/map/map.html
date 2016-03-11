@@ -25,5 +25,8 @@
 
 <div class="col-md-6">
     <p>InfoWindow</p>
-    {{infoWindow.name}}
+    <h3>{{infoWindow.name}}</h3>
+    <p>{{infoWindow.description}}</p>
+    <p>{{infoWindow.created_at}}</p>
+    <p ng-repeat="info in infoWindow">{{info.address}}</p>
 </div>
