@@ -1,29 +1,29 @@
 <h1>All events on MAP</h1>
-<h4>Möjlighet att kunna söka specifika resurser i tjänsten genom sökord</h4>
 <h4>Möjlighet att kunna filtrera ut resurser beroende på vald tagg</h4>
 
-<ng-map default-style="true" center="59.329323, 18.068581" zoom="3">
-    <marker id='{{shop.id}}'
-            position="{{shop.position.lat}},{{shop.position.long}}"
-            ng-repeat="shop in vm.shops"
-            on-click="vm.showDetail(shop)">
-    </marker>
 
-    <info-window id="myInfoWindow">
-        <div ng-non-bindable="">
-            id: {{vm.shop.id}}<br/>
-            name: {{vm.shop.name}}<br/>
-            Position 1: {{vm.shop.position}}<br/>
-            Position 2: {{anchor.getPosition()}}<br/>
-            Position 3: {{vm.map.markers[vm.shop.id].getPosition()}}<br/>
-            <a href="#" ng-click="vm.clicked()">Click Here</a>
-        </div>
-    </info-window>
-</ng-map>
+<div class="col-md-6">
+    <ng-map default-style="true" center="59.329323, 18.068581" zoom="3">
+        <marker id='{{shop.id}}'
+                position="{{shop.position.lat}},{{shop.position.long}}"
+                ng-repeat="shop in vm.shops"
+                on-click="vm.showDetail(shop)">
+        </marker>
 
-<button ng-click="vm.showDetail(e, vm.shop)">
-    show InfoWindow of the shop
-</button>
-<button ng-click="vm.hideDetail(e, vm.shop)">
-    Hide InfoWindow of the shop
-</button>
+        <info-window id="myInfoWindow">
+            <div ng-non-bindable="">
+                id: {{vm.shop.id}}<br/>
+                name: {{vm.shop.name}}<br/>
+                Position 1: {{vm.shop.position}}<br/>
+                Position 2: {{anchor.getPosition()}}<br/>
+                Position 3: {{vm.map.markers[vm.shop.id].getPosition()}}<br/>
+                <a href="#" ng-click="vm.infoBox(vm.shop)">Click Here</a>
+            </div>
+        </info-window>
+    </ng-map>
+</div>
+
+<div class="col-md-6">
+    <p>InfoWindow</p>
+    {{infoWindow.name}}
+</div>

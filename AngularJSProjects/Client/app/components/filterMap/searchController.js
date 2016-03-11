@@ -3,7 +3,7 @@
  */
 angular
     .module('clientApp')
-    .controller("SearchController", function(EventService, $scope) {
+    .controller("SearchController", function(EventService, $scope, $rootScope) {
         var vm = this;
         var EventPromise = EventService.get();
 
@@ -25,12 +25,19 @@ angular
                 console.log(vm.searchEvents);
 
 
-                $scope.go = function(event) {
-                    console.log("clicked", event);
+                //$scope.go = function(event) {
+                //    console.log("clicked", event);
                     //var hash = '/alert_instance/' + event.alert_instancne_id;
                     //...
 
-                };
+                //};
+
+                //call mapcontroller to set focus on marker
+                $scope.go = function(res) {
+                    console.log("clicked", res);
+                    $rootScope.$emit("CallParentMethod", res);
+                }
+
 
             })
             .catch(function(error) {

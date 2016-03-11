@@ -1,9 +1,23 @@
 /** Created by MathiasClaesson on 2016-03-08...*/
 angular
     .module('clientApp')
-    .controller("MapController", function(NgMap, EventService) {
+    .controller("MapController", function(NgMap, EventService, $scope, $rootScope) {
     // Using controllerAs so $scope is in this (save a ref in variable)
         var vm = this;
+
+
+        //call from searchController
+        $rootScope.$on("CallParentMethod", function(event, data){
+            vm.infoBox(data);
+        });
+
+
+        //Send info to info - right side of map
+        vm.infoBox = function(data) {
+            $scope.infoWindow = data;
+        }
+
+
         var EventPromise = EventService.get();
 
         console.log("mapcontroller");
