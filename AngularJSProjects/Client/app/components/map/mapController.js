@@ -4,18 +4,30 @@ angular
     .controller("MapController", function(NgMap, EventService, $scope, $rootScope) {
     // Using controllerAs so $scope is in this (save a ref in variable)
         var vm = this;
-
+        vm.hideElement = true;
 
         //call from searchController
         $rootScope.$on("CallParentMethod", function(event, data){
-            vm.infoBox(data);
+            vm.hideElement = true;
+            vm.infoToBox(data);
         });
 
-
-        //Send info to info - right side of map
-        vm.infoBox = function(data) {
+        //Send info to view - right side of map
+        vm.infoToBox = function(data) {
+            vm.hideElement = false;
             $scope.infoWindow = data;
+            //map.setZoom(8);
+            //map.setCenter(marker.getPosition());
         }
+
+        $scope.showInfoBox = function(){
+            console.log("check something");
+            if(vm.hideElement == false){
+                return false;
+            }
+            return true;
+        }
+
 
 
         var EventPromise = EventService.get();
@@ -50,10 +62,6 @@ angular
                     map.fitBounds(bounds);
                     vm.map = map;
                 });
-
-                vm.clicked = function() {
-                    alert('Clicked a link inside infoWindow');
-                };
 
                 vm.showDetail = function(e, shop) {
                     vm.shop = shop;

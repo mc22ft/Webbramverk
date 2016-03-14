@@ -1,7 +1,3 @@
-<h1>All events on MAP</h1>
-<h4>Möjlighet att kunna filtrera ut resurser beroende på vald tagg</h4>
-
-
 <div class="col-md-6">
     <ng-map default-style="true" center="59.329323, 18.068581" zoom="3">
         <marker id='{{shop.id}}'
@@ -12,21 +8,17 @@
 
         <info-window id="myInfoWindow">
             <div ng-non-bindable="">
-                id: {{vm.shop.id}}<br/>
-                name: {{vm.shop.name}}<br/>
-                Position 1: {{vm.shop.position}}<br/>
-                Position 2: {{anchor.getPosition()}}<br/>
-                Position 3: {{vm.map.markers[vm.shop.id].getPosition()}}<br/>
-                <a href="#" ng-click="vm.infoBox(vm.shop)">Click Here</a>
+                <p class="font-weight-bold">{{vm.shop.name}}</p>
+                <a href="#" ng-click="vm.infoToBox(vm.shop)">Mer information här</a>
             </div>
         </info-window>
     </ng-map>
 </div>
 
-<div class="col-md-6">
-    <p>InfoWindow</p>
-    <h3>{{infoWindow.name}}</h3>
-    <p>{{infoWindow.description}}</p>
+<div ng-hide="showInfoBox()" class="col-md-6">
+    <h3 class="text-center">{{infoWindow.name}}</h3>
+    <p class="text-center">{{infoWindow.description}}</p>
+    <p ng-repeat="info in infoWindow">{{info.name}}</p>
     <p>{{infoWindow.created_at}}</p>
-    <p ng-repeat="info in infoWindow">{{info.address}}</p>
+    <p class="text-center" ng-repeat="info in infoWindow">{{info.address}}</p>
 </div>
