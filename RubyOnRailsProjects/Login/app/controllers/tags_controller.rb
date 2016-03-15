@@ -20,6 +20,7 @@ class TagsController < ApplicationController
   before_action :offset_params, only: [:index]
 
 
+
   def index
     @tags = Tag.all.order('name ASC')
   end
