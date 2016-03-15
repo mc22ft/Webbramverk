@@ -9,8 +9,6 @@ angular
         //get all tags name
         var TagPromise = TagService.get();
 
-        console.log('TAG');
-
         // then is called when the function delivers
         TagPromise
             .then(function(data){
@@ -28,7 +26,7 @@ angular
                 }
 
                 $scope.states = tags;
-                
+
                 $scope.getTags = function() {
                     for (var j=0; j < vm.tagList.length; j++) {
 
@@ -73,10 +71,6 @@ angular
 
                 };
 
-
-                //$scope.selected = undefined;
-
-
                 $scope.onedit = function(){
 
                     console.log($scope.selected );
@@ -94,9 +88,6 @@ angular
             .catch(function(error) {
                 console.log("ERROR");
             });
-
-
-
 
         return vm;
     })

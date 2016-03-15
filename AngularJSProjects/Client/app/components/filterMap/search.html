@@ -1,20 +1,18 @@
+<div class="col-md-12">
+    <div class="input-group col-md-12">
+        <input type="text" class="form-control" placeholder="Sök på allt..." ng-model="criteria">
+    </div>
 
-
-<div class="well">
-    <label>
-         Sök på allt:<input type="text" ng-model="criteria">
-    </label>
+    <table class="table table-bordered">
+        <thead>
+        <th>Name</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="event in filteredBacklog = (vm.searchEvents | filter:{$: criteria})">
+            <td>{{event.name}}</td>
+            <td> <button ng-click="go(event)">Hämta event!</button></td>
+        </tr>
+        Total: {{filteredBacklog.length}}
+        </tbody>
+    </table>
 </div>
-
-<table class="table table-bordered">
-    <thead>
-    <th>Name</th>
-    </thead>
-    <tbody>
-    <tr ng-repeat="event in filteredBacklog = (vm.searchEvents | filter:{$: criteria})">
-        <td>{{event.name}}</td>
-        <td> <button ng-click="go(event)">Hämta event!</button></td>
-    </tr>
-    Total: {{filteredBacklog.length}}
-    </tbody>
-</table>

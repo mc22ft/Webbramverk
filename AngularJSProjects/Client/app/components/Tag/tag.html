@@ -1,11 +1,7 @@
 
-<h4>Static arrays</h4>
-<pre>Model: {{selected | json}}</pre>
-
-
 <div class="col-md-12">
     <div class="input-group">
-        <input type="text" class="form-control" placeholder="Sök tag..." ng-value="onedit()" ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8">
+        <input type="text" class="form-control" placeholder="Sök tag..." ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8">
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="getTags()">Hämta</button>
                 </span>

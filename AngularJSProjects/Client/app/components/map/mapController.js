@@ -27,11 +27,8 @@ angular
             return true;
         }
 
-
-
         var EventPromise = EventService.get();
 
-        console.log("mapcontroller");
         // then is called when the function delivers
         EventPromise
             .then(function(data){

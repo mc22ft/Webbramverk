@@ -9,7 +9,6 @@ angular
         //Get all
         var EventPromise = EventService.get();
 
-        console.log('search');
         // then is called when the function delivers
         EventPromise
             .then(function(data){
