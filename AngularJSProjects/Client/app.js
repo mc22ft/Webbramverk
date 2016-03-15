@@ -1,7 +1,7 @@
 /**
  * Created by MathiasClaesson on 2016-03-03.
  */
-angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap']) // you must inject the ngRoute (included as a separate js-file)
+angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.bootstrap']) // you must inject the ngRoute (included as a separate js-file)
         .config(['$routeProvider',
             function($routeProvider) {
                 $routeProvider.
@@ -40,5 +40,7 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap']) // you m
         })
         .constant('LocalStorageConstants', {
             'eventKey' : 'event', // just some keys for sessionStorage-keys
-            'eventsKey'   : 'events'
+            'eventsKey'   : 'events',
+            'tagKey'   : 'tag',
+            'tagsKey'   : 'tags'
         });

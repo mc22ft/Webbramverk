@@ -26,7 +26,19 @@ function ResourceService($http, APIConstant) {
         }
 
         // Get all players from the API
-        Resource.getCollection = function() {
+        Resource.getCollection = function(extensionURL) {
+            //remove all after ? in url
+            var s = collectionName;
+            var n = s.indexOf('?');
+            collectionName = s.substring(0, n != -1 ? n : s.length);
+
+            //
+            if(extensionURL == undefined){
+                //no extension
+            }else{
+                collectionName += extensionURL;
+            }
+
             // Ordinaiery http-call
             var req = {
                 method: 'GET',

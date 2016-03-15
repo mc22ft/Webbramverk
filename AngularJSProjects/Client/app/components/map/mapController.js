@@ -21,7 +21,6 @@ angular
         }
 
         $scope.showInfoBox = function(){
-            console.log("check something");
             if(vm.hideElement == false){
                 return false;
             }

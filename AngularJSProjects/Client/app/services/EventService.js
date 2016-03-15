@@ -24,9 +24,14 @@ EventService.$inject = ['ResourceService', 'localStorageService', 'LocalStorageC
 function EventService(resourceService, localStorage, LS, $q) {
     var Event = resourceService('events');
     return {
-        get:function() {
-            // check if we have it in localstorage - Pretty clumpsy handling but just for example
-            var items = localStorage.get(LS.eventsKey);
+        get:function(extension) {
+
+            var items = null;
+            //not get something then not is a base value
+            if(extension == undefined){
+                // check if we have it in localstorage - Pretty clumpsy handling but just for example
+                items = localStorage.get(LS.eventsKey);
+            }
 
             // Define a promise...this will be used later
             var deferred = $q.defer();
@@ -35,10 +40,13 @@ function EventService(resourceService, localStorage, LS, $q) {
             if(!items) {
 
                 // make the call to the api - Get all returns a promise and success will be called if $http succeed
-                Event.getCollection().then(function(data){
+                Event.getCollection(extension).then(function(data){
 
-                    // set the data in LS
-                    localStorage.set(LS.eventsKey, data);
+                    //not save if it something else then base values
+                    if(extension == undefined){
+                        // set the data in LS
+                        localStorage.set(LS.eventsKey, data);
+                    }
 
                     // resolve the data to the caller - They have a promise and now we deliver the response
                     deferred.resolve(data);

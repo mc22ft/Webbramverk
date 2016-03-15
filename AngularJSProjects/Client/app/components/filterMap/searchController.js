@@ -5,9 +5,11 @@ angular
     .module('clientApp')
     .controller("SearchController", function(EventService, $scope, $rootScope) {
         var vm = this;
+
+        //Get all
         var EventPromise = EventService.get();
 
-        console.log("searchcontroller");
+        console.log('search');
         // then is called when the function delivers
         EventPromise
             .then(function(data){
@@ -22,27 +24,15 @@ angular
 
                 vm.searchEvents = events;
 
-                console.log(vm.searchEvents);
-
-
-                //$scope.go = function(event) {
-                //    console.log("clicked", event);
-                    //var hash = '/alert_instance/' + event.alert_instancne_id;
-                    //...
-
-                //};
-
                 //call mapcontroller to set focus on marker
                 $scope.go = function(res) {
-                    console.log("clicked", res);
                     $rootScope.$emit("CallParentMethod", res);
                 }
-
-
             })
             .catch(function(error) {
                 console.log("ERROR");
             });
+
 
         return vm;
     })

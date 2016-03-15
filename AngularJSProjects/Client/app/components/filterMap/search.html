@@ -1,22 +1,19 @@
+
+
 <div class="well">
     <label>
          Sök på allt:<input type="text" ng-model="criteria">
-    </label>
-    <label>
-        Sök på vald tag:<input type="text" ng-model="">
     </label>
 </div>
 
 <table class="table table-bordered">
     <thead>
     <th>Name</th>
-    <th>Description</th>
     </thead>
     <tbody>
     <tr ng-repeat="event in filteredBacklog = (vm.searchEvents | filter:{$: criteria})">
         <td>{{event.name}}</td>
-        <td>{{event.description}}</td>
-        <td> <button ng-click="go(event)">Click Me!</button></td>
+        <td> <button ng-click="go(event)">Hämta event!</button></td>
     </tr>
     Total: {{filteredBacklog.length}}
     </tbody>
