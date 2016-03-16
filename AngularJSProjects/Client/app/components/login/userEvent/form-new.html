@@ -1,0 +1,38 @@
+<div class="col-md-6">
+    <button type="button" class="btn btn-primary" ng-click="addEvent()">Skapa nytt event</button>
+</div>
+
+
+<div class="col-md-12" data-ng-show="vm.showForm">
+
+
+<h1>Event form</h1>
+    <form name="eventForm">
+        <!-- user input info -->
+            <div class="form-group">
+                <label for="name">Namn</label>
+                <input type="text" ng-model="event.name" name="name" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Recension</label>
+                <textarea type="text" ng-model="event.description" name="description" id="description" required></textarea>
+            </div>
+        <!-- position -->
+            <div class="form-group">
+                <label for="long">longitude</label>
+                <input type="text" ng-model="event.long" name="long" id="long" required>
+            </div>
+            <div class="form-group">
+                <label for="lat">latitude</label>
+                <input type="text" ng-model="event.lat" name="lat" id="lat" required>
+            </div>
+        <!-- user input tag -->
+            <div class="form-group">
+                <label for="tag">tag</label>
+                <input type="text" ng-model="event.tag" name="tag" id="tag" required>
+            </div>
+
+        <button ng-click="saveNewEvent(event)" >Spara</button>
+
+    </form>
+</div>

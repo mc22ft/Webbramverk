@@ -1,9 +1,9 @@
 
-<div class="col-md-6">
-    <button type="button" class="btn btn-primary" ng-click="add()">Visa</button>
-</div>
 
-<div data-ng-include src="'partials/shared/menu.html'"> Should be replaced?</div>
+<!-- registerform -->
+<div data-ng-include src="'app/components/login/userevent/form-new.html'"> Should be replaced?</div>
+<!-- update form -->
+<div data-ng-include src="'app/components/login/userevent/form-update.html'"> Should be replaced?</div>
 
 
 
@@ -19,7 +19,7 @@
                 <td>{{event.name}}</td>
                 <td>
                     <button type="button" class="btn btn-primary" ng-click="show(event)">Visa</button>
-                    <button type="button" class="btn btn-primary" ng-click="edit(event)">Redigera</button>
+                    <button type="button" class="btn btn-primary" ng-click="updateEvent(event)">Redigera</button>
                     <button type="button" class="btn btn-primary" ng-click="delete(event)">Radera</button>
                 </td>
             </tr>
@@ -43,3 +43,4 @@
     <p>{{infoWindow.created_at}}</p>
     <p class="text-center" ng-repeat="info in infoWindow">{{info.address}}</p>
 </div>
+

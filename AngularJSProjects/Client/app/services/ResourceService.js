@@ -12,9 +12,9 @@ angular
     .factory('ResourceService', ResourceService); // register the recipe for the service
 
 // We inject the http (for AJAX-handling) and the API
-ResourceService.$inject = ['$http', 'APIConstant'];
+ResourceService.$inject = ['$http', 'APIConstant', '$cookies'];
 
-function ResourceService($http, APIConstant) {
+function ResourceService($http, APIConstant, $cookies) {
 
     // Returns the Service - Get the collectionName as parameter
     return function (collectionName) {
@@ -112,20 +112,35 @@ function ResourceService($http, APIConstant) {
             });
         };
 
-        Resource.save = function(collectionName, data) {
+        Resource.save = function(collectionName, data, method, id) {
+            var jsonKey = 'Bearer ' +$cookies.get("key");
+
+            if(id != undefined){
+                collectionName = collectionName+'/'+id;
+            }
+
             var req = {
-                method: 'POST',
-                url: API.url +collectionName, // this is the entry point in my example
+                method: method,
+                url: APIConstant.url +collectionName, // this is the entry point in my example
                 headers: {
-                    'Accept': APIConstant.format,
-                    'X-APIKEY': APIConstant.key,
-                    'Authorization' : APIConstant.key
-                },
-                params: {
-                    'limit': '500'
-                },
-                data : data
+                        'Accept': APIConstant.format,
+                        'Authorization' : jsonKey
+                        },
+                data :
+                            {
+                                "name": data.name,
+                                "description": data.description,
+                                "position": {
+                                    "long": data.long,
+                                    "lat": data.lat
+                                },
+                                "tag": {
+                                    "name": data.tag
+                                }
+                            }
+
             };
+
             return $http(req).then(function(response){
                 return new Resource(response.data);
             });

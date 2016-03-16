@@ -37,7 +37,7 @@ angular
                 console.log(config);
 
                 //If we succeeded we got a token - can be used to autenticate us
-                $rootScope.token = data.auth_token.substring(0, 20) +"...";
+                $rootScope.token = data.auth_token;
                 $rootScope.creator_id = data.creator_id;
                 $rootScope.isLoggedIn = true;
                 //set cookie

@@ -119,16 +119,9 @@ function EventService(resourceService, localStorage, LS, $q) {
             // return the promise to the caller (this is returned before we got data - async)
             return deferred.promise;
         },
-        saveEvent:function(data) {
+        saveEvent:function(data, method, id) {
 
-            data = { "event":
-            {
-                "name": "From AngularJS",
-                "age": 12,
-                "team_id" : 1
-            }
-            }
-            var promise = Event.save('events', data).then(function(data) {
+            var promise = Event.save('events', data, method, id).then(function(data) {
                 console.log(data);
             });
             return promise;
