@@ -3,7 +3,7 @@ object @event
 attributes :name, :description, :id, :created_at
 
 child :creator do
-  attributes :name, :email
+  attributes :name, :email, :id
 end
 
 child :position do

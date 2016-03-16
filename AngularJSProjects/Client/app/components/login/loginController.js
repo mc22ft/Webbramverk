@@ -34,15 +34,18 @@ angular
                 // Just check what we get back
                 console.log(data);
                 console.log(status);
-                console.log(config)
+                console.log(config);
 
-                // if we succeeded we got a token - can be used to autenticate us
+                //If we succeeded we got a token - can be used to autenticate us
                 $rootScope.token = data.auth_token.substring(0, 20) +"...";
+                $rootScope.creator_id = data.creator_id;
                 $rootScope.isLoggedIn = true;
                 //set cookie
                 $cookies.put("key", $rootScope.token);
                 var value = $cookies.get("key");
                 console.log(value);
+
+
             });
             // Something went wrong...
             promise.error(function(data, status, headers, config) {

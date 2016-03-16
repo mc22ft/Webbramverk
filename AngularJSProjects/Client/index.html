@@ -5,9 +5,10 @@
     <head>
         <meta charset="utf-8">
         <title>Kartan AngularJS</title>
-        <script src="https://maps.google.com/maps/api/js?v=3&libraries=places"></script>
-        <link rel="stylesheet" href="assets/css/bootstrap.css" />
+        <script src="https://maps.google.com/maps/api/js?v=3"></script>
 
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/css/style.css">
       <!-- Temp style -->
 <style>
     .angular-google-map-container { height: 400px; }
@@ -18,9 +19,14 @@
             <h1>Min Event tjänst!</h1>
         </header>
         <section>
-            <div class="map col-md-12">
+            <div class="map col-md-6">
                 <div data-ng-controller="LoginController as vm">
                     <div my-login></div>
+                </div>
+            </div>
+            <div class="map col-md-12" data-ng-show="$root.isLoggedIn">
+                <div data-ng-controller="UserEventsController as vm">
+                    <div my-user-events=""></div>
                 </div>
             </div>
             <div class="map col-md-12">
@@ -103,11 +109,14 @@
         <script type="text/javascript" src="app/services/TagService.js"></script>
         <script type="text/javascript" src="app/services/ResourceService.js"></script>
         <!-- controllers -->
-        <script type="text/javascript" src="app/components/events/EventListController.js"></script>
-        <script type="text/javascript" src="app/components/events/EventDetailController.js"></script>
-        <script type="text/javascript" src="app/components/map/MapController.js"></script>
+         <script type="text/javascript" src="app/components/map/MapController.js"></script>
         <script type="text/javascript" src="app/components/filterMap/searchController.js"></script>
         <script type="text/javascript" src="app/components/tag/tagController.js"></script>
         <script type="text/javascript" src="app/components/login/loginController.js"></script>
+        <script type="text/javascript" src="app/components/login/userEvent/UserEventsController.js"></script>
+
+
+
+
     </body>
 </html>

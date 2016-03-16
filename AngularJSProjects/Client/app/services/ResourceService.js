@@ -76,7 +76,7 @@ function ResourceService($http, APIConstant) {
 
          */
 
-        Resource.getSingle = function(resourceInfo) {
+        Resource.getSingle = function(resource, resourceInfo) {
 
             var url;
             console.log(resourceInfo);
@@ -97,7 +97,9 @@ function ResourceService($http, APIConstant) {
                 url: url,
                 headers: {
                     'Accept': APIConstant.format,
-                    'X-APIKEY': APIConstant.key
+                    "Authorization" : 'Token token="1fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"'
+
+                    //'X-APIKEY': APIConstant.key
                 },
                 params: {
                     'limit': '500'

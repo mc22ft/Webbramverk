@@ -1,0 +1,45 @@
+
+<div class="col-md-6">
+    <button type="button" class="btn btn-primary" ng-click="add()">Visa</button>
+</div>
+
+<div data-ng-include src="'partials/shared/menu.html'"> Should be replaced?</div>
+
+
+
+<div class="col-md-6">
+    <h2>EventsList</h2>
+    <table class="table table-bordered">
+            <thead>
+                <th>Name</th>
+                <th>Åtgärd</th>
+            </thead>
+        <tbody>
+            <tr ng-repeat="event in vm.userEvents" data-ng-show="event.creator.id === $root.creator_id">
+                <td>{{event.name}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" ng-click="show(event)">Visa</button>
+                    <button type="button" class="btn btn-primary" ng-click="edit(event)">Redigera</button>
+                    <button type="button" class="btn btn-primary" ng-click="delete(event)">Radera</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="col-md-6">
+    <h2>show event from logged in user</h2>
+    <div  class="col-md-6">
+        <h3 class="text-center">{{showEvent.name}}</h3>
+        <p class="text-center">{{showEvent.description}}</p>
+        <p ng-repeat="info in showEvent">{{info.name}}</p>
+        <p>{{showEvent.created_at}}</p>
+        <p class="text-center" ng-repeat="info in showEvent">{{info.address}}</p>
+    </div>
+</div>
+<div ng-hide="showInfoBox()" class="col-md-6">
+    <h3 class="text-center">{{infoWindow.name}}</h3>
+    <p class="text-center">{{infoWindow.description}}</p>
+    <p ng-repeat="info in infoWindow">{{info.name}}</p>
+    <p>{{infoWindow.created_at}}</p>
+    <p class="text-center" ng-repeat="info in infoWindow">{{info.address}}</p>
+</div>

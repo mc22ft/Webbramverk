@@ -76,27 +76,6 @@ angular
         return vm;
 
 
-    // We must use this for hadling the map
-    //$scope.$on('mapInitialized', function(evt, evtMap) {
-        //map = evtMap;
-        // Called from view when user clicked on map
-
-        //vm.map = {center: {latitude: 51.219053, longitude: 4.404418 }, zoom: 14 };
-        //vm.options = {scrollwheel: false};
-
-
-        //vm.checkPosition = function(e) {
-        //    console.log(e.latLng);
-        //    // Create the marker
-        //    var marker = new google.maps.Marker({position: e.latLng, map: map});
-        //    map.panTo(e.latLng);
-        //};
-
-
-
-    //});
-
-
 
     })
     .directive('myMap', function() {
