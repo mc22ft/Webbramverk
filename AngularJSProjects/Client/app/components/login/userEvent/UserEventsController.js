@@ -118,6 +118,7 @@ angular
                         name: event.name,
                         description: event.description,
                         tag: tag[0].tag.name,
+                        id: event.id,
                     };
 
 
@@ -152,8 +153,6 @@ angular
                             });
                     };
 
-
-
                     //event to view
                     $scope.showEvent = data.event;
                 })
@@ -162,6 +161,23 @@ angular
                 });
         }//end updateEvent function
 
+        //function that delete
+        $scope.deleteEvent = function(id) {
+
+            var EventPromise = EventService.deleteEvent(id);
+            // then is called when the function delivers
+            EventPromise
+                .then(function(data){
+
+                    var e = data;
+
+                })
+                .catch(function(error) {
+                    console.log("ERROR");
+                });
+
+
+        }//end deleteEvent function
 
 
         return vm;

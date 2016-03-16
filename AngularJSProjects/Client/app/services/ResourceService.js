@@ -102,7 +102,7 @@ function ResourceService($http, APIConstant, $cookies) {
                     //'X-APIKEY': APIConstant.key
                 },
                 params: {
-                    'limit': '500'
+                    'limit': '50'
                 }
             };
             // return the promise
@@ -126,7 +126,7 @@ function ResourceService($http, APIConstant, $cookies) {
                         'Accept': APIConstant.format,
                         'Authorization' : jsonKey
                         },
-                data :
+                data : { "event":
                             {
                                 "name": data.name,
                                 "description": data.description,
@@ -138,7 +138,25 @@ function ResourceService($http, APIConstant, $cookies) {
                                     "name": data.tag
                                 }
                             }
+                        }
+                    };
 
+                    return $http(req).then(function(response){
+                        return new Resource(response.data);
+                    });
+                };
+
+        Resource.delete = function(collectionName, id) {
+            var jsonKey = 'Bearer ' +$cookies.get("key");
+            collectionName = collectionName+'/'+id;
+
+            var req = {
+                method: 'DELETE',
+                url: APIConstant.url +collectionName, // this is the entry point in my example
+                headers: {
+                    'Accept': APIConstant.format,
+                    'Authorization' : jsonKey
+                }
             };
 
             return $http(req).then(function(response){
@@ -150,3 +168,4 @@ function ResourceService($http, APIConstant, $cookies) {
     }
 
 };
+

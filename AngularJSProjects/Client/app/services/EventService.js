@@ -125,6 +125,13 @@ function EventService(resourceService, localStorage, LS, $q) {
                 console.log(data);
             });
             return promise;
+        },
+        deleteEvent:function(id) {
+
+            var promise = Event.delete('events', id).then(function(data) {
+                console.log(data);
+            });
+            return promise;
         }
     };
 }

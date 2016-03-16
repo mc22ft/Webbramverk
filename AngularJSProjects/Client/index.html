@@ -17,15 +17,17 @@
     </head>
     <body>
         <header>
-            <h1>Min Event tjänst!</h1>
+            <h1 class="map col-md-6">Min Event tjänst!</h1>
+            <hr />
         </header>
+
         <section>
             <div class="map col-md-6">
                 <div data-ng-controller="LoginController as vm">
                     <div my-login></div>
                 </div>
             </div>
-            <div class="map col-md-12" data-ng-show="$root.isLoggedIn">
+            <div class="map col-md-12">
                 <div data-ng-controller="UserEventsController as vm">
                     <div my-user-events=""></div>
                 </div>
