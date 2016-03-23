@@ -6,6 +6,13 @@ angular
         var vm = this;
         vm.hideElement = true;
 
+
+        //call from searchController
+        $rootScope.$on("CallParentMethod", function(event, data){
+            vm.hideElement = true;
+            vm.infoToBox(data);
+        });
+
         //Send info to view - right side of map
         vm.infoToBox = function(data) {
             vm.hideElement = false;
@@ -53,6 +60,7 @@ angular
                         map.fitBounds(bounds);
                         vm.map = map;
                     });
+
 
 
                     vm.showDetail = function(e, shop) {

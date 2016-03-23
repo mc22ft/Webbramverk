@@ -6,6 +6,9 @@ angular
     .controller("TagController", function(TagService, EventService, $scope, $rootScope) {
         var vm = this;
 
+
+
+
         //get all tags name
         var TagPromise = TagService.get();
 

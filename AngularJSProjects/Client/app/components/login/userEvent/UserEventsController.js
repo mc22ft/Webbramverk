@@ -83,7 +83,6 @@ angular
 
             NgMap.getMap({id:'foomap'}).then(function(map) {
                 vm.map = map;
-                var latlng = new google.maps.LatLng("18.068581, 59.329323");
             });
 
             $timeout(function(){
@@ -94,19 +93,25 @@ angular
             },100);
 
             vm.checkPosition = function(e) {
-
                 clearOverlays();
+
                 var marker = new google.maps.Marker({position: e.latLng, map: vm.map});
                 vm.markersArray.push(marker);
-                vm.map.panTo(vm.markersArray);
+                vm.map.panTo(e.latLng);
 
+                ///var marker = new google.maps.Marker({position: e.latLng, map: vm.map});
+
+                //vm.markersArray.push(marker);
+               // vm.map.panTo(vm.markersArray);
+
+
+                console.log(e.latLng.lng());
                 vm.viewLng = e.latLng.lng();
                 vm.viewLat = e.latLng.lat();
-
             }
 
 
-
+            
             $scope.toJSON = function(obj) {
                 return JSON.stringify(obj, null, 2);
             };
@@ -129,17 +134,11 @@ angular
                 vm.loadData();
             };
 
-
-
-
-
         }//end addEvent function
 
         //function that save new event
         $scope.saveNewEvent = function(form) {
-
-
-            if(vm.viewLng != undefined){
+           if(vm.viewLng != undefined){
 
                 var event = {
                         "name": form.name,
@@ -161,7 +160,7 @@ angular
                         $rootScope.doMap();
                         var e = data;
 
-                        var message = '<strong>Klart! </strong> Du har skapat ett nytt event.';
+                        var message = '<strong>Klart!</strong> Du har skapat ett nytt event.';
                         Flash.create('success', message);
 
                     })
@@ -170,7 +169,7 @@ angular
                     });
                 }else{
                 //error message set marker on map
-                var message = '<strong>Oups! </strong> Du måste sätta en markering på kartan.';
+                var message = '<strong>Oups!</strong> Du måste sätta en markering på kartan.';
                 Flash.create('warning', message);
 
             }
