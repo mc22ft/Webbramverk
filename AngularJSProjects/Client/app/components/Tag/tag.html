@@ -2,21 +2,22 @@
 <div class="col-md-12">
     <div class="input-group">
         <input type="text" class="form-control" placeholder="Sök tag..." ng-model="selected" uib-typeahead="state for state in states | filter:$viewValue | limitTo:8">
-                <span class="input-group-btn">
-                    <button type="button" class="btn btn-default" ng-click="getTags()">Hämta</button>
-                </span>
+        <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="getTags()">Hämta</button>
+        </span>
     </div>
-
-    <table class="table table-hover">
-        <thead>
-        <th>Name</th>
-        </thead>
-        <tbody>
-        <tr ng-repeat="event in filteredBacklog = (vm.searchTags | filter:{$: criteria})">
-            <td>{{event.name}}</td>
-            <td><button type="button" class="btn btn-default" ng-click="go(event)">Hämta event!</button></td>
-        </tr>
-        Total: {{filteredBacklog.length}}
-        </tbody>
-    </table>
+    <div class="scroll">
+        <table class="table table-hover">
+            <thead>
+            <th>Name</th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="event in filteredBacklog = (vm.searchTags | filter:{$: criteria})">
+                <td>{{event.name}}</td>
+                <td><button type="button" class="btn btn-default" ng-click="go(event)">Hämta event!</button></td>
+            </tr>
+            Total: {{filteredBacklog.length}}
+            </tbody>
+        </table>
+    </div>
 </div>

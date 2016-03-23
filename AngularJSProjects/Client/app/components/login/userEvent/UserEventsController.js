@@ -1,6 +1,9 @@
 /**
  * Created by MathiasClaesson on 2016-03-15.
+ *
+ * Handle login views
  */
+
 angular
     .module('clientApp')
     .controller("UserEventsController", function(EventService, NgMap, $scope,
@@ -13,10 +16,6 @@ angular
         vm.showList = true;
         vm.showUpdateForm = false;
         vm.showEventItem = false;
-
-
-
-
 
 
         vm.loadData = function () {
@@ -37,8 +36,9 @@ angular
                     vm.userEvents = events;
 
                 })
-                .catch(function(error) {
-                    console.log("ERROR");
+                .catch(function(data) {
+                    var message = '<strong>Fel!</strong> ' + data.message + '.';
+                    Flash.create('danger', message);
                 });
         }
         vm.loadData();
@@ -58,8 +58,9 @@ angular
                     //event to view
                     $scope.showEvent = data.event;
                 })
-                .catch(function(error) {
-                    console.log("ERROR");
+                .catch(function(data) {
+                    var message = '<strong>Fel!</strong> ' + data.message + '.';
+                    Flash.create('danger', message);
                 });
         }//end show function
 
@@ -110,23 +111,6 @@ angular
                 vm.viewLat = e.latLng.lat();
             }
 
-
-            
-            $scope.toJSON = function(obj) {
-                return JSON.stringify(obj, null, 2);
-            };
-
-            $scope.getCssClasses = function(ngModelController) {
-                return {
-                    error: ngModelController.$invalid && ngModelController.$dirty,
-                    success: ngModelController.$valid && ngModelController.$dirty
-                };
-            };
-
-            $scope.showError = function(ngModelController, error) {
-                return ngModelController.$error[error];
-            };
-
             $scope.removeAddEvent = function() {
                 vm.showList = true;
                 vm.showForm = false;
@@ -138,41 +122,50 @@ angular
 
         //function that save new event
         $scope.saveNewEvent = function(form) {
-           if(vm.viewLng != undefined){
+            if (form.name != undefined && form.description != undefined && form.tag != undefined ){
 
-                var event = {
-                        "name": form.name,
-                        "description": form.description,
-                            "long": vm.viewLng,
-                            "lat": vm.viewLat,
-                            "tag": form.tag
-                };
 
-                //send save
-                var EventPromise = EventService.saveEvent(event, 'POST');
-                // then is called when the function delivers
-                EventPromise
-                    .then(function(data){
+               if(vm.viewLng != undefined){
 
-                        vm.showNewForm = false;
-                        vm.showList = true;
-                        vm.loadData();
-                        $rootScope.doMap();
-                        var e = data;
+                    var event = {
+                            "name": form.name,
+                            "description": form.description,
+                                "long": vm.viewLng,
+                                "lat": vm.viewLat,
+                                "tag": form.tag
+                    };
 
-                        var message = '<strong>Klart!</strong> Du har skapat ett nytt event.';
-                        Flash.create('success', message);
+                    //send save
+                    var EventPromise = EventService.saveEvent(event, 'POST');
+                    // then is called when the function delivers
+                    EventPromise
+                        .then(function(data){
 
-                    })
-                    .catch(function(error) {
-                        console.log("ERROR");
-                    });
-                }else{
-                //error message set marker on map
-                var message = '<strong>Oups!</strong> Du måste sätta en markering på kartan.';
-                Flash.create('warning', message);
+                            vm.showNewForm = false;
+                            vm.showList = true;
+                            vm.loadData();
+                            $rootScope.doMap();
+                            var e = data;
 
-            }
+
+                            var form = document.getElementById("newForm");
+                            form.reset();
+
+                            var message = '<strong>Klart!</strong> Du har skapat ett nytt event.';
+                            Flash.create('success', message);
+
+                        })
+                        .catch(function(data) {
+                            var message = '<strong>Fel!</strong> ' + data.message + '.';
+                            Flash.create('danger', message);
+                        });
+                    }else{
+                    //error message set marker on map
+                    var message = '<strong>Oups!</strong> Du måste sätta en markering på kartan.';
+                    Flash.create('warning', message);
+
+                }
+            };
 
         }//end saveEvent function
 
@@ -202,13 +195,6 @@ angular
                         id: event.id,
                     };
 
-
-                    $scope.checkName = function(data) {
-                        if (data !== 'awesome' && data !== 'error') {
-                            return "Username should be `awesome` or `error`";
-                        }
-                    };
-
                     $scope.saveEvent = function(form) {
 
                         var position = event.position;
@@ -230,8 +216,9 @@ angular
                                 Flash.create('success', message);
 
                             })
-                            .catch(function(error) {
-                                console.log("ERROR");
+                            .catch(function(data) {
+                                var message = '<strong>Fel!</strong> ' + data.message + '.';
+                                Flash.create('danger', message);
                             });
                         vm.loadData();
                         //update map
@@ -244,8 +231,9 @@ angular
                     $scope.showEvent = data.event;
 
                 })
-                .catch(function(error) {
-                    console.log("ERROR");
+                .catch(function(data) {
+                    var message = '<strong>Fel!</strong> ' + data.message + '.';
+                    Flash.create('danger', message);
                 });
         }//end updateEvent function
 
@@ -269,8 +257,9 @@ angular
                     var message = '<strong>Klart!</strong> ' + data.message + '.';
                     Flash.create('success', message);
                 })
-                .catch(function(error) {
-                    console.log("ERROR");
+                .catch(function(data) {
+                    var message = '<strong>Fel!</strong> ' + data.message + '.';
+                    Flash.create('danger', message);
                 });
 
 

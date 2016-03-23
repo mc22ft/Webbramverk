@@ -1,8 +1,7 @@
 
-
 <div class="pull-right" data-ng-controller="LoginController as user">
     <div class="col-md-3" >
-        <button ng-click="toggleModal()" class="btn btn-success" data-ng-show="!$root.isLoggedIn" >Logga in</button>
+        <button ng-click="login()" class="btn btn-success" data-ng-show="!$root.isLoggedIn" >Logga in</button>
         <button ng-click="logout()" class="btn btn-danger" data-ng-show="$root.isLoggedIn" >Logga ut</button>
     </div>
 

@@ -7,23 +7,27 @@
     <div class="text-center col-md-6">
         <h3>Skapa nytt event</h3>
         <p>En position på kartan måste sättas</p>
-        <form name="eventForm">
+
+        <form name="eventForm" id="newForm" data-toggle="validator" role="form">
             <!-- user input info -->
             <div class="form-group">
-                <label for="name">Namn</label>
-                <input type="text" ng-model="event.name" name="name" id="name" required>
+                <label for="name" class="control-label" >Namn</label>
+                <input type="text" class="form-control" ng-model="event.name" name="name" id="name" required>
+                <div class="help-block with-errors"></div>
             </div>
             <div class="form-group">
-                <label for="description">Recension</label>
-                <textarea type="text" ng-model="event.description" name="description" id="description" required></textarea>
+                <label for="description" class="control-label">Recension</label>
+                <textarea type="text" class="form-control" ng-model="event.description" name="description" id="description" required></textarea>
             </div>
             <!-- user input tag -->
             <div class="form-group">
-                <label for="tag">tag</label>
-                <input type="text" ng-model="event.tag" name="tag" id="tag" required>
+                <label for="tag" class="control-label">tag</label>
+                <input type="text" class="form-control" ng-model="event.tag" name="tag" id="tag" required>
             </div>
-            <button type="button" class="btn btn-success" ng-click="saveNewEvent(event)" >Spara</button>
-            <button type="button" class="btn btn-default" ng-click="removeAddEvent()" >Avbryt</button>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success" ng-click="saveNewEvent(event)" >Spara</button>
+                <button type="submit" class="btn btn-default" ng-click="removeAddEvent()" >Avbryt</button>
+            </div>
         </form>
     </div>
    <div class="col-md-6">

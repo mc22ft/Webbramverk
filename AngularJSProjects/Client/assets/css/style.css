@@ -47,6 +47,10 @@ form[name="editableForm"] select {
     margin-top: 20px;
 }
 
+#foomap {
+    margin-top: 50px;
+}
+
 .croll {
     height: 300px !important;
     overflow: scroll;
@@ -55,6 +59,7 @@ form[name="editableForm"] select {
 .notLoggedInContent {
     margin-top: 30px;
     margin-bottom: 30px;
+
 }
 .loggedInContent {
     margin-top: 30px;

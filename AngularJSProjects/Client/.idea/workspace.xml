@@ -2,12 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc8bb5bc-67ea-4f9d-afd3-ecc212bf377e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/app/shared/menu.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/Tag/tag.html" afterPath="$PROJECT_DIR$/app/components/Tag/tag.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/Tag/tagController.js" afterPath="$PROJECT_DIR$/app/components/Tag/tagController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/filterMap/search.html" afterPath="$PROJECT_DIR$/app/components/filterMap/search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/filterMap/searchController.js" afterPath="$PROJECT_DIR$/app/components/filterMap/searchController.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/login/login.html" afterPath="$PROJECT_DIR$/app/components/login/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/login/loginController.js" afterPath="$PROJECT_DIR$/app/components/login/loginController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js" afterPath="$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/login/userEvent/form-update.html" afterPath="$PROJECT_DIR$/app/components/login/userEvent/form-update.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/login/userEvent/form-new.html" afterPath="$PROJECT_DIR$/app/components/login/userEvent/form-new.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/map/map.html" afterPath="$PROJECT_DIR$/app/components/map/map.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/components/map/mapController.js" afterPath="$PROJECT_DIR$/app/components/map/mapController.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/css/style.css" afterPath="$PROJECT_DIR$/assets/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="Client.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,14 +37,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="UserEventsController.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UserEventsController.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18114144">
-              <caret line="113" column="12" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="12" />
-              <folding>
-                <element signature="e#0#52#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-9.444445">
+              <caret line="233" column="39" selection-start-line="233" selection-start-column="39" selection-end-line="235" selection-end-column="52" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,38 +50,38 @@
       <file leaf-file-name="form-update.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/form-update.html">
           <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.4705882">
+              <caret line="18" column="19" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="map.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/map/map.html">
+          <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-0.625">
-              <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="46" />
+              <caret line="1" column="71" selection-start-line="1" selection-start-column="71" selection-end-line="1" selection-end-column="71" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/css/style.css">
+      <file leaf-file-name="searchController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/filterMap/searchController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.4583333">
-              <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="32" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tag.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/Tag/tag.html">
+      <file leaf-file-name="navbar.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/components/shared/navbar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.0">
-              <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="94" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/filterMap/search.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.75">
-              <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
+            <state vertical-scroll-proportion="0.25862068">
+              <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -84,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/app/components/Tag/tagController.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
               <folding>
                 <element signature="e#0#52#0" expanded="false" />
               </folding>
@@ -92,21 +99,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mapController.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/map/mapController.js">
+      <file leaf-file-name="tag.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/Tag/tag.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.6666665">
-              <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+            <state vertical-scroll-proportion="-2.372549">
+              <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/list.html">
+      <file leaf-file-name="loginController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/login/loginController.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.375">
-              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+            <state vertical-scroll-proportion="14.518518">
+              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mapController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/components/map/mapController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -131,7 +158,6 @@
       <list>
         <option value="$PROJECT_DIR$/app/services/TagService.js" />
         <option value="$PROJECT_DIR$/app/components/login/login.js" />
-        <option value="$PROJECT_DIR$/app/components/filterMap/searchController.js" />
         <option value="$PROJECT_DIR$/app/components/login/userEvnts/userEvents.js" />
         <option value="$PROJECT_DIR$/app/components/login/userEvnts/userEvents.html" />
         <option value="$PROJECT_DIR$/app/components/login/userEvnts/userEventsController.js" />
@@ -157,29 +183,30 @@
         <option value="vm:93" />
         <option value="$PROJECT_DIR$/app/services/ResourceService.js" />
         <option value="$PROJECT_DIR$/app/components/login/userEvent/form-list.html" />
-        <option value="$PROJECT_DIR$/app/components/shared/navbar.html" />
-        <option value="$PROJECT_DIR$/app/components/login/loginController.js" />
-        <option value="$PROJECT_DIR$/app/components/filterMap/search.html" />
-        <option value="$PROJECT_DIR$/app/components/Tag/tag.html" />
-        <option value="$PROJECT_DIR$/app/components/login/login.html" />
-        <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/services/EventService.js" />
-        <option value="$PROJECT_DIR$/app/components/map/map.html" />
         <option value="maps.googleapis.com/maps/api/js/QuotaService.RecordEvent?1shttp%3A%2F%2Flocalhost%3A63343%2FClient%2Findex.html&amp;5e0&amp;6u1&amp;7s4nxdsx&amp;callback=_xdc_._w2rwy&amp;token=94272" />
         <option value="maps.googleapis.com/maps/api/js/QuotaService.RecordEvent?1shttp%3A%2F%2Flocalhost%3A63343%2FClient%2Findex.html&amp;5e0&amp;6u1&amp;7s4nxhd9&amp;callback=_xdc_._136iiw&amp;token=7575" />
         <option value="code.jquery.com/jquery-2.1.3.min.js" />
         <option value="maps.google.com/maps-api-v3/api/js/23/8/intl/sv_ALL/marker.js" />
         <option value="maps.google.com/maps-api-v3/api/js/23/8/intl/sv_ALL/util.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/app/components/login/userEvent/userEvents.html" />
-        <option value="$PROJECT_DIR$/app/components/login/userEvent/form-new.html" />
         <option value="$PROJECT_DIR$/app/components/login/userEvent/list.html" />
-        <option value="$PROJECT_DIR$/app/components/Tag/tagController.js" />
-        <option value="$PROJECT_DIR$/app/components/login/userEvent/form-update.html" />
-        <option value="$PROJECT_DIR$/assets/css/style.css" />
         <option value="maps.google.com/maps/api/js?v=3" />
-        <option value="$PROJECT_DIR$/app/components/map/mapController.js" />
+        <option value="$PROJECT_DIR$/app/components/login/userEvent/form-new.html" />
+        <option value="$PROJECT_DIR$/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/app/components/login/userEvent/form-update.html" />
+        <option value="$PROJECT_DIR$/app/components/Tag/tag.html" />
+        <option value="$PROJECT_DIR$/app/components/filterMap/search.html" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/app/components/login/login.html" />
+        <option value="$PROJECT_DIR$/app/components/login/loginController.js" />
         <option value="$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js" />
+        <option value="$PROJECT_DIR$/app/components/map/map.html" />
+        <option value="$PROJECT_DIR$/app/components/shared/navbar.html" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/app/components/map/mapController.js" />
+        <option value="$PROJECT_DIR$/app/components/filterMap/searchController.js" />
+        <option value="$PROJECT_DIR$/app/components/Tag/tagController.js" />
       </list>
     </option>
   </component>
@@ -189,9 +216,9 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="308" />
+    <option name="x" value="401" />
     <option name="y" value="86" />
-    <option name="width" value="1083" />
+    <option name="width" value="989" />
     <option name="height" value="800" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -264,57 +291,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -593,10 +570,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="308" y="86" width="1083" height="800" extended-state="0" />
+    <frame x="401" y="86" width="989" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23258004" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25516528" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816902" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32816902" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -627,14 +604,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js</url>
-          <line>108</line>
-          <option name="timeStamp" value="139" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="140" />
+      <option name="time" value="143" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -750,13 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/shared/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bower_components/angular-route/angular-route.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -812,34 +775,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/shared/navbar.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15558" column="27" selection-start-line="15558" selection-start-column="26" selection-end-line="15558" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/login/loginController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/ResourceService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -854,25 +789,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/login/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="109" selection-start-line="5" selection-start-column="109" selection-end-line="5" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/services/EventService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="121" column="34" selection-start-line="121" selection-start-column="34" selection-end-line="121" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/map/map.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -902,34 +822,31 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.625">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/userEvents.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.75">
-          <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
-          <folding />
-        </state>
+    <entry file="https://maps.google.com/maps/api/js?v=3">
+      <provider selected="true" editor-type-id="httpFileEditor">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/form-new.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="37" />
+        <state vertical-scroll-proportion="-13.75">
+          <caret line="22" column="36" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bower_components/angular/angular.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15813954">
+          <caret line="15147" column="58" selection-start-line="15147" selection-start-column="58" selection-end-line="15147" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -937,41 +854,95 @@
     <entry file="file://$PROJECT_DIR$/app/components/filterMap/search.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.75">
-          <caret line="6" column="15" selection-start-line="6" selection-start-column="15" selection-end-line="6" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/Tag/tag.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.0">
-          <caret line="16" column="85" selection-start-line="16" selection-start-column="85" selection-end-line="16" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/Tag/tagController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#52#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/form-update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.625">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="46" />
+          <caret line="6" column="19" selection-start-line="6" selection-start-column="19" selection-end-line="6" selection-end-column="19" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.4583333">
-          <caret line="40" column="16" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+        <state vertical-scroll-proportion="-1.875">
+          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/userEvents.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.0">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/login/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.375">
+          <caret line="7" column="3" selection-start-line="7" selection-start-column="3" selection-end-line="19" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.125">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/map/map.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.625">
+          <caret line="1" column="71" selection-start-line="1" selection-start-column="71" selection-end-line="1" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.444445">
+          <caret line="233" column="39" selection-start-line="233" selection-start-column="39" selection-end-line="235" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/form-update.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4705882">
+          <caret line="18" column="19" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/map/mapController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/Tag/tag.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.372549">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/login/loginController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="14.518518">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -979,31 +950,26 @@
     <entry file="file://$PROJECT_DIR$/app/components/filterMap/searchController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="25" column="47" selection-start-line="25" selection-start-column="47" selection-end-line="25" selection-end-column="47" />
+          <caret line="30" column="28" selection-start-line="30" selection-start-column="28" selection-end-line="32" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="https://maps.google.com/maps/api/js?v=3">
-      <provider selected="true" editor-type-id="httpFileEditor">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/map/mapController.js">
+    <entry file="file://$PROJECT_DIR$/app/components/Tag/tagController.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.6666665">
-          <caret line="55" column="0" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/components/login/userEvent/UserEventsController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18114144">
-          <caret line="113" column="12" selection-start-line="113" selection-start-column="12" selection-end-line="113" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="14" selection-start-line="65" selection-start-column="14" selection-end-line="65" selection-end-column="14" />
           <folding>
             <element signature="e#0#52#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/components/shared/navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.25862068">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>

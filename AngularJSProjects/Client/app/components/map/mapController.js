@@ -6,7 +6,6 @@ angular
         var vm = this;
         vm.hideElement = true;
 
-
         //call from searchController
         $rootScope.$on("CallParentMethod", function(event, data){
             vm.hideElement = true;
@@ -19,6 +18,13 @@ angular
             $scope.infoWindow = data;
             //map.setZoom(8);
             //map.setCenter(marker.getPosition());
+        }
+
+        $scope.showInfoBoxMainText = function(){
+            if(vm.hideElement != false){
+                return false;
+            }
+            return true;
         }
 
         $scope.showInfoBox = function(){
@@ -46,7 +52,6 @@ angular
                     vm.shops = events;
 
                     // MAP MAP MAP
-
                     //Fit bounds marker
                     var bounds = new google.maps.LatLngBounds();
                     for (var i=0; i < vm.shops.length; i++) {
@@ -61,8 +66,6 @@ angular
                         vm.map = map;
                     });
 
-
-
                     vm.showDetail = function(e, shop) {
                         vm.shop = shop;
                         vm.map.showInfoWindow('myInfoWindow', this);
@@ -71,23 +74,15 @@ angular
                     vm.hideDetail = function() {
                         vm.map.hideInfoWindow('myInfoWindow');
                     };
-
-
-
                 })
-                .catch(function(error) {
-                    console.log("ERROR");
+                .catch(function(data) {
+                    var message = '<strong>Fel!</strong> ' + data.message + '.';
+                    Flash.create('danger', message);
                 });
         }
 
         $rootScope.doMap();
-
-
-
         return vm;
-
-
-
     })
     .directive('myMap', function() {
         return {

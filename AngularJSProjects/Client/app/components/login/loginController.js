@@ -6,7 +6,7 @@ angular
     .controller("LoginController", function($http, $scope, $rootScope, $cookies) {
 
         $scope.showModal = false;
-        $scope.toggleModal = function(){
+        $scope.login = function(){
             $scope.showModal = !$scope.showModal;
         };
 
@@ -44,10 +44,6 @@ angular
             var promise = $http.get(url);
             // I take care of it in same controller...
             promise.success(function(data, status, headers, config) {
-                // Just check what we get back
-                console.log(data);
-                console.log(status);
-                console.log(config);
 
                 //If we succeeded we got a token - can be used to autenticate us
                 $rootScope.token = data.auth_token;
@@ -55,9 +51,6 @@ angular
                 $rootScope.isLoggedIn = true;
                 //set cookie
                 $cookies.put("key", $rootScope.token);
-
-
-
 
             });
             // Something went wrong...
@@ -76,47 +69,47 @@ angular
             templateUrl: 'app/components/login/login.html'
         };
     })
+    .directive('modal', function () {
+        return {
 
-.directive('modal', function () {
-    return {
-        template: '<div class="modal fade">' +
-        '<div class="modal-dialog">' +
-        '<div class="modal-content">' +
-        '<div class="modal-header">' +
-        '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
-        '<h4 class="modal-title">{{ title }}</h4>' +
-        '</div>' +
-        '<div class="modal-body" ng-transclude></div>' +
-        '</div>' +
-        '</div>' +
-        '</div>',
-        restrict: 'E',
-        transclude: true,
-        replace:true,
-        scope:true,
-        link: function postLink(scope, element, attrs) {
-            scope.title = attrs.title;
+            //build html
+            template: '<div class="modal fade">' +
+            '<div class="modal-dialog">' +
+            '<div class="modal-content">' +
+            '<div class="modal-header">' +
+            '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
+            '<h4 class="modal-title">{{ title }}</h4>' +
+            '</div>' +
+            '<div class="modal-body" ng-transclude></div>' +
+            '</div>' +
+            '</div>' +
+            '</div>',
+            restrict: 'E',
+            transclude: true,
+            replace:true,
+            scope:true,
+            link: function postLink(scope, element, attrs) {
+                scope.title = attrs.title;
 
-            scope.$watch(attrs.visible, function(value){
-                if(value == true)
-                    $(element).modal('show');
-                else
-                    $(element).modal('hide');
-            });
-
-            $(element).on('shown.bs.modal', function(){
-                scope.$apply(function(){
-                    scope.$parent[attrs.visible] = true;
+                scope.$watch(attrs.visible, function(value){
+                    if(value == true)
+                        $(element).modal('show');
+                    else
+                        $(element).modal('hide');
                 });
-            });
 
-            $(element).on('hidden.bs.modal', function(){
-                scope.$apply(function(){
-                    scope.$parent[attrs.visible] = false;
-
-
+                $(element).on('shown.bs.modal', function(){
+                    scope.$apply(function(){
+                        scope.$parent[attrs.visible] = true;
+                    });
                 });
-            });
-        }
-    };
+
+                $(element).on('hidden.bs.modal', function(){
+                    scope.$apply(function(){
+                        scope.$parent[attrs.visible] = false;
+
+                    });
+                });
+            }
+        };
 });

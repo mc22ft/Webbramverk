@@ -1,5 +1,5 @@
 <div class="col-md-6">
-    <ng-map default-style="true" center="59.329323, 18.068581" zoom="3"    >
+    <ng-map default-style="true" center="59.329323, 18.068581" zoom="3" >
         <marker id='{{shop.id}}'
                 position="{{shop.position.lat}},{{shop.position.long}}"
                 ng-repeat="shop in vm.shops"
@@ -15,12 +15,14 @@
     </ng-map>
 </div>
 
-
-
 <div ng-hide="showInfoBox()" class="col-md-6 text-center">
     <h3 class="text-center">{{infoWindow.name}}</h3>
     <p class="text-center">{{infoWindow.description}}</p>
     <p ng-repeat="info in infoWindow">{{info.name}}</p>
     <p>{{infoWindow.created_at}}</p>
     <p class="text-center" ng-repeat="info in infoWindow">{{info.address}}</p>
+</div>
+
+<div ng-hide="showInfoBoxMainText()" class="col-md-6 text-center">
+    <h3 class="text-center">Hitta ditt Event!</h3>
 </div>

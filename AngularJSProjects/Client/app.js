@@ -1,20 +1,24 @@
 /**
  * Created by MathiasClaesson on 2016-03-03.
+ *
+ *   $routeProvider not in use!!! Left code for future work...
+ *   I have
  */
+
 angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.bootstrap',
     'ngCookies', 'xeditable', 'ngFlash', 'ngAnimate']) // you must inject the ngRoute (included as a separate js-file)
         .config(['$routeProvider',
             function($routeProvider) {
                 $routeProvider.
                     when('/', {
-                        templateUrl: 'app/components/map/map.html',
-                        //this controller is merried to templateUrl
-                        //controller: '',
+                        templateUrl: 'app/components/login/userEvent/list.html',
+                        controller: 'MapController',//this controller is merried to templateUrl
+                        controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
-                    when('/events', {
-                        templateUrl: 'app/components/events/event_list.html',
-                        controller: 'EventListController',
-                        controllerAs: 'events' // events could be seen as an instance of the controller, use it in the view!
+                    when('/map', {
+                        templateUrl: 'app/components/map/map.html',
+                        controller: 'mapController',
+                        controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
                     when('/event/:id', {
                         templateUrl: 'app/components/events/event_detail.html',

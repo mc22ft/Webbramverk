@@ -10,7 +10,6 @@
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.min.css">
 
-
         <link rel="stylesheet" href="assets/css/style.css">
       <!-- Temp style -->
 <style>
@@ -21,7 +20,7 @@
         <div class="container">
             <header>
                 <!-- navbar -->
-                <div data-ng-include src="'app/components/shared/navbar.html'"> Should be replaced?</div>
+                <div data-ng-include src="'app/components/shared/navbar.html'"></div>
 
                 <flash-message duration="5000"></flash-message>
                 <!--
@@ -30,6 +29,11 @@
                 Call myCallback with flash dismissed as parameter when flash has been dismissed.
                 -->
             </header>
+
+            <!-- This part will be replaced by diffrent views specified in the app.js -->
+            <div data-ng-view>This should be replaced</div>
+
+
 
             <section>
                 <div class="">
