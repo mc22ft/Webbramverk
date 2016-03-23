@@ -14,8 +14,8 @@ angular
             .then(function(data){
 
                 vm.eventList = data;
-
                 var events = [];
+
                 //loop all events to fit view better
                 for (var j=0; j < vm.eventList.length; j++) {
                     events.push(vm.eventList[j].event);
@@ -28,11 +28,10 @@ angular
                     $rootScope.$emit("CallParentMethod", res);
                 }
             })
-            .catch(function(error) {
-                console.log("ERROR");
+            .catch(function(data) {
+                var message = '<strong>Fel!</strong> ' + data.message + '.';
+                Flash.create('danger', message);
             });
-
-
         return vm;
     })
     .directive('mySearch', function() {

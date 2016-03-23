@@ -6,9 +6,6 @@ angular
     .controller("TagController", function(TagService, EventService, $scope, $rootScope) {
         var vm = this;
 
-
-
-
         //get all tags name
         var TagPromise = TagService.get();
 
@@ -56,40 +53,20 @@ angular
                                     $scope.go = function(res) {
                                         $rootScope.$emit("CallParentMethod", res);
                                     }
-
                                 })
-                                .catch(function(error) {
-                                    console.log("ERROR");
+                                .catch(function(data) {
+                                    var message = '<strong>Fel!</strong> ' + data.message + '.';
+                                    Flash.create('danger', message);
                                 });
-
-
-
-
                         } else {
                             console.log('passar inte aoutocomlite');
-
                         }
-
                     }
-
                 };
-
-                $scope.onedit = function(){
-
-                    console.log($scope.selected );
-
-                }
-
-                //call mapcontroller to set focus on marker
-                //$scope.go = function(res) {
-                //    console.log("clicked", res);
-                //    $rootScope.$emit("CallParentMethod", res);
-                //}
-
-
             })
-            .catch(function(error) {
-                console.log("ERROR");
+            .catch(function(data) {
+                var message = '<strong>Fel!</strong> ' + data.message + '.';
+                Flash.create('danger', message);
             });
 
         return vm;
