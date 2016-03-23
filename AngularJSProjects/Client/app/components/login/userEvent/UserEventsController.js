@@ -3,37 +3,50 @@
  */
 angular
     .module('clientApp')
-    .controller("UserEventsController", function(EventService, $scope, $filter, $rootScope, $cookies) {
-
+    .controller("UserEventsController", function(EventService, NgMap, $scope,
+                                                 $filter, $rootScope, $cookies,
+                                                 Flash, $timeout) {
 
         var vm = this;
-        vm.showForm = false;
+        vm.markersArray = [];
+        vm.showNewForm = false;
+        vm.showList = true;
         vm.showUpdateForm = false;
+        vm.showEventItem = false;
 
-        var EventPromise = EventService.get();
-        // then is called when the function delivers
-        EventPromise
-            .then(function(data){
 
-                vm.eventList = data;
 
-                var events = [];
-                //loop all events to fit view better
-                for (var j=0; j < vm.eventList.length; j++) {
 
-                    events.push(vm.eventList[j].event);
-                }
-                //add list to view
-                vm.userEvents = events;
 
-            })
-            .catch(function(error) {
-                console.log("ERROR");
-            });
 
+        vm.loadData = function () {
+            var EventPromise = EventService.get();
+            // then is called when the function delivers
+            EventPromise
+                .then(function(data){
+
+                    vm.eventList = data;
+
+                    var events = [];
+                    //loop all events to fit view better
+                    for (var j=0; j < vm.eventList.length; j++) {
+
+                        events.push(vm.eventList[j].event);
+                    }
+                    //add list to view
+                    vm.userEvents = events;
+
+                })
+                .catch(function(error) {
+                    console.log("ERROR");
+                });
+        }
+        vm.loadData();
 
         //function that get one event by id
         $scope.show = function(res) {
+            vm.showEventItem = true;
+            vm.showUpdateForm = false;
             var id = res.id;
 
             var EventPromise = EventService.getEvent(id);
@@ -53,7 +66,46 @@ angular
 
         //function that get one event by id
         $scope.addEvent = function() {
-            vm.showForm = true;
+            vm.showEventItem = false;
+            vm.showNewForm = true;
+            vm.showUpdateForm = false;
+            vm.showList = false;
+
+
+            function clearOverlays() {
+                if (vm.markersArray) {
+                    for (i in vm.markersArray) {
+                        vm.markersArray[i].setMap(null);
+                    }
+                }
+            }
+
+
+            NgMap.getMap({id:'foomap'}).then(function(map) {
+                vm.map = map;
+                var latlng = new google.maps.LatLng("18.068581, 59.329323");
+            });
+
+            $timeout(function(){
+                var center = vm.map.getCenter();
+                google.maps.event.trigger(vm.map, 'resize');
+                vm.map.setCenter(center);
+                vm.map.setZoom(12);
+            },100);
+
+            vm.checkPosition = function(e) {
+
+                clearOverlays();
+                var marker = new google.maps.Marker({position: e.latLng, map: vm.map});
+                vm.markersArray.push(marker);
+                vm.map.panTo(vm.markersArray);
+
+                vm.viewLng = e.latLng.lng();
+                vm.viewLat = e.latLng.lat();
+
+            }
+
+
 
             $scope.toJSON = function(obj) {
                 return JSON.stringify(obj, null, 2);
@@ -70,6 +122,15 @@ angular
                 return ngModelController.$error[error];
             };
 
+            $scope.removeAddEvent = function() {
+                vm.showList = true;
+                vm.showForm = false;
+                vm.showNewForm = false;
+                vm.loadData();
+            };
+
+
+
 
 
         }//end addEvent function
@@ -77,31 +138,52 @@ angular
         //function that save new event
         $scope.saveNewEvent = function(form) {
 
-            var event = {
-                    "name": form.name,
-                    "description": form.description,
-                        "long": "18.06858",
-                        "lat": "59.32932",
-                        "tag": form.tag
-            };
-            //send save
-            var EventPromise = EventService.saveEvent(event, 'POST');
-            // then is called when the function delivers
-            EventPromise
-                .then(function(data){
 
-                    var e = data;
+            if(vm.viewLng != undefined){
 
-                })
-                .catch(function(error) {
-                    console.log("ERROR");
-                });
+                var event = {
+                        "name": form.name,
+                        "description": form.description,
+                            "long": vm.viewLng,
+                            "lat": vm.viewLat,
+                            "tag": form.tag
+                };
+
+                //send save
+                var EventPromise = EventService.saveEvent(event, 'POST');
+                // then is called when the function delivers
+                EventPromise
+                    .then(function(data){
+
+                        vm.showNewForm = false;
+                        vm.showList = true;
+                        vm.loadData();
+                        $rootScope.doMap();
+                        var e = data;
+
+                        var message = '<strong>Klart! </strong> Du har skapat ett nytt event.';
+                        Flash.create('success', message);
+
+                    })
+                    .catch(function(error) {
+                        console.log("ERROR");
+                    });
+                }else{
+                //error message set marker on map
+                var message = '<strong>Oups! </strong> Du måste sätta en markering på kartan.';
+                Flash.create('warning', message);
+
+            }
 
         }//end saveEvent function
 
-        //function that update
+
+
+
+            //function that update
         $scope.updateEvent = function(res) {
             vm.showUpdateForm = true;
+            vm.showEventItem = false;
 
             var id = res.id;
 
@@ -145,16 +227,23 @@ angular
                         EventPromise
                             .then(function(data){
 
-                                var e = data;
+                                var message = '<strong>Klart!</strong>Du har updaterat ett event.';
+                                Flash.create('success', message);
 
                             })
                             .catch(function(error) {
                                 console.log("ERROR");
                             });
-                    };
+                        vm.loadData();
+                        //update map
+                        $rootScope.doMap();
+
+
+                         };
 
                     //event to view
                     $scope.showEvent = data.event;
+
                 })
                 .catch(function(error) {
                     console.log("ERROR");
@@ -168,9 +257,18 @@ angular
             // then is called when the function delivers
             EventPromise
                 .then(function(data){
+                    vm.showNewForm = false;
+                    vm.showList = true;
+                    vm.showUpdateForm = false;
+                    vm.showEventItem = false;
 
-                    var e = data;
+                    //update list
+                    vm.loadData();
+                    $rootScope.doMap();
+                    vm.eventDeleted = "'+  +'";
 
+                    var message = '<strong>Klart!</strong> ' + data.message + '.';
+                    Flash.create('success', message);
                 })
                 .catch(function(error) {
                     console.log("ERROR");

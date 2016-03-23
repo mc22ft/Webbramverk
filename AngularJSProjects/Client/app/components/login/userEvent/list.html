@@ -1,0 +1,23 @@
+<div class="col-md-6 pull-left text-center" data-ng-show="vm.showList" >
+    <h2>Mina events!</h2>
+    <div class="croll">
+        <table class="table table-bordered">
+            <thead>
+            <th>Name</th>
+            <th></th>
+            </thead>
+            <tbody>
+            <tr ng-repeat="event in vm.userEvents" data-ng-show="event.creator.id === $root.creator_id">
+                <td>{{event.name}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary" ng-click="updateEvent(event)">Visa</button>
+                    <button type="button" class="btn btn-danger" ng-click="deleteEvent(event.id)">
+                        Radera
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

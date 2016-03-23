@@ -1,5 +1,7 @@
-<div class="col-md-12" data-ng-show="vm.showUpdateForm">
-    <form editable-form name="editableForm" onaftersave="saveEvent(event)">
+
+<div class="col-md-6 loggedInContent" data-ng-show="vm.showUpdateForm">
+    <form class="text-center" editable-form name="editableForm" onaftersave="saveEvent(event)">
+
         <div>
             <!-- editable event (text with validation) -->
             <span class="title">Namn: </span>
@@ -17,6 +19,13 @@
             <span class="title">Tag: </span>
             <span editable-text="event.tag" e-name="tag" e-required>{{ event.tag || 'empty' }}</span>
         </div>
+        <div>
+            <!-- not editable event (text with validation) -->
+            <p class="text-center" ng-repeat="info in showEvent">{{info.name}}</p>
+            <p class="text-center" >{{showEvent.created_at}}</p>
+            <p class="text-center" ng-repeat="info in showEvent">{{info.address}}</p>
+
+        </div>
 
         <div class="buttons">
             <!-- button to show form -->
@@ -31,9 +40,6 @@
                 <button type="button" class="btn btn-default" ng-disabled="editableForm.$waiting" ng-click="editableForm.$cancel()">
                     Ångra
                 </button>
-                  <button type="button" class="btn btn-danger" ng-disabled="editableForm.$waiting" ng-click="deleteEvent(event.id)">
-                      Radera
-                  </button>
           </span>
         </div>
     </form>

@@ -8,7 +8,9 @@
         <script src="https://maps.google.com/maps/api/js?v=3"></script>
 
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css">
+        <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.min.css">
+
+
         <link rel="stylesheet" href="assets/css/style.css">
       <!-- Temp style -->
 <style>
@@ -16,111 +18,88 @@
 </style>
     </head>
     <body>
-        <header>
-            <h1 class="map col-md-6">Min Event tjänst!</h1>
-            <hr />
-        </header>
+        <div class="container">
+            <header>
+                <!-- navbar -->
+                <div data-ng-include src="'app/components/shared/navbar.html'"> Should be replaced?</div>
 
-        <section>
-            <div class="map col-md-6">
-                <div data-ng-controller="LoginController as vm">
-                    <div my-login></div>
-                </div>
-            </div>
-            <div class="map col-md-12">
-                <div data-ng-controller="UserEventsController as vm">
-                    <div my-user-events=""></div>
-                </div>
-            </div>
-            <div class="map col-md-12">
-                <div data-ng-controller="MapController as vm">
-                    <div my-map></div>
-                </div>
-            </div>
-            <div class="search col-md-6">
-                <div data-ng-controller="SearchController as vm">
-                    <div my-search></div>
-                </div>
-            </div>
-            <div class="tag col-md-6">
-                <div data-ng-controller="TagController as vm">
-                    <div my-tag></div>
-                </div>
-            </div>
+                <flash-message duration="5000"></flash-message>
+                <!--
+                5000ms as the default duration to show flash message.
+                Show the close button (x on the right).
+                Call myCallback with flash dismissed as parameter when flash has been dismissed.
+                -->
+            </header>
 
-            <!--
-        <hr />
-        Includes a shared view (menu)
-        <div data-ng-include src="'components/shared/menu.html'"> Should be replaced?</div>
-        <hr />
-        -->
+            <section>
+                <div class="">
+                    <div data-ng-controller="LoginController as vm">
+                        <div my-login></div>
+                    </div>
+                </div>
+                <div class="" data-ng-show="$root.isLoggedIn">
+                    <div data-ng-controller="UserEventsController as vm">
+                        <div my-user-events=""></div>
+                    </div>
+                </div>
 
-            <!-- Map view (events)
-            <div data-ng-view>This should be replaced</div>
+                <div class="map col-md-12 notLoggedInContent">
+                    <div data-ng-controller="MapController as vm">
+                        <div my-map></div>
+                    </div>
+                </div>
+                <div class="search col-md-6">
+                    <div data-ng-controller="SearchController as vm">
+                        <div my-search></div>
+                    </div>
+                </div>
+                <div class="tag col-md-6">
+                    <div data-ng-controller="TagController as vm">
+                        <div my-tag></div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+
+            </footer>
+
+
+            <!-- template
+            <script type="text/javascript" src="../bower_components/jquery/dist/jquery.jS"></script>
+            <script type="text/javascript" src="../assets/js/bootstrap.js"></script>
             -->
-
-            <!-- This is a controller - It's scope is in the div-tag -->
-            <!-- Uning the ControllerAs-thing make nice namespacing
-        <div data-ng-controller="DemoController as person"> -->
-
-            <!-- data-ng-model sets a property which is databinded in the  script
-            <input type="text" data-ng-model="person.name" />-->
-
-            <!-- Declarative call to the scopes method
-            <button data-ng-click="person.toogleProps(person.name);">Show properties</button>
-            <h2>Hello {{ person.name }}!!</h2>
-
-            <div>
-                <h3>You are:</h3>
-                <ul>
-                    <li data-ng-repeat="prop in person.properties">
-                        {{ prop }}
-                    </li>
-                </ul>
-            </div>
-
-        </div>-->
-
-        </section>
-        <footer>
-
-        </footer>
+            <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+            <!-- Latest compiled and minified JavaScript -->
+            <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 
 
-        <!-- template
-        <script type="text/javascript" src="../bower_components/jquery/dist/jquery.jS"></script>
-        <script type="text/javascript" src="../assets/js/bootstrap.js"></script>
-        -->
-        <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-        <!-- Latest compiled and minified JavaScript -->
-        <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- js -->
+            <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+            <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+            <script type="text/javascript" src="bower_components/angular-localstorage/angular-localstorage.js"></script>
+            <!-- <script type="text/javascript" src="bower_components/angular/angular.min.js.map"></script> -->
+            <script src="//rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
+            <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+            <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+            <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
+            <script type="text/javascript" src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
+            <script type="text/javascript" src="bower_components/angular-flash-alert/dist/angular-flash.min.js"></script>
+            <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
 
-
-        <!-- js -->
-        <script type="text/javascript" src="bower_components/angular/angular.js"></script>
-        <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
-        <script type="text/javascript" src="bower_components/angular-localstorage/angular-localstorage.js"></script>
-        <!-- <script type="text/javascript" src="bower_components/angular/angular.min.js.map"></script> -->
-        <script src="//rawgit.com/allenhwkim/angularjs-google-maps/master/build/scripts/ng-map.min.js"></script>
-        <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
-        <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
-        <script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
-        <script type="text/javascript" src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
-
-        <script type="text/javascript" src="app.js"></script>
-        <!-- services -->
-        <script type="text/javascript" src="app/services/EventService.js"></script>
-        <script type="text/javascript" src="app/services/TagService.js"></script>
-        <script type="text/javascript" src="app/services/ResourceService.js"></script>
-        <!-- controllers -->
-         <script type="text/javascript" src="app/components/map/MapController.js"></script>
-        <script type="text/javascript" src="app/components/filterMap/searchController.js"></script>
-        <script type="text/javascript" src="app/components/tag/tagController.js"></script>
-        <script type="text/javascript" src="app/components/login/loginController.js"></script>
-        <script type="text/javascript" src="app/components/login/userEvent/UserEventsController.js"></script>
+            <script type="text/javascript" src="app.js"></script>
+            <!-- services -->
+            <script type="text/javascript" src="app/services/EventService.js"></script>
+            <script type="text/javascript" src="app/services/TagService.js"></script>
+            <script type="text/javascript" src="app/services/ResourceService.js"></script>
+            <!-- controllers -->
+             <script type="text/javascript" src="app/components/map/MapController.js"></script>
+            <script type="text/javascript" src="app/components/filterMap/searchController.js"></script>
+            <script type="text/javascript" src="app/components/tag/tagController.js"></script>
+            <script type="text/javascript" src="app/components/login/loginController.js"></script>
+            <script type="text/javascript" src="app/components/login/userEvent/UserEventsController.js"></script>
 
 
 
-
+        </div>
     </body>
 </html>

@@ -1,29 +1,23 @@
 
 
-<hr />
-<div>
-    <p class="alert alert-success" data-ng-show="$root.isLoggedIn">Du är inloggad</p>
-    <p class="alert alert-danger" data-ng-show="!$root.isLoggedIn">Du är inte inloggad</p>
-</div>
-
-<hr />
-
-
-<div class="col-md-4" data-ng-controller="LoginController as user">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">Logga in</h3>
-        </div>
-        <div class="panel-body">
-            <form novalidate name="user.form" class="simple-form">
-                E-mail: <br />
-                <input type="email" ng-model="user.email"/><br />
-                Password: <br />
-                <input type="password" ng-model="user.password"/>
-                <button type="button" class="btn btn-primary" data-ng-click="user.login()">Logga in</button>
-            </form
-        </div>
+<div class="pull-right" data-ng-controller="LoginController as user">
+    <div class="col-md-3" >
+        <button ng-click="toggleModal()" class="btn btn-success" data-ng-show="!$root.isLoggedIn" >Logga in</button>
+        <button ng-click="logout()" class="btn btn-danger" data-ng-show="$root.isLoggedIn" >Logga ut</button>
     </div>
+
+    <modal title="Login form" visible="showModal">
+        <form role="form" name="user.form">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" ng-model="user.email" class="form-control" id="email" placeholder="Enter email" />
+            </div>
+            <div class="form-group">
+                <label for="password">Lösenord</label>
+                <input type="password" ng-model="user.password" class="form-control" id="password" placeholder="Password" />
+            </div>
+            <button type="submit" class="btn btn-default" data-ng-click="user.login()">Logga in</button>
+        </form>
+    </modal>
 </div>
 
-<hr />

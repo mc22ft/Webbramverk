@@ -5,20 +5,8 @@ angular
     .module("clientApp")
     .factory('EventService', EventService); // register the recipe for teh service
 
-// We need PlayerResource for calling the API
-// localStorageService is an third part service for handling web storage
-// LocalStorageConstants is some constants defined in app.js
-// $q is an angular module for handling promises
-// OBS! No need to do this row but I like to se all dependencies in a nice list
 EventService.$inject = ['ResourceService', 'localStorageService', 'LocalStorageConstants', '$q'];
 
-    // we pretend we get this from an API :)
-    // like a private property
-    //var eventList = [
-    //    {id: 1, name: "Harry Kane", age: 21, selfurl: "http://blue-white-harbor-95-185765.euw1-2.nitrousbox.com/demo02/players/1"},
-    //    {id: 2, name: "Lotta Schelin", age: 28, selfurl: "http://blue-white-harbor-95-185765.euw1-2.nitrousbox.com/demo02/players/2"},
-    //    {id: 3, name: "Hugo Loris", age: 27, selfurl:"http://blue-white-harbor-95-185765.euw1-2.nitrousbox.com/demo02/players/3" }
-    //];
 
 // Here is the definition of the service
 function EventService(resourceService, localStorage, LS, $q) {
@@ -120,18 +108,31 @@ function EventService(resourceService, localStorage, LS, $q) {
             return deferred.promise;
         },
         saveEvent:function(data, method, id) {
+            // Create a promise
+            var deferred = $q.defer();
 
             var promise = Event.save('events', data, method, id).then(function(data) {
                 console.log(data);
+                localStorage.remove(LS.eventsKey);
+                // resolve the data to the caller
+                deferred.resolve(data);
             });
-            return promise;
+            return deferred.promise;
         },
         deleteEvent:function(id) {
+            // Create a promise
+            var deferred = $q.defer();
+
 
             var promise = Event.delete('events', id).then(function(data) {
                 console.log(data);
+                localStorage.remove(LS.eventsKey);
+
+                // resolve the data to the caller
+                deferred.resolve(data);
             });
-            return promise;
+
+            return deferred.promise;
         }
     };
 }

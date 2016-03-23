@@ -1,46 +1,15 @@
+<div class="pull-right" data-ng-show="$root.isLoggedIn">
+    <button type="button" class="btn btn-success" ng-click="addEvent()" data-ng-show="!vm.showNewForm">Skapa nytt event</button>
+    <button type="button" class="btn btn-primary" ng-click="removeAddEvent()" data-ng-show="vm.showNewForm">Avbryt Skapa nytt</button>
+</div>
 
+<!-- event list -->
+<div data-ng-include src="'app/components/login/userevent/list.html'"> Should be replaced?</div>
 
 <!-- registerform -->
 <div data-ng-include src="'app/components/login/userevent/form-new.html'"> Should be replaced?</div>
+
 <!-- update form -->
 <div data-ng-include src="'app/components/login/userevent/form-update.html'"> Should be replaced?</div>
 
-
-
-<div class="col-md-6">
-    <h2>EventsList</h2>
-    <table class="table table-bordered">
-            <thead>
-                <th>Name</th>
-                <th>Åtgärd</th>
-            </thead>
-        <tbody>
-            <tr ng-repeat="event in vm.userEvents" data-ng-show="event.creator.id === $root.creator_id">
-                <td>{{event.name}}</td>
-                <td>
-                    <button type="button" class="btn btn-primary" ng-click="show(event)">Visa</button>
-                    <button type="button" class="btn btn-primary" ng-click="updateEvent(event)">Redigera</button>
-                    <button type="button" class="btn btn-primary" ng-click="deleteEvent(event)">Radera</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-<div class="col-md-6">
-    <h2>show event from logged in user</h2>
-    <div  class="col-md-6">
-        <h3 class="text-center">{{showEvent.name}}</h3>
-        <p class="text-center">{{showEvent.description}}</p>
-        <p ng-repeat="info in showEvent">{{info.name}}</p>
-        <p>{{showEvent.created_at}}</p>
-        <p class="text-center" ng-repeat="info in showEvent">{{info.address}}</p>
-    </div>
-</div>
-<div ng-hide="showInfoBox()" class="col-md-6">
-    <h3 class="text-center">{{infoWindow.name}}</h3>
-    <p class="text-center">{{infoWindow.description}}</p>
-    <p ng-repeat="info in infoWindow">{{info.name}}</p>
-    <p>{{infoWindow.created_at}}</p>
-    <p class="text-center" ng-repeat="info in infoWindow">{{info.address}}</p>
-</div>
 
