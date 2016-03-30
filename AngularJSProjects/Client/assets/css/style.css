@@ -27,6 +27,9 @@ form[name="editableForm"] select {
     width: 120px;
 }
 
+.angular-google-map-container {
+    height: 400px;
+}
 
 .alert.ng-leave {
     opacity: 1;

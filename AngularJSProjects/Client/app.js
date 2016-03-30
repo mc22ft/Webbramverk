@@ -6,22 +6,27 @@
  */
 
 angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.bootstrap',
-    'ngCookies', 'xeditable', 'ngFlash', 'ngAnimate']) // you must inject the ngRoute (included as a separate js-file)
+    'ngCookies', 'xeditable', 'ngFlash', 'ngAnimate', 'ngMaterial']) // you must inject the ngRoute (included as a separate js-file)
         .config(['$routeProvider',
             function($routeProvider) {
                 $routeProvider.
-                    when('/', {
-                        templateUrl: 'app/components/login/userEvent/list.html',
-                        controller: 'MapController',//this controller is merried to templateUrl
+                    when('/ghfh', {
+                        templateUrl: '/',
+                    //controller: '',this controller is merried to templateUrl
+                    //controllerAs: ''  events could be seen as an instance of the controller, use it in the view!
+                    }).
+                    when('/events', {
+                        templateUrl: 'app/components/filterMap/search.html',
+                        controller: 'SearchController',
                         controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
-                    when('/map', {
-                        templateUrl: 'app/components/map/map.html',
-                        controller: 'mapController',
+                    when('/tags', {
+                        templateUrl: 'app/components/tag/tag.html',
+                        controller: 'TagController',
                         controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
                     when('/event/:id', {
-                        templateUrl: 'app/components/events/event_detail.html',
+                        templateUrl: 'app/components/test/test.html',
                         controller: 'EventDetailController',
                         controllerAs: 'event'
                     }).

@@ -72,7 +72,6 @@ angular
             vm.showUpdateForm = false;
             vm.showList = false;
 
-
             function clearOverlays() {
                 if (vm.markersArray) {
                     for (i in vm.markersArray) {
@@ -80,7 +79,6 @@ angular
                     }
                 }
             }
-
 
             NgMap.getMap({id:'foomap'}).then(function(map) {
                 vm.map = map;
@@ -95,18 +93,11 @@ angular
 
             vm.checkPosition = function(e) {
                 clearOverlays();
-
+                //map jump at click try to fix? Error to set markersArray in panTo?
                 var marker = new google.maps.Marker({position: e.latLng, map: vm.map});
                 vm.markersArray.push(marker);
                 vm.map.panTo(e.latLng);
 
-                ///var marker = new google.maps.Marker({position: e.latLng, map: vm.map});
-
-                //vm.markersArray.push(marker);
-               // vm.map.panTo(vm.markersArray);
-
-
-                console.log(e.latLng.lng());
                 vm.viewLng = e.latLng.lng();
                 vm.viewLat = e.latLng.lat();
             }
@@ -124,7 +115,6 @@ angular
         $scope.saveNewEvent = function(form) {
             if (form.name != undefined && form.description != undefined && form.tag != undefined ){
 
-
                if(vm.viewLng != undefined){
 
                     var event = {
@@ -140,20 +130,16 @@ angular
                     // then is called when the function delivers
                     EventPromise
                         .then(function(data){
-
                             vm.showNewForm = false;
                             vm.showList = true;
                             vm.loadData();
                             $rootScope.doMap();
-                            var e = data;
-
 
                             var form = document.getElementById("newForm");
                             form.reset();
 
                             var message = '<strong>Klart!</strong> Du har skapat ett nytt event.';
                             Flash.create('success', message);
-
                         })
                         .catch(function(data) {
                             var message = '<strong>Fel!</strong> ' + data.message + '.';
@@ -163,14 +149,10 @@ angular
                     //error message set marker on map
                     var message = '<strong>Oups!</strong> Du måste sätta en markering på kartan.';
                     Flash.create('warning', message);
-
                 }
             };
 
         }//end saveEvent function
-
-
-
 
             //function that update
         $scope.updateEvent = function(res) {
@@ -221,6 +203,7 @@ angular
                                 Flash.create('danger', message);
                             });
                         vm.loadData();
+
                         //update map
                         $rootScope.doMap();
 
@@ -252,7 +235,6 @@ angular
                     //update list
                     vm.loadData();
                     $rootScope.doMap();
-                    vm.eventDeleted = "'+  +'";
 
                     var message = '<strong>Klart!</strong> ' + data.message + '.';
                     Flash.create('success', message);

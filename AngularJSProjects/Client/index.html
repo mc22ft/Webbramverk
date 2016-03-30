@@ -9,12 +9,9 @@
 
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.min.css">
+        <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
 
         <link rel="stylesheet" href="assets/css/style.css">
-      <!-- Temp style -->
-<style>
-    .angular-google-map-container { height: 400px; }
-</style>
     </head>
     <body>
         <div class="container">
@@ -47,17 +44,17 @@
                     </div>
                 </div>
 
-                <div class="map col-md-12 notLoggedInContent">
+                <div class="map col-md-12 notLoggedInContent" data-ng-show="!$root.isLoggedIn">
                     <div data-ng-controller="MapController as vm">
                         <div my-map></div>
                     </div>
                 </div>
-                <div class="search col-md-6">
+                <!--<div class="search col-md-6" data-ng-show="!$root.isLoggedIn">
                     <div data-ng-controller="SearchController as vm">
                         <div my-search></div>
                     </div>
-                </div>
-                <div class="tag col-md-6">
+                </div>-->
+                <div class="tag col-md-6" data-ng-show="!$root.isLoggedIn">
                     <div data-ng-controller="TagController as vm">
                         <div my-tag></div>
                     </div>
@@ -89,6 +86,9 @@
             <script type="text/javascript" src="bower_components/angular-xeditable/dist/js/xeditable.js"></script>
             <script type="text/javascript" src="bower_components/angular-flash-alert/dist/angular-flash.min.js"></script>
             <script type="text/javascript" src="bower_components/angular-animate/angular-animate.min.js"></script>
+            <script src="bower_components/angular-aria/angular-aria.js"></script>
+            <script src="bower_components/angular-animate/angular-animate.js"></script>
+            <script type="text/javascript" src="bower_components/angular-material/angular-material.js"></script>
 
             <script type="text/javascript" src="app.js"></script>
             <!-- services -->

@@ -1,19 +1,46 @@
 <div class="col-md-12">
-    <div class="row col-md-12">
-        <input type="text" class="form-control" placeholder="Sök på allt..." ng-model="criteria">
-    </div>
-    <div class="croll col-md-12">
+    <div class="croll col-md-6">
+
+
+
+        <form ng-submit="submit()" class="bidi" ng-cloak>
+            <p>Selected Value: <span class="radioValue">{{ data.group1 }}</span> </p>
+            <md-radio-group ng-model="data.group1">
+                <md-radio-button value="searchAll" class="md-primary">Sök allt</md-radio-button>
+                <md-radio-button value="searchTag">Sök tag</md-radio-button>
+            </md-radio-group>
+        </form>
+
+
+
+
+        <input type="text" class="form-control" placeholder="Sök..." ng-model="criteria">
         <table class="table table-hover">
             <thead>
-                <th>Name</th>
+
             </thead>
             <tbody>
             <tr ng-repeat="event in filteredBacklog = (vm.searchEvents | filter:{$: criteria})">
                 <td>{{event.name}}</td>
-                <td> <button type="button" class="btn btn-default" ng-click="go(event)">Hämta event!</button></td>
+                <td> <button type="button" class="btn btn-default" ng-click="vm.addMarkerOnMap(event)">Hämta event!</button></td>
             </tr>
             Total: {{filteredBacklog.length}}
             </tbody>
         </table>
+    </div>
+    <div class="col-md-6">
+        <ng-map id="searchMap" default-style="true" center="59.329323, 18.068581" zoom="12" >
+            <marker ng-repeat="pos in vm.positions" position="{{pos.lat}}, {{pos.lng}}"
+                on-click="vm.showDetail(e, pos)">
+            </marker>
+
+            <info-window id="myInfoWindow">
+                <div ng-non-bindable="">
+                    <p class="text-center">{{vm.info.name}}</p>
+
+
+                </div>
+            </info-window>
+        </ng-map>
     </div>
 </div>
