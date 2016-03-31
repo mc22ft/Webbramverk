@@ -1,0 +1,37 @@
+<div class="col-md-12">
+    <div class="col-md-12">
+        <form ng-submit="submit()" class="bidi" ng-cloak>
+            <md-radio-group ng-model="data.group1">
+                <md-radio-button ng-click="isCollapsed = !isCollapsed" value="searchAll" class="md-primary">Sök allt</md-radio-button>
+                <md-radio-button ng-click="isCollapsed = !isCollapsed" value="searchTag">Sök tag</md-radio-button>
+            </md-radio-group>
+        </form>
+    </div>
+    <div class="col-md-6">
+
+        <!-- Search All -->
+        <div uib-collapse="isCollapsed">
+            <div class="croll well well-lg" data-ng-include src="'app/components/search/searchAll.html'"> Should be replaced?</div>
+        </div>
+
+        <!-- Search tag -->
+        <div uib-collapse="!isCollapsed">
+            <div class="croll well well-lg" data-ng-include src="'app/components/search/searchTag.html'"> Should be replaced?</div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <ng-map id="searchMap" default-style="true" center="59.329323, 18.068581" zoom="12" >
+            <marker ng-repeat="pos in vm.positions" position="{{pos.lat}}, {{pos.lng}}"
+                on-click="vm.showDetail(e, pos)">
+            </marker>
+
+            <info-window id="myInfoWindow">
+                <div ng-non-bindable="">
+                    <p class="text-center">{{vm.info.name}}</p>
+
+                </div>
+            </info-window>
+        </ng-map>
+    </div>
+</div>

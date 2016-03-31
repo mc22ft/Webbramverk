@@ -74,7 +74,6 @@ function EventService(resourceService, localStorage, LS, $q) {
                 //get all items
             }
 
-
             // If we dont have stuff in localstorage we get it
             var promise;
             // We have the item and kan use the HATEOAS, namely the url in the item-object (the players direct url)

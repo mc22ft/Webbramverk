@@ -6,18 +6,10 @@ angular
         var vm = this;
         vm.hideElement = true;
 
-        //call from searchController
-        $rootScope.$on("CallParentMethod", function(event, data){
-            vm.hideElement = true;
-            vm.infoToBox(data);
-        });
-
         //Send info to view - right side of map
         vm.infoToBox = function(data) {
             vm.hideElement = false;
             $scope.infoWindow = data;
-            //map.setZoom(8);
-            //map.setCenter(marker.getPosition());
         }
 
         $scope.showInfoBoxMainText = function(){
@@ -83,13 +75,7 @@ angular
 
         $rootScope.doMap();
         return vm;
-    })
-    .directive('myMap', function() {
-        return {
-            templateUrl: 'app/components/map/map.html'
-        };
     });
-
 
 
 

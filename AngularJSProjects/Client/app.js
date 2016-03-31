@@ -10,13 +10,13 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.boots
         .config(['$routeProvider',
             function($routeProvider) {
                 $routeProvider.
-                    when('/ghfh', {
-                        templateUrl: '/',
-                    //controller: '',this controller is merried to templateUrl
-                    //controllerAs: ''  events could be seen as an instance of the controller, use it in the view!
+                    when('/', {
+                        templateUrl: 'app/components/map/map.html',
+                        controller: 'MapController',//this controller is merried to templateUrl
+                        controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
                     when('/events', {
-                        templateUrl: 'app/components/filterMap/search.html',
+                        templateUrl: 'app/components/search/search.html',
                         controller: 'SearchController',
                         controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
@@ -26,13 +26,15 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.boots
                         controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
                     when('/event/:id', {
-                        templateUrl: 'app/components/test/test.html',
-                        controller: 'EventDetailController',
-                        controllerAs: 'event'
+                        templateUrl: 'app/components/events/event-single.html',
+                        controller: 'EventsController',
+                        controllerAs: 'vm'
                     }).
                     otherwise({
                         redirectTo: '/'
                     });
+                //have problem: error all the time = not find map in root or Error: $location:nobase
+                //$location in HTML5 mode requires a <base> tag to be present!
                 //$locationProvider.html5Mode(true); // This removes the hash-bang and use the Session history management >= IE10
 
             }])
