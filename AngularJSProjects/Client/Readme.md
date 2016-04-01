@@ -10,6 +10,12 @@
 * Jag har en mac dator och laddat hem WebStorm som editor.
 * I WebStorm öppnar du projektets mapp/applikation och kör igång det.
 
+
+Länk till förändingar i Ruby API:et finns [här](https://github.com/mc22ft/Webbramverk/blob/master/AngularJSProjects/Client/ChangeOnAPI.md):
+https://github.com/mc22ft/Webbramverk/blob/master/AngularJSProjects/Client/ChangeOnAPI.md
+
+
+
 ####Hör av dig om det skulle vara några problem.
 
 
