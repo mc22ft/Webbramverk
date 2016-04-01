@@ -26,7 +26,7 @@ angular
             return true;
         }
 
-        $rootScope.doMap = function(){
+        vm.doMap = function(){
             var EventPromise = EventService.get();
 
             // then is called when the function delivers
@@ -35,8 +35,11 @@ angular
                     // put the data om the viewModel - binding it to the view
 
 
-
+                    //Do main map and rootscope is for update map from other controllers
                     $rootScope.doMainMap = function(data) {
+                        if(data == null){
+                            vm.doMap();
+                        }
                         vm.eventList = data;
 
                         var events = [];
@@ -82,7 +85,7 @@ angular
                 });
         }
 
-        $rootScope.doMap();
+        vm.doMap();
         return vm;
     });
 

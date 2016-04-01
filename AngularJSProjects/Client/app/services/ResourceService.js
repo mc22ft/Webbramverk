@@ -144,7 +144,7 @@ function ResourceService($http, APIConstant, $cookies) {
                     return $http(req).then(function(response){
                         return new Resource(response.data);
                     });
-                };
+        };
 
         Resource.delete = function(collectionName, id) {
             var jsonKey = 'Bearer ' +$cookies.get("key");
@@ -156,6 +156,28 @@ function ResourceService($http, APIConstant, $cookies) {
                 headers: {
                     'Accept': APIConstant.format,
                     'Authorization' : jsonKey
+                }
+            };
+
+            return $http(req).then(function(response){
+                return new Resource(response.data);
+            });
+        };
+
+        //login in url GET
+        Resource.login = function(data) {
+            var url;
+            var email = data.email;
+            var password = data.password;
+
+            url = "creator/login?email=" + email + "&password=" + password;
+
+            //http://localhost:3000/creator/login?email=neo@mail.com&password=111111
+            var req = {
+                method: 'GET',
+                url: APIConstant.url +url, // this is the entry point in my example
+                headers: {
+                    "Accept" : "application/json"
                 }
             };
 
