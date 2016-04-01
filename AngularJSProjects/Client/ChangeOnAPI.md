@@ -4,10 +4,10 @@
 
 #### Här är mina ändringar på mitt Ruby API när jag jobbade med Angularjs projektet.
 
-*Commit historiken.
+* Commit historiken.
 
 1. install rack-cors for API request
-erdgad
+* sdfssrf
 2. fix seeds file error after update of model in issues
 3. Added address to json model
 4. Add to get all tags
