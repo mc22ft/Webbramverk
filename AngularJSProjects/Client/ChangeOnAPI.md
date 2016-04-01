@@ -6,7 +6,7 @@
 * Commit historiken.
 
 1. install rack-cors for API request
-      Stöd för Cross-Origin Resource Sharing (CORS)
+   Stöd för Cross-Origin Resource Sharing (CORS)
 2. fix seeds file error after update of model in issues
       Mina förinställda användar uppgifter fungerade inte som dom skulle.
 3. Added address to json model
