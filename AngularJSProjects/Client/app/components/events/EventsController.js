@@ -8,7 +8,7 @@ angular
 // Dependency injections, routeParams give us the /:id
 //EventsController.$inject = ['$routeParams', 'EventService'];
 
-function EventsController($routeParams, EventService) {
+function EventsController($routeParams, EventService, $scope) {
 
     // Set the ViewModel
     var vm = this;
@@ -26,4 +26,8 @@ function EventsController($routeParams, EventService) {
         var message = '<strong>Fel!</strong> ' + data.message + '.';
         Flash.create('danger', message);
     })
+
+    $scope.doTheBack = function() {
+        window.history.back();
+    };
 }

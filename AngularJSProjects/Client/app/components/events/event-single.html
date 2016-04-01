@@ -1,18 +1,15 @@
 <div>
     <h1 class="text-center">Information om ett event!</h1>
     <div  class="col-md-12 text-center well well-lg">
-
-
-
-
         <h3 class="text-center">{{vm.details.name}}</h3>
         <p class="text-center">{{vm.details.description}}</p>
         <p ng-repeat="info in vm.details">{{info.name}}</p>
         <p>{{vm.details.created_at}}</p>
         <p class="text-center" ng-repeat="info in vm.details">{{info.address}}</p>
         <br/>
+        <button ng-click="doTheBack()" class="btn btn-primary" >Tillbaka</button>
+
 
         <h4 class="text-center">Kommentarer - betyg och mer info skulle kunna presenteras här...</h4>
-
     </div>
 </div>
