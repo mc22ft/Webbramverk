@@ -1,5 +1,8 @@
 /**
  * Created by MathiasClaesson on 2016-03-11.
+ *
+ * Chuld be two controllers all and tag search but is was more jobb width the map
+ *
  */
 angular
     .module('clientApp')
@@ -9,6 +12,16 @@ angular
         $scope.data = {
             group1 : 'searchAll',
         };
+
+
+
+        vm.showDetail = function(e, shop) {
+            vm.shop = shop;
+            vm.map.showInfoWindow('myInfoWindow', this);
+        };
+
+
+
 
         //Get all
         var EventPromise = EventService.get();
@@ -33,11 +46,7 @@ angular
 
                 vm.searchEvents = events;
 
-                vm.markers = [];
-                //call mapcontroller to set focus on marker
-                //$scope.go = function(res) {
-                //    $rootScope.$emit("CallParentMethod", res);
-                //}
+                //vm.markers = [];
 
                 vm.addMarkerOnMap = function(res) {
                     vm.info = res;
@@ -49,7 +58,7 @@ angular
                     vm.map.setCenter(bounds.getCenter());
                     vm.map.fitBounds(bounds);
                     vm.map.setZoom(12);
-
+                    vm.map.showInfoWindow('myInfoWindow', latLng);
                 }
 
             })
@@ -57,17 +66,6 @@ angular
                 var message = '<strong>Fel!</strong> ' + data.message + '.';
                 Flash.create('danger', message);
             });
-
-        vm.showDetail = function(e, shop) {
-            vm.shop = shop;
-            vm.map.showInfoWindow('myInfoWindow', this);
-        };
-
-
-
-
-
-
 
 
 
@@ -82,12 +80,12 @@ angular
                 vm.tagList = data;
                 vm.tags = [];
                 $scope.selected = undefined;
-
+                var stringTags = "";
                 var EventPromise = EventService.get();
                 EventPromise
                     .then(function(data){
                         vm.events = data;
-                        var stringTags = "";
+
                         //loop out tags
                         for (var j=0; j < vm.events.length; j++) {
                             var event = vm.events[j].event;
@@ -98,22 +96,23 @@ angular
                                 var t = tagName[0];
 
                                 if(t.tag.name === tag.name){
-                                    vm.tags.push(t.tag.name);
-                                    //string
-                                    var c = ", ";
-                                    if(vm.tagList > 0){
-                                        stringTags = t.tag.name;
+                                    if (vm.tags.indexOf(tag.name) > -1) {
                                     }else{
-                                        stringTags += t.tag.name + c;
+                                        vm.tags.push(tag.name);
+
+                                        var c = ", ";
+                                        if(vm.tagList > 0){
+                                            stringTags = t.tag.name;
+                                        }else{
+                                            stringTags += t.tag.name + c;
+                                        }
                                     }
                                 }
                             }
                         }
                         stringTags = stringTags.substring(0, stringTags.length - 2);
                         console.log(stringTags);
-                        vm.stringTag = stringTags;
-
-
+                        vm.stringTag = stringTags; //Drop down in tag search
 
                         //var self = this;
                         vm.simulateQuery = false;
@@ -150,9 +149,7 @@ angular
                             $scope.getTags(text);
                         }
                         function selectedItemChange(item) {
-                            console.log('Item changed to ' + JSON.stringify(item));
-
-
+                           console.log('Item changed to ' + JSON.stringify(item));
                             $scope.getTags(item.value)
                         }
                         /**
@@ -175,7 +172,7 @@ angular
                             var lowercaseQuery = angular.lowercase(query);
                             return function filterFn(state) {
                                 return (state.value.indexOf(lowercaseQuery) === 0);
-                            };
+                           };
                         }
 
                     })
@@ -184,9 +181,7 @@ angular
                         Flash.create('danger', message);
                     });
 
-
                 $scope.states = vm.tags;
-
 
                 // TAG SEARCH
 
@@ -215,7 +210,8 @@ angular
                                     }
 
                                     vm.searchTags = events;
-                                    
+                                    console.log(vm.searchTags);
+
                                 })
                                 .catch(function(data) {
                                     var message = '<strong>Fel!</strong> ' + data.message + '.';

@@ -28,16 +28,18 @@
             </header>
 
             <section>
-                <!-- This part will be replaced by diffrent views specified in the app.js -->
-                <div data-ng-view></div>
 
-                <div class="">
+                <div class="col-md-12">
                     <div data-ng-controller="LoginController as vm">
                         <div my-login></div>
                     </div>
                 </div>
 
-                <div class="" data-ng-show="$root.isLoggedIn">
+                <!-- This part will be replaced by diffrent views specified in the app.js -->
+                <div class="map col-md-12 notLoggedInContent" data-ng-show="!$root.isLoggedIn" data-ng-view></div>
+
+
+                <div class="map col-md-12" data-ng-show="$root.isLoggedIn">
                     <div data-ng-controller="UserEventsController as vm">
                         <div my-user-events=""></div>
                     </div>

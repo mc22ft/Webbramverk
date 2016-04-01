@@ -1,14 +1,16 @@
-<div class="col-md-6">
+<div class="col-md-12">
+    <h3 class="text-center">Hitta ditt Event!</h3>
     <ng-map default-style="true" center="59.329323, 18.068581" zoom="3" >
         <marker id='{{shop.id}}'
                 position="{{shop.position.lat}},{{shop.position.long}}"
                 ng-repeat="shop in vm.shops"
+                dorebuildall="true"
                 on-click="vm.showDetail(shop)">
         </marker>
 
-        <info-window id="myInfoWindow">
-            <div ng-non-bindable="">
-                <p class="font-weight-bold">{{vm.shop.name}}</p>
+        <info-window id="myInfoWindow" >
+            <div ng-non-bindable="" class="text-center">
+                <h4 class="font-weight-bold">{{vm.shop.name}}</h4>
                 <a href="#/" ng-click="vm.infoToBox(vm.shop)">Snabb information här!</a>
                 </br>
                 <a data-ng-href="#/event/{{vm.shop.id}}">Detaljerad information här!</a>
@@ -17,12 +19,12 @@
     </ng-map>
 </div>
 
-<div ng-hide="showInfoBox()" class="col-md-6 text-center">
+<div ng-hide="showInfoBox()" class="col-md-12 text-center">
     <h3 class="text-center">{{infoWindow.name}}</h3>
     <p class="text-center">{{infoWindow.description}}</p>
     <p class="text-center" ng-repeat="info in infoWindow">{{info.address}}</p>
 </div>
 
 <div ng-hide="showInfoBoxMainText()" class="col-md-6 text-center">
-    <h3 class="text-center">Hitta ditt Event!</h3>
+    <p class="text-center">InfoWindow</p>
 </div>

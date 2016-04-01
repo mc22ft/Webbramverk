@@ -1,15 +1,18 @@
-<div class="pull-right" data-ng-show="$root.isLoggedIn">
-    <button type="button" class="btn btn-success" ng-click="addEvent()" data-ng-show="!vm.showNewForm">Skapa nytt event</button>
-    <button type="button" class="btn btn-primary" ng-click="removeAddEvent()" data-ng-show="vm.showNewForm">Avbryt Skapa nytt</button>
+
+<div class="" data-ng-show="$root.isLoggedIn">
+    <div class="pull-right" data-ng-show="$root.isLoggedIn">
+        <button type="button" class="btn btn-success" ng-click="addEvent()" data-ng-show="!vm.showNewForm">Skapa nytt event</button>
+        <button type="button" class="btn btn-primary" ng-click="removeAddEvent()" data-ng-show="vm.showNewForm">Avbryt Skapa nytt</button>
+    </div>
+
+    <div class="col-xs-12">
+    <!-- event list -->
+        <div  data-ng-include src="'app/components/login/userevent/list.html'"> Should be replaced?</div>
+
+        <!-- registerform -->
+        <div data-ng-include src="'app/components/login/userevent/form-new.html'"> Should be replaced?</div>
+
+        <!-- update form -->
+        <div  data-ng-include src="'app/components/login/userevent/form-update.html'"> Should be replaced?</div>
+    </div>
 </div>
-
-<!-- event list -->
-<div data-ng-include src="'app/components/login/userevent/list.html'"> Should be replaced?</div>
-
-<!-- registerform -->
-<div data-ng-include src="'app/components/login/userevent/form-new.html'"> Should be replaced?</div>
-
-<!-- update form -->
-<div data-ng-include src="'app/components/login/userevent/form-update.html'"> Should be replaced?</div>
-
-

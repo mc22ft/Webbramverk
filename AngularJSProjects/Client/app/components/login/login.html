@@ -1,8 +1,8 @@
 
 <div class="pull-right" data-ng-controller="LoginController as user">
-    <div class="col-md-3" >
+    <div class="col-md-3 loginLogoutButton" >
         <button ng-click="login()" class="btn btn-success" data-ng-show="!$root.isLoggedIn" >Logga in</button>
-        <button ng-click="logout()" class="btn btn-danger" data-ng-show="$root.isLoggedIn" >Logga ut</button>
+        <button  href="#/" ng-click="logout()" class="btn btn-danger" data-ng-show="$root.isLoggedIn" >Logga ut</button>
     </div>
 
     <modal title="Login form" visible="showModal">
@@ -18,5 +18,6 @@
             <button type="submit" class="btn btn-default" data-ng-click="user.login()">Logga in</button>
         </form>
     </modal>
+
 </div>
 

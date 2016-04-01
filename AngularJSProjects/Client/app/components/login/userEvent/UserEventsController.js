@@ -133,7 +133,7 @@ angular
                             vm.showNewForm = false;
                             vm.showList = true;
                             vm.loadData();
-                            $rootScope.doMap();
+                            //$rootScope.doMap();
 
                             var form = document.getElementById("newForm");
                             form.reset();
@@ -202,11 +202,8 @@ angular
                                 var message = '<strong>Fel!</strong> ' + data.message + '.';
                                 Flash.create('danger', message);
                             });
+                        //update events
                         vm.loadData();
-
-                        //update map
-                        $rootScope.doMap();
-
 
                          };
 
@@ -232,9 +229,8 @@ angular
                     vm.showUpdateForm = false;
                     vm.showEventItem = false;
 
-                    //update list
+                    //update events
                     vm.loadData();
-                    $rootScope.doMap();
 
                     var message = '<strong>Klart!</strong> ' + data.message + '.';
                     Flash.create('success', message);

@@ -33,30 +33,39 @@ angular
             EventPromise
                 .then(function(data){
                     // put the data om the viewModel - binding it to the view
-                    vm.eventList = data;
 
-                    var events = [];
-                    //loop all events to fit view better
-                    for (var j=0; j < vm.eventList.length; j++) {
-                        events.push(vm.eventList[j].event);
+
+
+                    $rootScope.doMainMap = function(data) {
+                        vm.eventList = data;
+
+                        var events = [];
+                        //loop all events to fit view better
+                        for (var j = 0; j < vm.eventList.length; j++) {
+                            events.push(vm.eventList[j].event);
+                        }
+
+                        vm.shops = events;
+
+                        // MAP MAP MAP
+                        //Fit bounds marker
+                        var bounds = new google.maps.LatLngBounds();
+                        for (var i = 0; i < vm.shops.length; i++) {
+                            var latlng = new google.maps.LatLng(vm.shops[i].position.lat, vm.shops[i].position.long);
+                            bounds.extend(latlng);
+                        }
+
+                        NgMap.getMap().then(function (map) {
+                            //console.log('map', map);
+                            map.setCenter(bounds.getCenter());
+                            map.fitBounds(bounds);
+                            vm.map = map;
+                            vm.map.setZoom(12);
+                        });
+
+
                     }
-
-                    vm.shops = events;
-
-                    // MAP MAP MAP
-                    //Fit bounds marker
-                    var bounds = new google.maps.LatLngBounds();
-                    for (var i=0; i < vm.shops.length; i++) {
-                        var latlng = new google.maps.LatLng(vm.shops[i].position.lat, vm.shops[i].position.long);
-                        bounds.extend(latlng);
-                    }
-
-                    NgMap.getMap().then(function(map) {
-                        //console.log('map', map);
-                        map.setCenter(bounds.getCenter());
-                        map.fitBounds(bounds);
-                        vm.map = map;
-                    });
+                    $rootScope.doMainMap(data);
 
                     vm.showDetail = function(e, shop) {
                         vm.shop = shop;

@@ -63,6 +63,7 @@ form[name="editableForm"] select {
     margin-top: 30px;
     margin-bottom: 30px;
 
+
 }
 .loggedInContent {
     margin-top: 30px;
@@ -71,4 +72,12 @@ form[name="editableForm"] select {
 
 .edit-form {
     border: 1px solid #eee;
+}
+
+.pos_must-set{
+    color: #d9534f;
+}
+
+.loginLogoutButton {
+    margin-bottom: 10px;
 }

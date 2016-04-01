@@ -2,7 +2,10 @@
  * Created by MathiasClaesson on 2016-03-03.
  *
  *   $routeProvider not in use!!! Left code for future work...
- *   I have
+ *
+ *   I have problem width $locationProvider: error all the time = not find map in root or Error: $location:nobase
+ *   $location in HTML5 mode requires a <base> tag to be present!
+ *   I have spend a lot of time to fix it? grr...
  */
 
 angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.bootstrap',
@@ -20,11 +23,6 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.boots
                         controller: 'SearchController',
                         controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
                     }).
-                    when('/tags', {
-                        templateUrl: 'app/components/tag/tag.html',
-                        controller: 'TagController',
-                        controllerAs: 'vm' // events could be seen as an instance of the controller, use it in the view!
-                    }).
                     when('/event/:id', {
                         templateUrl: 'app/components/events/event-single.html',
                         controller: 'EventsController',
@@ -33,8 +31,6 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.boots
                     otherwise({
                         redirectTo: '/'
                     });
-                //have problem: error all the time = not find map in root or Error: $location:nobase
-                //$location in HTML5 mode requires a <base> tag to be present!
                 //$locationProvider.html5Mode(true); // This removes the hash-bang and use the Session history management >= IE10
 
             }])

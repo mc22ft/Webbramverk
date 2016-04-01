@@ -19,6 +19,9 @@ function EventService(resourceService, localStorage, LS, $q) {
             if(extension == undefined){
                 // check if we have it in localstorage - Pretty clumpsy handling but just for example
                 items = localStorage.get(LS.eventsKey);
+                console.log("----");
+                console.log(items);
+                console.log("----");
             }
 
             // Define a promise...this will be used later
@@ -73,6 +76,7 @@ function EventService(resourceService, localStorage, LS, $q) {
             }else {
                 //get all items
             }
+
 
             // If we dont have stuff in localstorage we get it
             var promise;

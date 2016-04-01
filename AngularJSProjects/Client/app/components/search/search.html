@@ -22,14 +22,12 @@
     </div>
     <div class="col-md-6">
         <ng-map id="searchMap" default-style="true" center="59.329323, 18.068581" zoom="12" >
-            <marker ng-repeat="pos in vm.positions" position="{{pos.lat}}, {{pos.lng}}"
-                on-click="vm.showDetail(e, pos)">
-            </marker>
-
             <info-window id="myInfoWindow">
-                <div ng-non-bindable="">
-                    <p class="text-center">{{vm.info.name}}</p>
-
+                <div ng-non-bindable="" class="text-center">
+                    <h4 class="font-weight-bold">{{vm.info.name}}</h4>
+                    <p class="text-center" ng-repeat="inf in vm.info">{{inf.address}}</p>
+                     </br>
+                    <a data-ng-href="#/event/{{vm.info.id}}">Detaljerad information här!</a>
                 </div>
             </info-window>
         </ng-map>

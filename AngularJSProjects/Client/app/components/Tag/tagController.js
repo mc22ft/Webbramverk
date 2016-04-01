@@ -158,10 +158,7 @@ angular
 
                                     vm.searchTags = events;
                                     console.log(vm.searchTags);
-                                    //call mapcontroller to set focus on marker
-                                    $scope.go = function(res) {
-                                        $rootScope.$emit("CallParentMethod", res);
-                                    }
+
                                 })
                                 .catch(function(data) {
                                     var message = '<strong>Fel!</strong> ' + data.message + '.';
