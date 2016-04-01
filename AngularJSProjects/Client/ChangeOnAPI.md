@@ -1,11 +1,11 @@
 
 # Webbramverk 1DV450 mc22ft
 
-#### Här är mina ändringar på mitt Ruby API när jag jobbade med Angularjs projektet.
+#### Här är mina ändringar på mitt Ruby API när jag jobbade med Angularjs projektet.  
 
-* Commit historiken.
+####Commit historiken.  
 
-1. install rack-cors for API request  
+1. **install rack-cors for API request**  
    Stöd för Cross-Origin Resource Sharing (CORS)
 
 2. fix seeds file error after update of model in issues  
@@ -14,19 +14,19 @@
 3. Added address to json model  
    Saknades i modelen som jag behövde för bättre vy
 
-4. Add to get all tags
+4. Add to get all tags  
    För att få alla tagar
 
-5. add PUT
+5. add PUT  
    För att kunna komma åt att updatera i modelen
 
-6. delete CRUD done
+6. delete CRUD done  
    För att kunna komma åt att radera i modelen
 
-7. fix downcast save tag
+7. fix downcast save tag  
    För snyggare layout
 
-8. validate long lat
+8. validate long lat  
    För att få ett felmeddalande om jag inte skickar in någon plats
 
  
