@@ -19,9 +19,7 @@ function EventService(resourceService, localStorage, LS, $q) {
             if(extension == undefined){
                 // check if we have it in localstorage - Pretty clumpsy handling but just for example
                 items = localStorage.get(LS.eventsKey);
-                console.log("----");
-                console.log(items);
-                console.log("----");
+
             }
 
             // Define a promise...this will be used later
@@ -125,7 +123,6 @@ function EventService(resourceService, localStorage, LS, $q) {
         deleteEvent:function(id) {
             // Create a promise
             var deferred = $q.defer();
-
 
             var promise = Event.delete('events', id).then(function(data) {
                 console.log(data);

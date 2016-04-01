@@ -42,7 +42,7 @@ angular.module("clientApp", ['ngRoute', 'LocalStorageModule', 'ngMap', 'ui.boots
                 .setNotify(true, true)
         })
         .constant('APIConstant', { // here I also can declare constants
-            'key': 'Token token="2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"', // bad practice!? Key on client....
+            'key': 'Token token="1fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"', // bad practice!? Key on client....
             'url': "http://localhost:3000/", // base url
             'format': 'application/json' // Default representation we want
         })

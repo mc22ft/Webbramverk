@@ -10,7 +10,6 @@ angular
 
 UserService.$inject = ['ResourceService', '$q'];
 
-
 // Here is the definition of the service
 function UserService(resourceService, $q) {
     var User = resourceService('creator');
@@ -20,8 +19,6 @@ function UserService(resourceService, $q) {
             var deferred = $q.defer();
 
             var promise = User.login(inData).then(function(data) {
-
-                console.log(data);
 
                 // resolve the data to the caller
                 deferred.resolve(data);

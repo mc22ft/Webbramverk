@@ -243,9 +243,7 @@ angular
 
         }//end deleteEvent function
 
-
         return vm;
-
     })
     .directive('myUserEvents', function() {
         return {

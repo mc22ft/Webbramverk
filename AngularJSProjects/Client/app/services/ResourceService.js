@@ -23,7 +23,7 @@ function ResourceService($http, APIConstant, $cookies) {
         var Resource = function(data) {
             // Configuerar objectet enligt den data som kommer in - Allt är json
             angular.extend(this, data);
-        }
+        };
 
         // Get all players from the API
         Resource.getCollection = function(extensionURL) {
@@ -32,7 +32,6 @@ function ResourceService($http, APIConstant, $cookies) {
             var n = s.indexOf('?');
             collectionName = s.substring(0, n != -1 ? n : s.length);
 
-            //
             if(extensionURL == undefined){
                 //no extension
             }else{
@@ -45,13 +44,8 @@ function ResourceService($http, APIConstant, $cookies) {
                 url: APIConstant.url +collectionName, // this is the entry point in my example
                 headers: {
                     'Accept': APIConstant.format,
-                    "Authorization" : 'Token token="1fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"'
-            //"authorization": "Token token=\"2fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1\"",
-                    //'Authorization': APIConstant.key
-                }//,
-                //params: {
-                //    'limit': '20'
-                //}
+                    "Authorization" : APIConstant.key
+                }
             };
             // This returns a promise which will be fullfilled when the response is back
             return $http(req).then(function(response) {
@@ -65,21 +59,8 @@ function ResourceService($http, APIConstant, $cookies) {
             });
         };
 
-        // Get a instance resource (take an object,if we have it, as parameter. Otherwise item is an id (Breaking HATEOAS))
-        /*
-         ressourceInfo = {
-         'instanceName' : 'player'
-         'id' : 12
-         'url' : ...
-         }
-
-
-         */
-
         Resource.getSingle = function(resource, resourceInfo) {
-
             var url;
-            console.log(resourceInfo);
             // OK this is maybe a clumpsy way to do this and shows a problem with REST and HATEOAS
             // are we using the url provided by the call- The HATEOAS way
             if(resourceInfo.hasOwnProperty('url')) {
@@ -97,9 +78,7 @@ function ResourceService($http, APIConstant, $cookies) {
                 url: url,
                 headers: {
                     'Accept': APIConstant.format,
-                    "Authorization" : 'Token token="1fe461adb2b4b3493d4426e99b40ba8fc53517645e155cf1"'
-
-                    //'X-APIKEY': APIConstant.key
+                    "Authorization" : APIConstant.key
                 },
                 params: {
                     'limit': '50'
@@ -166,18 +145,13 @@ function ResourceService($http, APIConstant, $cookies) {
 
         //login in url GET
         Resource.login = function(data) {
-            var url;
-            var email = data.email;
-            var password = data.password;
+            var url = "creator/login?email=" + data.email + "&password=" + data.password;
 
-            url = "creator/login?email=" + email + "&password=" + password;
-
-            //http://localhost:3000/creator/login?email=neo@mail.com&password=111111
             var req = {
                 method: 'GET',
                 url: APIConstant.url +url, // this is the entry point in my example
                 headers: {
-                    "Accept" : "application/json"
+                    "Accept" : APIConstant.format
                 }
             };
 
