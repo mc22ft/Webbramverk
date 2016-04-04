@@ -59,7 +59,7 @@ class EventsController < ApplicationController
 
       # render or error message
     rescue ActiveRecord::RecordNotFound
-    error = ErrorMessage.new('Could not find any resources. Bad parameters?', 'Could not find any event!' )
+    error = ErrorMessage.new('Kunde inte hitta någon data. Fel parametrar', 'Det gick inte radera något event'  )
     render json: { error: error }, status: :bad_request # just json in this example
   end
 
@@ -91,15 +91,15 @@ class EventsController < ApplicationController
         if event.save
           @event = event
         else
-          error = ErrorMessage.new('Could not save any resources. Event is empty', 'Could not save any event!' )
-          render json: { message: error }, status: :bad_request # just json in this example
+          error = ErrorMessage.new('Kunde inte hitta någon event. Eventet är tomt', 'Det gick inte radera något event')
+          render json: { error: error }, status: :unauthorized # just json in this example
         end
       else
-        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        error = ErrorMessage.new('Kunde inte hitta någon data. Eventet är tomt', 'Det gick inte radera något event' )
         render json: { message: error }, status: :bad_request # just json in this example
       end
     else
-      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      error = ErrorMessage.new('Kunde inte hitta någon data. Användaren finns inte', 'Det gick inte radera något event' )
       render json: { error: error }, status: :bad_request # just json in this example
     end
   end
@@ -112,15 +112,15 @@ class EventsController < ApplicationController
         if creator.id === event.creator.id
           @event = event
         else
-        error = ErrorMessage.new('Could not find any resources. Id do not match?', 'Could not delete any event!' )
-        render json: { error: error }, status: :unauthorized # just json in this example
+          error = ErrorMessage.new('Kunde inte hitta någon data. Det är inte rätt id', 'Det gick inte radera något event')
+          render json: { error: error }, status: :unauthorized # just json in this example
         end
       else
-        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        error = ErrorMessage.new('Kunde inte hitta någon data. Eventet är tomt', 'Det gick inte radera något event' )
         render json: { message: error }, status: :bad_request # just json in this example
       end
     else
-      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      error = ErrorMessage.new('Kunde inte hitta någon data. Användaren finns inte', 'Det gick inte radera något event' )
       render json: { error: error }, status: :bad_request # just json in this example
     end
   end
@@ -137,15 +137,15 @@ class EventsController < ApplicationController
 
           @event = event
         else
-          error = ErrorMessage.new('Could not find any resources. Id do not match?', 'Could not delete any event!' )
+          error = ErrorMessage.new('Kunde inte hitta någon data. Det är inte rätt id', 'Det gick inte radera något event')
           render json: { error: error }, status: :unauthorized # just json in this example
         end
       else
-        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        error = ErrorMessage.new('Kunde inte hitta någon data. Eventet är tomt', 'Det gick inte radera något event' )
         render json: { message: error }, status: :bad_request # just json in this example
       end
     else
-      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      error = ErrorMessage.new('Kunde inte hitta någon data. Användaren finns inte', 'Det gick inte radera något event' )
       render json: { error: error }, status: :bad_request # just json in this example
     end
   end
@@ -161,19 +161,19 @@ class EventsController < ApplicationController
         #check for id
         if creator.id === event.creator.id
           if event.destroy
-            render json: { message: 'Event has been removed' }, status: :ok
+            render json: { message: 'Eventet har blivit raderat' }, status: :ok
           end
           # end
         else
-          error = ErrorMessage.new('Could not find any resources. Id do not match?', 'Could not delete any event!' )
+          error = ErrorMessage.new('Kunde inte hitta någon data. Det är inte rätt id', 'Det gick inte radera något event')
           render json: { error: error }, status: :unauthorized # just json in this example
         end
       else
-        error = ErrorMessage.new('Could not find any resources. Event is empty, nil?', 'Could not delete any event!' )
+        error = ErrorMessage.new('Kunde inte hitta någon data. Eventet är tomt', 'Det gick inte radera något event' )
         render json: { message: error }, status: :bad_request # just json in this example
       end
     else
-      error = ErrorMessage.new('Could not find any resources. Creator is empty, nil?', 'Could not delete any event!' )
+      error = ErrorMessage.new('Kunde inte hitta någon data. Användaren finns inte', 'Det gick inte radera något event' )
       render json: { error: error }, status: :bad_request # just json in this example
     end
   end
