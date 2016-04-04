@@ -12,7 +12,7 @@
 
 
 Länk till förändingar i Ruby API:et finns [här](https://github.com/mc22ft/Webbramverk/blob/master/AngularJSProjects/Client/ChangeOnAPI.md).  
-Hur du kör igång ruby api finns nedan i detta dokument.
+Hur du kör igång Ruby API:et finns nedan i detta dokument.
 
 
 ####Hör av dig om det skulle vara några problem.
