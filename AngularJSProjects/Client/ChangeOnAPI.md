@@ -29,6 +29,9 @@
 8. **validate long lat**  
    För att få ett felmeddalande om jag inte skickar in någon plats
 
+9. **english to swedish**  
+   Översatte all text till svenska som skickas till angular som meddelande
+
  
 ####Hör av dig om det skulle vara några frågor.
 
