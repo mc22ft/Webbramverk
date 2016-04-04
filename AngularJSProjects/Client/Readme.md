@@ -1,7 +1,7 @@
 
 # Webbramverk 1DV450 mc22ft
 
-## Client [front-end]
+## Klientapplikationen [front-end] (klar)
 
 * Här kommer lite instruktioner hur du installerar och kör igång min Angularjs applikation.
 * Du laddar ner hela mitt projekt som en zip här på github eller clona ner hela mitt projekt.
