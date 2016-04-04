@@ -13,15 +13,10 @@ angular
             group1 : 'searchAll',
         };
 
-
-
         vm.showDetail = function(e, shop) {
             vm.shop = shop;
             vm.map.showInfoWindow('myInfoWindow', this);
         };
-
-
-
 
         //Get all
         var EventPromise = EventService.get();
@@ -46,8 +41,6 @@ angular
 
                 vm.searchEvents = events;
 
-                //vm.markers = [];
-
                 vm.addMarkerOnMap = function(res) {
                     vm.info = res;
                     vm.positions = [];
@@ -66,9 +59,6 @@ angular
                 var message = '<strong>Fel!</strong> ' + data.message + '.';
                 Flash.create('danger', message);
             });
-
-
-
 
         //get all tags name
         var TagPromise = TagService.get();
@@ -185,7 +175,6 @@ angular
 
                 // TAG SEARCH
 
-
                 $scope.getTags = function(value) {
                     for (var j=0; j < vm.tagList.length; j++) {
 
@@ -228,17 +217,5 @@ angular
                 Flash.create('danger', message);
             });
 
-
-
-
-
-
-
-
         return vm;
-    })
-    .directive('mySearch', function() {
-        return {
-            templateUrl: 'app/components/search/search.html'
-        };
     });

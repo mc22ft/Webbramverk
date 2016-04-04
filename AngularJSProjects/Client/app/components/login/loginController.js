@@ -33,7 +33,6 @@ angular
             // create a packet of the users (written) credatial
             var data = {'email' : vm.email, 'password': vm.password};
 
-//----->
             //send in email and password and get json token back
             var UserPromise = UserService.get(data);
 

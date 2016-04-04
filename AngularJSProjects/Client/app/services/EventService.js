@@ -19,7 +19,6 @@ function EventService(resourceService, localStorage, LS, $q) {
             if(extension == undefined){
                 // check if we have it in localstorage - Pretty clumpsy handling but just for example
                 items = localStorage.get(LS.eventsKey);
-
             }
 
             // Define a promise...this will be used later

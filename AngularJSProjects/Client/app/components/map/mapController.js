@@ -66,7 +66,6 @@ angular
                             vm.map.setZoom(12);
                         });
 
-
                     }
                     $rootScope.doMainMap(data);
 
