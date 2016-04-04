@@ -8,7 +8,7 @@
 * För att köra igång applikationen så kan man göra på flera sätt.
 * Jag förklarar lite hur jag har gjort för att komma igång. 
 * Jag har en mac dator och laddat hem WebStorm som editor.
-* I WebStorm öppnar du projektets mapp/applikation och kör igång det.
+* I WebStorm öppnar du projektets mapp/applikation och kör igång applikationen.
 
 
 Länk till förändingar i Ruby API:et finns [här](https://github.com/mc22ft/Webbramverk/blob/master/AngularJSProjects/Client/ChangeOnAPI.md).  
