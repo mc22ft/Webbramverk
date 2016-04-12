@@ -30,6 +30,7 @@ Hur du kör igång Ruby API:et finns nedan i detta dokument det finns även på 
 E-Mail: neo@mail.com  
 Lösenord: 111111  
 
+* Release [här](https://github.com/mc22ft/Webbramverk/releases/tag/1.2.0)  
 
 ####Hör av dig om det skulle vara några problem.
 
