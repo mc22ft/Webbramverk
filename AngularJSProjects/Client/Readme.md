@@ -8,11 +8,28 @@
 * För att köra igång applikationen så kan man göra på flera sätt.
 * Jag förklarar lite hur jag har gjort för att komma igång. 
 * Jag har en mac dator och laddat hem WebStorm som editor.
-* I WebStorm öppnar du projektets mapp/applikation och kör igång applikationen.
+* I WebStorm öppnar du projektets mapp/applikation.  
 
+####EDIT run Error!  
+Jag fick inte igång det heller när jag laddade ner det från github. Men fick igång det att göra dessa steg nedan...  
+
+* I terminalen i webstorm kör: npm install -g bower  
+(Jag var tvungen att köra sudo innan för att komma förbi skriv rättigheter som admin)  
+
+* Kontrollera i webstorm menyn.
+* Preferences -> Langugages & Framworks -> Node.js and NPM  
+* Att bower och npm finns med. Och att Node.js core är Enabled.  
+(Testa att Disable och Enabled det igen. Kan vara det?)  
+
+Hoppas det går bättre.
 
 Länk till förändingar i Ruby API:et finns [här](https://github.com/mc22ft/Webbramverk/blob/master/AngularJSProjects/Client/ChangeOnAPI.md).  
 Hur du kör igång Ruby API:et finns nedan i detta dokument det finns även på denna [länk](https://github.com/mc22ft/Webbramverk/tree/master/RubyOnRailsProjects) där också Ruby projektet finns.
+
+
+
+
+
 
 
 ####Hör av dig om det skulle vara några problem.
