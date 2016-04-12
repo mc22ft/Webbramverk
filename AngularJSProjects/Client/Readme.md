@@ -24,12 +24,11 @@ Jag fick inte igång det heller när jag laddade ner det från github. Men fick 
 Hoppas det går bättre.
 
 Länk till förändingar i Ruby API:et finns [här](https://github.com/mc22ft/Webbramverk/blob/master/AngularJSProjects/Client/ChangeOnAPI.md).  
-Hur du kör igång Ruby API:et finns nedan i detta dokument det finns även på denna [länk](https://github.com/mc22ft/Webbramverk/tree/master/RubyOnRailsProjects) där också Ruby projektet finns.
+Hur du kör igång Ruby API:et finns nedan i detta dokument det finns även på denna [länk](https://github.com/mc22ft/Webbramverk/tree/master/RubyOnRailsProjects) där också Ruby projektet finns.  
 
-
-
-
-
+* Användare att logga in med.  
+E-Mail: neo@mail.com  
+Lösenord: 111111  
 
 
 ####Hör av dig om det skulle vara några problem.
